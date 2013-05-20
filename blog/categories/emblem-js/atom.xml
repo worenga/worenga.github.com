@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: emerald-js, | Benedikt Wolters]]></title>
-  <link href="http://mightyuhu.github.com/blog/categories/emerald-js/atom.xml" rel="self"/>
+  <title><![CDATA[Category: emblem-js, | Benedikt Wolters]]></title>
+  <link href="http://mightyuhu.github.com/blog/categories/emblem-js/atom.xml" rel="self"/>
   <link href="http://mightyuhu.github.com/"/>
-  <updated>2013-05-20T16:54:27+02:00</updated>
+  <updated>2013-05-20T19:57:34+02:00</updated>
   <id>http://mightyuhu.github.com/</id>
   <author>
     <name><![CDATA[Benedikt Wolters]]></name>
@@ -14,12 +14,12 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Emerald.js - use a br-Tag]]></title>
+    <title type="html"><![CDATA[Emblem.js - use a br-Tag]]></title>
     <link href="http://mightyuhu.github.com/blog/2013/05/18/ember.js-br/"/>
     <updated>2013-05-18T23:51:00+02:00</updated>
     <id>http://mightyuhu.github.com/blog/2013/05/18/ember.js-br</id>
     <content type="html"><![CDATA[<p>It took me a bit of time to wrap my head around this syntax so I thought I share this little code.
-<div><script src='https://gist.github.com/5605903.js?file=demo.emerald'></script>
+<div><script src='https://gist.github.com/5605903.js?file=demo.emblem'></script>
 <noscript><pre><code>h1
   | Howdy,
   br
