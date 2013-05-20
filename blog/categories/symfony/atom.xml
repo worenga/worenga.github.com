@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: symfony | Benedikt Wolters]]></title>
+  <link href="http://mightyuhu.github.com/blog/categories/symfony/atom.xml" rel="self"/>
+  <link href="http://mightyuhu.github.com/"/>
+  <updated>2013-05-20T16:23:05+02:00</updated>
+  <id>http://mightyuhu.github.com/</id>
+  <author>
+    <name><![CDATA[Benedikt Wolters]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Symfony - initialize Session from request parameter]]></title>
+    <link href="http://mightyuhu.github.com/blog/2011/07/17/quick-tip-symfony-initialize-session-from-request-parameter/"/>
+    <updated>2011-07-17T14:26:52+02:00</updated>
+    <id>http://mightyuhu.github.com/blog/2011/07/17/quick-tip-symfony-initialize-session-from-request-parameter</id>
+    <content type="html"><![CDATA[<h2>Motivation</h2>
+
+<p>Working with HTML5 Audio Components, i realized Internet Explorer 9, Google Chrome and Mobile Safari, do not send Domain Cookies when requesting a playable File, which required the necessity to import the sessionid before initalize session management.</p>
+
+<h2>Solution</h2>
+
+<p>I created my own SessionStorage class and adjusted the corresponding routes to have an <kbd>session_id</kbd> parameter.</p>
+
+<p><div><script src='https://gist.github.com/1087434.js?file=mySession.class.php'></script>
+<noscript><pre><code>&lt;?php
+
+class MySessionStorage extends sfSessionStorage
+{
+  public function initialize($options = null)
+  {
+    if(sfContext::getInstance()-&gt;getRequest()-&gt;getParameter('sessionid')) {
+      session_id(sfContext::getInstance()-&gt;getRequest()-&gt;getParameter('sessionid'));
+    }
+    parent::initialize($options);
+  }
+}</code></pre></noscript></div>
+</p>
+
+<p><div><script src='https://gist.github.com/1087434.js?file=factories.yml'></script>
+<noscript><pre><code>  storage:
+    class: MySessionStorage
+    param:
+      session_path: my_session</code></pre></noscript></div>
+</p>
+
+<p>Whereas <code>sessionid</code> is the routing parameter.</p>
+]]></content>
+  </entry>
+  
+</feed>

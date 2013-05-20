@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: webdesign | Benedikt Wolters]]></title>
+  <link href="http://mightyuhu.github.com/blog/categories/webdesign/atom.xml" rel="self"/>
+  <link href="http://mightyuhu.github.com/"/>
+  <updated>2013-05-20T16:23:05+02:00</updated>
+  <id>http://mightyuhu.github.com/</id>
+  <author>
+    <name><![CDATA[Benedikt Wolters]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Top 8 Placeholder Services for Web Designers]]></title>
+    <link href="http://mightyuhu.github.com/blog/2011/04/16/the-top-8-placeholder-services-for-web-designers/"/>
+    <updated>2011-04-16T14:15:14+02:00</updated>
+    <id>http://mightyuhu.github.com/blog/2011/04/16/the-top-8-placeholder-services-for-web-designers</id>
+    <content type="html"><![CDATA[<blockquote><p>In the last year, there’s been a wave of helpful placeholder services. What’s a placeholder? Well, when you’re working on a new website, isn’t it a waste of time to use stock images, cropped to the right dimensions? A placeholder service allows you to automatically use a random image at the desired dimensions with minimal effort.</p></blockquote>
+
+<p><a href="http://net.tutsplus.com/author/jeffreyway/">Jeffrey Way</a> covers up nice Image Placeholder Services such as <a href="http://placekitten.com/">Place Kitten</a> for Webdesigners.</p>
+
+<p>Read <a href="http://net.tutsplus.com/articles/web-roundups/the-top-8-placeholders-for-web-designers/">„The Top 8 Placeholder Services for Web Designers“</a></p>
+]]></content>
+  </entry>
+  
+</feed>

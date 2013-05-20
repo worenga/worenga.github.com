@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Android | Benedikt Wolters]]></title>
+  <link href="http://mightyuhu.github.com/blog/categories/android/atom.xml" rel="self"/>
+  <link href="http://mightyuhu.github.com/"/>
+  <updated>2013-05-20T16:23:05+02:00</updated>
+  <id>http://mightyuhu.github.com/</id>
+  <author>
+    <name><![CDATA[Benedikt Wolters]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Bye Bye Apple... Hello Android!]]></title>
+    <link href="http://mightyuhu.github.com/blog/2012/11/12/bye-bye-apple/"/>
+    <updated>2012-11-12T19:55:00+01:00</updated>
+    <id>http://mightyuhu.github.com/blog/2012/11/12/bye-bye-apple</id>
+    <content type="html"><![CDATA[<p>The last two years my Apple iPhone 4 has served me kinda well.
+I've got to admit that I somewhat followed the Apple-Trend, but as a developer all I got was a lot of frustration over a rather long period of time.</p>
+
+<p>In the defense of Apple, I have to state that the build quality and the haptic of the iPhone were extraordinary (at least for the time when I bought it).
+Also, it was the first smartphone for me which came with a data-plan, thus the iPhone paved my way for mobile internet.
+Nevertheless, as the years goes by one sees that Apple devices are build for dumb users, with limited ability for tinkering.
+Futhermore, there were quite a lot things aggregating which were really disturbing and influenced my formerly blurry hipster vision:</p>
+
+<ul>
+<li><strong>Restrictness:</strong> As a technical enthusiast I like to tinker with all kinds of things on my phone. However the Apple ecosystem really restricts that. I like to use my Photo LED as a flashlight, i like to exchange my battery, i like to have an sd card. It's nice to have a radio receiver in my phone,</li>
+<li><strong>Hardware Self-Evidence:</strong> If my Phone has an usb port, i'd like to use it, say as a 2nd monitor for my Canon 7D for filming stuff, this is not possible with an iPhone. A typicall Apple enthusiast would say: "Why would you even do that?"</li>
+<li><strong>Pricing:</strong> I got my Samsung Galaxy Note 2 for around 530EUR the Apples equivalent iPhone 5 costs way more + for each stack of memory upgrade i have to add another 100eur, which is - compared to the price of an exchangeable Micro SD-HC Card - a total joke.</li>
+<li><strong>Ecosystem:</strong> Apple devices interact flawlessly in their own ecosystem. Since the Apple ecosystem is closed under a very limited number of a handful devices u.e. Apple computers and Apple TV, interoperaperability is not that hard to archieve. However I'd like to leave the Apple ecosystem once in a while. For example I do not use Apple Devices for Desktop computing. I can not imagine myself using a Apple computer in the foreseeable future. Neither i want to be forced to switch plattforms just for the sake of interoperability.</li>
+<li><strong>Lack of Innovation</strong> Apple has be known for it's innovation when it comes to simple userinterfaces or rebranding stuff that has been out there for years (i.e. Siri) and bringing it to the larger public, however the last 2-3 years i sensed some standstill with regard to this innovation drive. All I saw were a few desperate acts of introducing new form factors and idea recycling.</li>
+</ul>
+
+
+<p>I could certainly go on, but this is not ment to be a post of me ranting over Apple's politics.
+However, I'm a now a very happy owner of the Samsung Galaxy Note 2, and experiencing the Android world.</p>
+
+<p><figure class="flickr-thumbnail center" style="display: inline-block;"><a href="http://farm3.staticflickr.com/2821/8756824601_f29b0d987a_b.jpg" class="fancybox" data-title-id="flickr-photo-8756824601" data-media="photo"><img src="http://farm3.staticflickr.com/2821/8756824601_f29b0d987a_z.jpg" title="IMG_8761.jpg" style=""/></a><figcaption id="flickr-photo-8756824601"><h1><a class="flickr-link" href="http://www.flickr.com/photos/58117759@N04/8756824601">IMG_8761.jpg</a> by mightyuhu</h1><div class="description"></div></figcaption></figure></p>
+]]></content>
+  </entry>
+  
+</feed>

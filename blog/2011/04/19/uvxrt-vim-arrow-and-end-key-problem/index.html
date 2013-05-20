@@ -1,0 +1,608 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta name="google-site-verification" content="f1OtvP7JCHm6M9Ca7vMcFg3q-1NEOvDMcSKfKlVW_pA" />
+	<script data-cfasync="false" type="text/javascript" src="//use.typekit.net/axj3cfp.js"></script>
+	<script data-cfasync="false" type="text/javascript">try{Typekit.load();}catch(e){}</script>
+	<meta charset="utf-8">
+	<title>uvxrt - vim arrow- and end-key problem  | Benedikt Wolters</title>
+
+<meta name="author" content="Benedikt Wolters"> 
+
+<meta name="description" content="I&#8217;ve never heard of a &#8220;bash pipe&#8221;, (or many of those other terms, either).
+Isn&#8217;t that something we used to smoke back in the &hellip;"> <meta name="keywords" content="">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<link href="/atom.xml" rel="alternate" title="Benedikt Wolters" type="application/atom+xml">
+	<link rel="canonical" href="">
+	<link href="/favicon.png" rel="shortcut icon">
+	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css" media="screen" />
+<script type="text/javascript" src="/fancybox/jquery.fancybox.pack.js"></script>
+
+<script language="Javascript" type="text/javascript">
+$(document).ready(
+  function() {
+    (function($) {
+      $(".fancybox[data-content-id]").each(function() {
+        this.href = $(this).data('content-id');
+      });
+      $(".fancybox").fancybox({
+        beforeLoad: function() {
+          var el, 
+              id = $(this.element).data('title-id');
+
+          if (id) {
+            el = $('#' + id);
+
+            if (el.length) {
+              this.title = el.html();
+            }
+          }
+          if ($(this).data('content')) {
+            this.content = $(this).data('content');
+          }
+        },
+        helpers: {
+          title: {
+            type: 'inside'
+          }
+        }
+      });
+    })(jQuery);
+  }
+);
+</script>
+	
+</head>
+
+
+<body>
+	<header id="header" class="inner"><h1><a href="/">Benedikt Wolters</a></h1>
+<h4>move your mind to yet another abstraction layer</h4>
+<nav id="main-nav"><ul>
+	<li><a href="/">Blog</a></li>
+	<li><a href="http://www.benedikt-wolters.de">About</a></li>
+	<li><a href="/archives">Archive</a></li>
+</ul>
+</nav>
+<nav id="mobile-nav">
+	<div class="alignleft menu">
+		<a class="button">Menu</a>
+		<div class="container"><ul>
+	<li><a href="/">Blog</a></li>
+	<li><a href="http://www.benedikt-wolters.de">About</a></li>
+	<li><a href="/archives">Archive</a></li>
+</ul>
+</div>
+	</div>
+	<div class="alignright search">
+		<a class="button"></a>
+		<div class="container">
+			<form action="http://google.com/search" method="get">
+				<input type="text" name="q" results="0">
+				<input type="hidden" name="q" value="site:mightyuhu.github.com">
+			</form>
+		</div>
+	</div>
+</nav>
+
+
+</header>
+
+	<div id="content" class="inner"><article class="post">
+	<h2 class="title">Uvxrt - Vim Arrow- and End-key Problem</h2>
+	<div class="entry-content"><blockquote><p>I&#8217;ve never heard of a &#8220;bash pipe&#8221;, (or many of those other terms, either).
+Isn&#8217;t that something we used to smoke back in the &#8217;70s?</p></blockquote>
+
+<p>I&#8217;m using urxvt as my terminal.I discovered issues using vim. When i&#8217;m in insert mode and use the arrow keys or the <code>Pos1</code> or <code>END</code>-Key
+the editor prints out <code>A</code>, <code>B</code>, <code>C</code>, <code>D</code>and badly misbehaves using <code>END</code>.</p>
+
+<!-- more -->
+
+
+<p>So there are solutions out there which did not work for me.</p>
+
+<ul>
+<li>Set vim to compatible mode.</li>
+<li>Set <code>term=linux</code> in your <code>.vimrc</code>.</li>
+<li>Modify Keymaps in vim to make urxvt somehow use xterm&#8217;s keybinds.</li>
+</ul>
+
+
+<p>I found 2 Solutions. One is to set <code>$TERM=xterm-256color</code> (i.e. in your <code>.bashrc</code>). The other really dirty.</p>
+
+<p>Overwrite all your keybinds in your <code>.Xdefault</code>-File or at least the keys, which don&#8217;t work.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+<span class='line-number'>60</span>
+<span class='line-number'>61</span>
+<span class='line-number'>62</span>
+<span class='line-number'>63</span>
+<span class='line-number'>64</span>
+<span class='line-number'>65</span>
+<span class='line-number'>66</span>
+<span class='line-number'>67</span>
+<span class='line-number'>68</span>
+<span class='line-number'>69</span>
+<span class='line-number'>70</span>
+<span class='line-number'>71</span>
+<span class='line-number'>72</span>
+<span class='line-number'>73</span>
+<span class='line-number'>74</span>
+<span class='line-number'>75</span>
+<span class='line-number'>76</span>
+<span class='line-number'>77</span>
+<span class='line-number'>78</span>
+<span class='line-number'>79</span>
+<span class='line-number'>80</span>
+<span class='line-number'>81</span>
+<span class='line-number'>82</span>
+<span class='line-number'>83</span>
+<span class='line-number'>84</span>
+<span class='line-number'>85</span>
+<span class='line-number'>86</span>
+<span class='line-number'>87</span>
+<span class='line-number'>88</span>
+<span class='line-number'>89</span>
+<span class='line-number'>90</span>
+<span class='line-number'>91</span>
+<span class='line-number'>92</span>
+<span class='line-number'>93</span>
+<span class='line-number'>94</span>
+<span class='line-number'>95</span>
+<span class='line-number'>96</span>
+<span class='line-number'>97</span>
+<span class='line-number'>98</span>
+<span class='line-number'>99</span>
+<span class='line-number'>100</span>
+<span class='line-number'>101</span>
+<span class='line-number'>102</span>
+<span class='line-number'>103</span>
+<span class='line-number'>104</span>
+<span class='line-number'>105</span>
+<span class='line-number'>106</span>
+<span class='line-number'>107</span>
+<span class='line-number'>108</span>
+<span class='line-number'>109</span>
+<span class='line-number'>110</span>
+<span class='line-number'>111</span>
+<span class='line-number'>112</span>
+<span class='line-number'>113</span>
+<span class='line-number'>114</span>
+<span class='line-number'>115</span>
+<span class='line-number'>116</span>
+<span class='line-number'>117</span>
+<span class='line-number'>118</span>
+<span class='line-number'>119</span>
+<span class='line-number'>120</span>
+<span class='line-number'>121</span>
+<span class='line-number'>122</span>
+<span class='line-number'>123</span>
+<span class='line-number'>124</span>
+<span class='line-number'>125</span>
+<span class='line-number'>126</span>
+<span class='line-number'>127</span>
+<span class='line-number'>128</span>
+<span class='line-number'>129</span>
+<span class='line-number'>130</span>
+<span class='line-number'>131</span>
+<span class='line-number'>132</span>
+<span class='line-number'>133</span>
+<span class='line-number'>134</span>
+<span class='line-number'>135</span>
+<span class='line-number'>136</span>
+<span class='line-number'>137</span>
+<span class='line-number'>138</span>
+<span class='line-number'>139</span>
+<span class='line-number'>140</span>
+<span class='line-number'>141</span>
+<span class='line-number'>142</span>
+<span class='line-number'>143</span>
+<span class='line-number'>144</span>
+<span class='line-number'>145</span>
+<span class='line-number'>146</span>
+<span class='line-number'>147</span>
+<span class='line-number'>148</span>
+<span class='line-number'>149</span>
+<span class='line-number'>150</span>
+<span class='line-number'>151</span>
+<span class='line-number'>152</span>
+<span class='line-number'>153</span>
+<span class='line-number'>154</span>
+<span class='line-number'>155</span>
+<span class='line-number'>156</span>
+<span class='line-number'>157</span>
+<span class='line-number'>158</span>
+<span class='line-number'>159</span>
+<span class='line-number'>160</span>
+<span class='line-number'>161</span>
+<span class='line-number'>162</span>
+<span class='line-number'>163</span>
+<span class='line-number'>164</span>
+<span class='line-number'>165</span>
+<span class='line-number'>166</span>
+<span class='line-number'>167</span>
+<span class='line-number'>168</span>
+<span class='line-number'>169</span>
+<span class='line-number'>170</span>
+<span class='line-number'>171</span>
+<span class='line-number'>172</span>
+<span class='line-number'>173</span>
+<span class='line-number'>174</span>
+<span class='line-number'>175</span>
+<span class='line-number'>176</span>
+<span class='line-number'>177</span>
+<span class='line-number'>178</span>
+<span class='line-number'>179</span>
+<span class='line-number'>180</span>
+<span class='line-number'>181</span>
+<span class='line-number'>182</span>
+<span class='line-number'>183</span>
+<span class='line-number'>184</span>
+<span class='line-number'>185</span>
+<span class='line-number'>186</span>
+<span class='line-number'>187</span>
+<span class='line-number'>188</span>
+<span class='line-number'>189</span>
+<span class='line-number'>190</span>
+<span class='line-number'>191</span>
+<span class='line-number'>192</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>! Normal
+</span><span class='line'>*URxvt*keysym.Home:     \033OH
+</span><span class='line'>*URxvt*keysym.End:      \033OF
+</span><span class='line'>*URxvt*keysym.F1:       \033OP
+</span><span class='line'>*URxvt*keysym.F2:       \033OQ
+</span><span class='line'>*URxvt*keysym.F3:       \033OR
+</span><span class='line'>*URxvt*keysym.F4:       \033OS
+</span><span class='line'>
+</span><span class='line'>! Shift
+</span><span class='line'>! paste conflict
+</span><span class='line'>!*URxvt*keysym.S-Insert:    \033[2;2~
+</span><span class='line'>*URxvt*keysym.S-Delete:     \033[3;2~
+</span><span class='line'>*URxvt*keysym.S-Home:       \033[1;2H
+</span><span class='line'>*URxvt*keysym.S-End:        \033[1;2F
+</span><span class='line'>! scrolling conflict
+</span><span class='line'>!*URxvt*keysym.S-Page_Up:   \033[5;2~
+</span><span class='line'>!*URxvt*keysym.S-Page_Down: \033[6;2~
+</span><span class='line'>
+</span><span class='line'>*URxvt*keysym.S-F1:     \033[1;2P
+</span><span class='line'>*URxvt*keysym.S-F2:     \033[1;2Q
+</span><span class='line'>*URxvt*keysym.S-F3:     \033[1;2R
+</span><span class='line'>*URxvt*keysym.S-F4:     \033[1;2S
+</span><span class='line'>*URxvt*keysym.S-F5:     \033[15;2~
+</span><span class='line'>*URxvt*keysym.S-F6:     \033[17;2~
+</span><span class='line'>*URxvt*keysym.S-F7:     \033[18;2~
+</span><span class='line'>*URxvt*keysym.S-F8:     \033[19;2~
+</span><span class='line'>*URxvt*keysym.S-F9:     \033[20;2~
+</span><span class='line'>*URxvt*keysym.S-F10:        \033[21;2~
+</span><span class='line'>*URxvt*keysym.S-F11:        \033[23;2~
+</span><span class='line'>*URxvt*keysym.S-F12:        \033[24;2~
+</span><span class='line'>
+</span><span class='line'>! tab navigation conflict (only when using tabs)
+</span><span class='line'>*URxvt*keysym.S-Up:     \033[1;2A
+</span><span class='line'>*URxvt*keysym.S-Down:       \033[1;2B
+</span><span class='line'>*URxvt*keysym.S-Right:      \033[1;2C
+</span><span class='line'>*URxvt*keysym.S-Left:       \033[1;2D
+</span><span class='line'>
+</span><span class='line'>! Alt
+</span><span class='line'>*URxvt*keysym.M-Insert:     \033[2;3~
+</span><span class='line'>*URxvt*keysym.M-Delete:     \033[3;3~
+</span><span class='line'>*URxvt*keysym.M-Home:       \033[1;3H
+</span><span class='line'>*URxvt*keysym.M-End:        \033[1;3F
+</span><span class='line'>*URxvt*keysym.M-Page_Up:    \033[5;3~
+</span><span class='line'>*URxvt*keysym.M-Page_Down:  \033[6;3~
+</span><span class='line'>
+</span><span class='line'>*URxvt*keysym.M-F1:     \033[1;3P
+</span><span class='line'>*URxvt*keysym.M-F2:     \033[1;3Q
+</span><span class='line'>*URxvt*keysym.M-F3:     \033[1;3R
+</span><span class='line'>*URxvt*keysym.M-F4:     \033[1;3S
+</span><span class='line'>*URxvt*keysym.M-F5:     \033[15;3~
+</span><span class='line'>*URxvt*keysym.M-F6:     \033[17;3~
+</span><span class='line'>*URxvt*keysym.M-F7:     \033[18;3~
+</span><span class='line'>*URxvt*keysym.M-F8:     \033[19;3~
+</span><span class='line'>*URxvt*keysym.M-F9:     \033[20;3~
+</span><span class='line'>*URxvt*keysym.M-F10:        \033[21;3~
+</span><span class='line'>*URxvt*keysym.M-F11:        \033[23;3~
+</span><span class='line'>*URxvt*keysym.M-F12:        \033[24;3~
+</span><span class='line'>
+</span><span class='line'>*URxvt*keysym.M-Up:     \033[1;3A
+</span><span class='line'>*URxvt*keysym.M-Down:       \033[1;3B
+</span><span class='line'>*URxvt*keysym.M-Right:      \033[1;3C
+</span><span class='line'>*URxvt*keysym.M-Left:       \033[1;3D
+</span><span class='line'>
+</span><span class='line'>! Shift+Alt
+</span><span class='line'>*URxvt*keysym.S-M-F1:       \033[1;4P
+</span><span class='line'>*URxvt*keysym.S-M-F2:       \033[1;4Q
+</span><span class='line'>*URxvt*keysym.S-M-F3:       \033[1;4R
+</span><span class='line'>*URxvt*keysym.S-M-F4:       \033[1;4S
+</span><span class='line'>*URxvt*keysym.S-M-F5:       \033[15;4~
+</span><span class='line'>*URxvt*keysym.S-M-F6:       \033[17;4~
+</span><span class='line'>*URxvt*keysym.S-M-F7:       \033[18;4~
+</span><span class='line'>*URxvt*keysym.S-M-F8:       \033[19;4~
+</span><span class='line'>*URxvt*keysym.S-M-F9:       \033[20;4~
+</span><span class='line'>*URxvt*keysym.S-M-F10:      \033[21;4~
+</span><span class='line'>*URxvt*keysym.S-M-F11:      \033[23;4~
+</span><span class='line'>*URxvt*keysym.S-M-F12:      \033[24;4~
+</span><span class='line'>
+</span><span class='line'>*URxvt*keysym.S-M-Insert:   \033[2;4~
+</span><span class='line'>*URxvt*keysym.S-M-Delete:   \033[3;4~
+</span><span class='line'>*URxvt*keysym.S-M-Home:     \033[1;4H
+</span><span class='line'>*URxvt*keysym.S-M-End:      \033[1;4F
+</span><span class='line'>*URxvt*keysym.S-M-Page_Up:  \033[5;4~
+</span><span class='line'>*URxvt*keysym.S-M-Page_Down:    \033[6;4~
+</span><span class='line'>
+</span><span class='line'>*URxvt*keysym.S-M-Up:       \033[1;4A
+</span><span class='line'>*URxvt*keysym.S-M-Down:     \033[1;4B
+</span><span class='line'>*URxvt*keysym.S-M-Right:    \033[1;4C
+</span><span class='line'>*URxvt*keysym.S-M-Left:     \033[1;4D
+</span><span class='line'>
+</span><span class='line'>! Control
+</span><span class='line'>*URxvt*keysym.C-F1:     \033[1;5P
+</span><span class='line'>*URxvt*keysym.C-F2:     \033[1;5Q
+</span><span class='line'>*URxvt*keysym.C-F3:     \033[1;5R
+</span><span class='line'>*URxvt*keysym.C-F4:     \033[1;5S
+</span><span class='line'>*URxvt*keysym.C-F5:     \033[15;5~
+</span><span class='line'>*URxvt*keysym.C-F6:     \033[17;5~
+</span><span class='line'>*URxvt*keysym.C-F7:     \033[18;5~
+</span><span class='line'>*URxvt*keysym.C-F8:     \033[19;5~
+</span><span class='line'>*URxvt*keysym.C-F9:     \033[20;5~
+</span><span class='line'>*URxvt*keysym.C-F10:        \033[21;5~
+</span><span class='line'>*URxvt*keysym.C-F11:        \033[23;5~
+</span><span class='line'>*URxvt*keysym.C-F12:        \033[24;5~
+</span><span class='line'>
+</span><span class='line'>*URxvt*keysym.C-Insert:     \033[2;5~
+</span><span class='line'>*URxvt*keysym.C-Delete:     \033[3;5~
+</span><span class='line'>*URxvt*keysym.C-Home:       \033[1;5H
+</span><span class='line'>*URxvt*keysym.C-End:        \033[1;5F
+</span><span class='line'>*URxvt*keysym.C-Page_Up:    \033[5;5~
+</span><span class='line'>*URxvt*keysym.C-Page_Down:  \033[6;5~
+</span><span class='line'>
+</span><span class='line'>*URxvt*keysym.C-Up:     \033[1;5A
+</span><span class='line'>*URxvt*keysym.C-Down:       \033[1;5B
+</span><span class='line'>*URxvt*keysym.C-Right:      \033[1;5C
+</span><span class='line'>*URxvt*keysym.C-Left:       \033[1;5D
+</span><span class='line'>
+</span><span class='line'>! Shift+Control
+</span><span class='line'>*URxvt*keysym.S-C-F1:       \033[1;6P
+</span><span class='line'>*URxvt*keysym.S-C-F2:       \033[1;6Q
+</span><span class='line'>*URxvt*keysym.S-C-F3:       \033[1;6R
+</span><span class='line'>*URxvt*keysym.S-C-F4:       \033[1;6S
+</span><span class='line'>*URxvt*keysym.S-C-F5:       \033[15;6~
+</span><span class='line'>*URxvt*keysym.S-C-F6:       \033[17;6~
+</span><span class='line'>*URxvt*keysym.S-C-F7:       \033[18;6~
+</span><span class='line'>*URxvt*keysym.S-C-F8:       \033[19;6~
+</span><span class='line'>*URxvt*keysym.S-C-F9:       \033[20;6~
+</span><span class='line'>*URxvt*keysym.S-C-F10:      \033[21;6~
+</span><span class='line'>*URxvt*keysym.S-C-F11:      \033[23;6~
+</span><span class='line'>*URxvt*keysym.S-C-F12:      \033[24;6~
+</span><span class='line'>
+</span><span class='line'>*URxvt*keysym.S-C-Insert:   \033[2;6~
+</span><span class='line'>*URxvt*keysym.S-C-Delete:   \033[3;6~
+</span><span class='line'>*URxvt*keysym.S-C-Home:     \033[1;6H
+</span><span class='line'>*URxvt*keysym.S-C-End:      \033[1;6F
+</span><span class='line'>*URxvt*keysym.S-C-Page_Up:  \033[5;6~
+</span><span class='line'>*URxvt*keysym.S-C-Page_Down:    \033[6;6~
+</span><span class='line'>
+</span><span class='line'>*URxvt*keysym.S-C-Up:       \033[1;6A
+</span><span class='line'>*URxvt*keysym.S-C-Down:     \033[1;6B
+</span><span class='line'>*URxvt*keysym.S-C-Right:    \033[1;6C
+</span><span class='line'>*URxvt*keysym.S-C-Left:     \033[1;6D
+</span><span class='line'>
+</span><span class='line'>! Alt+Control
+</span><span class='line'>*URxvt*keysym.M-C-F1:       \033[1;7P
+</span><span class='line'>*URxvt*keysym.M-C-F2:       \033[1;7Q
+</span><span class='line'>*URxvt*keysym.M-C-F3:       \033[1;7R
+</span><span class='line'>*URxvt*keysym.M-C-F4:       \033[1;7S
+</span><span class='line'>*URxvt*keysym.M-C-F5:       \033[15;7~
+</span><span class='line'>*URxvt*keysym.M-C-F6:       \033[17;7~
+</span><span class='line'>*URxvt*keysym.M-C-F7:       \033[18;7~
+</span><span class='line'>*URxvt*keysym.M-C-F8:       \033[19;7~
+</span><span class='line'>*URxvt*keysym.M-C-F9:       \033[20;7~
+</span><span class='line'>*URxvt*keysym.M-C-F10:      \033[21;7~
+</span><span class='line'>*URxvt*keysym.M-C-F11:      \033[23;7~
+</span><span class='line'>*URxvt*keysym.M-C-F12:      \033[24;7~
+</span><span class='line'>
+</span><span class='line'>*URxvt*keysym.M-C-Insert:   \033[2;7~
+</span><span class='line'>*URxvt*keysym.M-C-Delete:   \033[3;7~
+</span><span class='line'>*URxvt*keysym.M-C-Home:     \033[1;7H
+</span><span class='line'>*URxvt*keysym.M-C-End:      \033[1;7F
+</span><span class='line'>*URxvt*keysym.M-C-Page_Up:  \033[5;7~
+</span><span class='line'>*URxvt*keysym.M-C-Page_Down:    \033[6;7~
+</span><span class='line'>
+</span><span class='line'>*URxvt*keysym.M-C-Up:       \033[1;7A
+</span><span class='line'>*URxvt*keysym.M-C-Down:     \033[1;7B
+</span><span class='line'>*URxvt*keysym.M-C-Right:    \033[1;7C
+</span><span class='line'>*URxvt*keysym.M-C-Left:     \033[1;7D
+</span><span class='line'>
+</span><span class='line'>! Shift+Alt+Control
+</span><span class='line'>*URxvt*keysym.S-M-C-F1:     \033[1;8P
+</span><span class='line'>*URxvt*keysym.S-M-C-F2:     \033[1;8Q
+</span><span class='line'>*URxvt*keysym.S-M-C-F3:     \033[1;8R
+</span><span class='line'>*URxvt*keysym.S-M-C-F4:     \033[1;8S
+</span><span class='line'>*URxvt*keysym.S-M-C-F5:     \033[15;8~
+</span><span class='line'>*URxvt*keysym.S-M-C-F6:     \033[17;8~
+</span><span class='line'>*URxvt*keysym.S-M-C-F7:     \033[18;8~
+</span><span class='line'>*URxvt*keysym.S-M-C-F8:     \033[19;8~
+</span><span class='line'>*URxvt*keysym.S-M-C-F9:     \033[20;8~
+</span><span class='line'>*URxvt*keysym.S-M-C-F10:    \033[21;8~
+</span><span class='line'>*URxvt*keysym.S-M-C-F11:    \033[23;8~
+</span><span class='line'>*URxvt*keysym.S-M-C-F12:    \033[24;8~
+</span><span class='line'>
+</span><span class='line'>*URxvt*keysym.S-M-C-Insert: \033[2;8~
+</span><span class='line'>*URxvt*keysym.S-M-C-Delete: \033[3;8~
+</span><span class='line'>*URxvt*keysym.S-M-C-Home:   \033[1;8H
+</span><span class='line'>*URxvt*keysym.S-M-C-End:    \033[1;8F
+</span><span class='line'>*URxvt*keysym.S-M-C-Page_Up:    \033[5;8~
+</span><span class='line'>*URxvt*keysym.S-M-C-Page_Down:  \033[6;8~
+</span><span class='line'>
+</span><span class='line'>*URxvt*keysym.S-M-C-Up:     \033[1;8A
+</span><span class='line'>*URxvt*keysym.S-M-C-Down:   \033[1;8B
+</span><span class='line'>*URxvt*keysym.S-M-C-Right:  \033[1;8C
+</span><span class='line'>*URxvt*keysym.S-M-C-Left:   \033[1;8D</span></code></pre></td></tr></table></div></figure>
+
+
+
+</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-04-19T23:09:00+02:00" pubdate data-updated="true">Apr 19<span>th</span>, 2011</time></div>
+	<div class="tags">
+
+
+	<a class='category' href='/blog/categories/console/'>console</a>, <a class='category' href='/blog/categories/linux/'>linux</a>, <a class='category' href='/blog/categories/uvxrt/'>uvxrt</a>, <a class='category' href='/blog/categories/vim/'>vim</a>
+
+
+</div>
+	
+		<span class="comments"><a href="/blog/2011/04/19/uvxrt-vim-arrow-and-end-key-problem/#disqus_thread">Comments</a></span>
+	
+</div></article>
+
+	<div class="share">
+	<div class="addthis_toolbox addthis_default_style ">
+	
+	<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+	
+	
+	<a class="addthis_button_tweet"></a>
+	
+	
+<!---	<a class="addthis_counter addthis_pill_style"></a> --->
+	</div>
+  <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid="></script>
+</div>
+
+
+
+<section id="comment">
+    <h2 class="title">Comments</h2>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+</section>
+</div>
+	<footer id="footer" class="inner">Copyright &copy; 2013
+
+    Benedikt Wolters
+
+<br>
+Powered by Octopress.
+</footer>
+	<script src="/javascripts/slash.js"></script>
+<script src="/javascripts/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+	$('.fancybox').fancybox();
+})(jQuery);
+</script> <!-- Delete or comment this line to disable Fancybox -->
+
+
+<script type="text/javascript">
+      var disqus_shortname = 'benediktwolters';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://mightyuhu.github.com/blog/2011/04/19/uvxrt-vim-arrow-and-end-key-problem/';
+        var disqus_url = 'http://mightyuhu.github.com/blog/2011/04/19/uvxrt-vim-arrow-and-end-key-problem/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+	<script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-36277153-1']);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
+
+
+
+</body>
+</html>

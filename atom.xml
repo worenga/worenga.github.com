@@ -1,0 +1,1055 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Benedikt Wolters]]></title>
+  <link href="http://mightyuhu.github.com/atom.xml" rel="self"/>
+  <link href="http://mightyuhu.github.com/"/>
+  <updated>2013-05-20T16:23:05+02:00</updated>
+  <id>http://mightyuhu.github.com/</id>
+  <author>
+    <name><![CDATA[Benedikt Wolters]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Emerald.js - use a br-Tag]]></title>
+    <link href="http://mightyuhu.github.com/blog/2013/05/18/ember.js-br/"/>
+    <updated>2013-05-18T23:51:00+02:00</updated>
+    <id>http://mightyuhu.github.com/blog/2013/05/18/ember.js-br</id>
+    <content type="html"><![CDATA[<p>It took me a bit of time to wrap my head around this syntax so I thought I share this little code.</p>
+
+<div><script src='https://gist.github.com/5605903.js?file=demo.emerald'></script>
+<noscript><pre><code>h1
+  | Howdy,
+  br
+  | I'm Benedikt Wolters!</code></pre></noscript></div>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Bye Bye Apple... Hello Android!]]></title>
+    <link href="http://mightyuhu.github.com/blog/2012/11/12/bye-bye-apple/"/>
+    <updated>2012-11-12T19:55:00+01:00</updated>
+    <id>http://mightyuhu.github.com/blog/2012/11/12/bye-bye-apple</id>
+    <content type="html"><![CDATA[<p>The last two years my Apple iPhone 4 has served me kinda well.
+I&#8217;ve got to admit that I somewhat followed the Apple-Trend, but as a developer all I got was a lot of frustration over a rather long period of time.</p>
+
+<p>In the defense of Apple, I have to state that the build quality and the haptic of the iPhone were extraordinary (at least for the time when I bought it).
+Also, it was the first smartphone for me which came with a data-plan, thus the iPhone paved my way for mobile internet.
+Nevertheless, as the years goes by one sees that Apple devices are build for dumb users, with limited ability for tinkering.
+Futhermore, there were quite a lot things aggregating which were really disturbing and influenced my formerly blurry hipster vision:</p>
+
+<ul>
+<li><strong>Restrictness:</strong> As a technical enthusiast I like to tinker with all kinds of things on my phone. However the Apple ecosystem really restricts that. I like to use my Photo LED as a flashlight, i like to exchange my battery, i like to have an sd card. It&#8217;s nice to have a radio receiver in my phone,</li>
+<li><strong>Hardware Self-Evidence:</strong> If my Phone has an usb port, i&#8217;d like to use it, say as a 2nd monitor for my Canon 7D for filming stuff, this is not possible with an iPhone. A typicall Apple enthusiast would say: &#8220;Why would you even do that?&#8221;</li>
+<li><strong>Pricing:</strong> I got my Samsung Galaxy Note 2 for around 530EUR the Apples equivalent iPhone 5 costs way more + for each stack of memory upgrade i have to add another 100eur, which is - compared to the price of an exchangeable Micro SD-HC Card - a total joke.</li>
+<li><strong>Ecosystem:</strong> Apple devices interact flawlessly in their own ecosystem. Since the Apple ecosystem is closed under a very limited number of a handful devices u.e. Apple computers and Apple TV, interoperaperability is not that hard to archieve. However I&#8217;d like to leave the Apple ecosystem once in a while. For example I do not use Apple Devices for Desktop computing. I can not imagine myself using a Apple computer in the foreseeable future. Neither i want to be forced to switch plattforms just for the sake of interoperability.</li>
+<li><strong>Lack of Innovation</strong> Apple has be known for it&#8217;s innovation when it comes to simple userinterfaces or rebranding stuff that has been out there for years (i.e. Siri) and bringing it to the larger public, however the last 2-3 years i sensed some standstill with regard to this innovation drive. All I saw were a few desperate acts of introducing new form factors and idea recycling.</li>
+</ul>
+
+
+<p>I could certainly go on, but this is not ment to be a post of me ranting over Apple&#8217;s politics.
+However, I&#8217;m a now a very happy owner of the Samsung Galaxy Note 2, and experiencing the Android world.</p>
+
+<p><figure class="flickr-thumbnail center" style="display: inline-block;"><a href="http://farm3.staticflickr.com/2821/8756824601_f29b0d987a_b.jpg" class="fancybox" data-title-id="flickr-photo-8756824601" data-media="photo"><img src="http://farm3.staticflickr.com/2821/8756824601_f29b0d987a_z.jpg" title="IMG_8761.jpg" style=""/></a><figcaption id="flickr-photo-8756824601"><h1><a class="flickr-link" href="http://www.flickr.com/photos/58117759@N04/8756824601">IMG_8761.jpg</a> by mightyuhu</h1><div class="description"></div></figcaption></figure></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Moved Site to GitHub and Octopress]]></title>
+    <link href="http://mightyuhu.github.com/blog/2012/10/01/up-to-octopress/"/>
+    <updated>2012-10-01T22:37:00+02:00</updated>
+    <id>http://mightyuhu.github.com/blog/2012/10/01/up-to-octopress</id>
+    <content type="html"><![CDATA[<p>I&#8217;ve moved my original site to Octopress for the sake of niceness.
+This sake of niceness includes:</p>
+
+<ul>
+<li><a href="http://en.wikipedia.org/wiki/Markdown">Markdown Syntax</a>, very easy non-verbose writing of blogposts</li>
+<li>NoSQL local file based storage, no overhead, no scripting language required, high-performance content delivery</li>
+<li><a href="http://pages.github.com/">Github Pages</a> distribution, no hosting required</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Doctrine2 Event Listener: persisting in onFlush()]]></title>
+    <link href="http://mightyuhu.github.com/blog/2012/03/27/doctrine2-event-listener-persisting-a-new-entity-in-onflush/"/>
+    <updated>2012-03-27T15:34:33+02:00</updated>
+    <id>http://mightyuhu.github.com/blog/2012/03/27/doctrine2-event-listener-persisting-a-new-entity-in-onflush</id>
+    <content type="html"><![CDATA[<p>Another Doctrine2 Post. This time we&#8217;re taking a look on Event Listeners/Subscribers.
+Event Listeners are a real powerful thing in Doctrine2. Besides <code>LifeCycleCallback</code>s they can be used if you&#8217;ll want to scan through your Entity i.e. for specialized standard field. Also implementing a global Versionable behaviour (since that is no longer a native Doctrine behaviour) ist very easy to do inside Event Listeners.</p>
+
+<p>My motivation for this quick blog post is just to give people a gist how to use EventListeners because the documentation is -again- a pain in the ass.
+Im just using <code>onFlush()</code> here, since <code>preUpdate()</code> is somehow not called by <code>SonataDoctrineORMAdminBundle</code> which i&#8217;m using to mainly manage my Entities.</p>
+
+<p>Lets start by creating a EventListener in <code>My/Bundle/Listener/MyEventListener.php</code></p>
+
+<div><script src='https://gist.github.com/2215056.js?file=MyEventListener.php'></script>
+<noscript><pre><code>&lt;?php
+
+namespace My\Bundle\Listener;
+
+use Doctrine\Common\EventSubscriber;
+use Doctrine\ORM\Events;
+use Doctrine\ORM\Event\OnFlushEventArgs;
+use Doctrine\ORM\Mapping\ClassMetadata;
+
+use My\Bundle\Entity\Event;
+
+class MyEventListener {
+    private $em = null;
+    private $uow = null;
+    private $attachedEvents;
+    
+    public function onFlush(OnFlushEventArgs $args) {
+
+        $this -&gt; em = $args -&gt; getEntityManager();
+        $eventManager = $this -&gt; em -&gt; getEventManager();
+
+        // Remove event, if we call $this-&gt;em-&gt;flush() now there is no infinite recursion loop!
+        $eventManager -&gt; removeEventListener('onFlush', $this);
+
+        $this -&gt; uow = $this -&gt; em -&gt; getUnitOfWork();
+
+        //Iterate through Insertions:
+        foreach ($this-&gt;uow-&gt;getScheduledEntityInsertions() as $entity) {
+
+            //Get the plain ClassName without Namespace
+            $className = join('', array_slice(explode('\\', get_class($entity)), -1));
+            $meta = $this -&gt; em -&gt; getClassMetadata(get_class($entity));
+
+            $value = $meta -&gt; getReflectionProperty('myEntityFieldName') -&gt; getValue($entity);
+            
+            //... create your Entity...
+            $newEvent = new Event;
+            $newEvent-&gt;setName('...');
+            //...
+            
+            $this -&gt; em -&gt; persist($newEvent);
+            $this -&gt; em -&gt; flush();
+            
+            }
+
+            // recalculate changeset, since we might messed up the relations
+            $this -&gt; em -&gt; getUnitOfWork() -&gt; recomputeSingleEntityChangeSet($meta, $entity);
+        }
+
+
+        //We can also iterate through planned deletions
+        foreach ($this-&gt;uow-&gt;getScheduledEntityDeletions() AS $entity) {
+            $className = join('', array_slice(explode('\\', get_class($entity)), -1));
+            
+            //Search for old dependencies and delete them too...
+            
+            $events = $this -&gt; em -&gt; getRepository('MyBundle:Event') -&gt; findBy('myProperty'=&gt;'value');
+                    foreach ($events as $entity) {
+                        $this -&gt; em -&gt; remove($entity);
+                    }
+                }
+            }
+            $this -&gt; em -&gt; flush();
+        }
+
+        //Or even react on updates:
+        foreach ($this-&gt;uow-&gt;getScheduledEntityUpdates() as $key =&gt; $entity) {
+            $className = join('', array_slice(explode('\\', get_class($entity)), -1));
+            $meta = $this -&gt; em -&gt; getClassMetadata(get_class($className));
+            //ChangeSet is an array of key - array pairs.
+            //$changeSet['fieldname'] =&gt; array(0 =&gt; 'oldValue', 1 =&gt; 'newValue')
+            //if the target Value is i.e. a date, the indices 0 and 1 are i.e. DateTime Objects
+            $changeSet = $this -&gt; uow -&gt; getEntityChangeSet($entity);
+
+            //You can modify your Entities based on the Changes here..
+            //After Persisting: 
+            
+            $this-&gt;uow-&gt;computeChangeSet($meta, $entity)
+            }
+        }
+        
+        //Re-attach since we're done
+        $eventManager -&gt; addEventListener('onFlush', $this);
+    }
+
+}
+</code></pre></noscript></div>
+
+
+<p>Now all that is left to do is to attach the Event Listener to DI. If you&#8217;re using Symfony2 you&#8217;ll just need to update your <code>app/config/config.yml</code></p>
+
+<div><script src='https://gist.github.com/2215056.js?file=config.yml'></script>
+<noscript><pre><code>services:
+   MyEventListener:
+      class: My\Bundle\Listener\MyEventListener 
+      tags:
+        - { name: doctrine.event_listener, event: onFlush, method: onFlush }
+</code></pre></noscript></div>
+
+
+<p>For further information feel free to take a look at the beautiful <a href="http://docs.doctrine-project.org/projects/doctrine-orm/en/2.0.x/reference/events.html#implementing-event-listeners">Doctrine2 Documentation</a>, which I obviously love so much.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Pagerank Algorithmn Studies]]></title>
+    <link href="http://mightyuhu.github.com/blog/2012/03/25/pagerank-algorithmn-studies/"/>
+    <updated>2012-03-25T07:12:25+02:00</updated>
+    <id>http://mightyuhu.github.com/blog/2012/03/25/pagerank-algorithmn-studies</id>
+    <content type="html"><![CDATA[<p>Hier sind meine <a href="http://mightyuhu.github.com/images/blog/wolters.pdf">Ausarbeitung</a> und die <a href="http://mightyuhu.github.com/images/blog/wolters2.pdf">Folien</a> zu meinem Proseminar &#8220;Algorithms and Data Structures&#8221; beim <a href="http://www-i2.informatik.rwth-aachen.de/i2/algds11/">i2 RWTH-Aachen</a>.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Doctrine2 One-To-Many, Unidirectional with Join Table Association Mapping]]></title>
+    <link href="http://mightyuhu.github.com/blog/2012/03/24/doctrine2-one-to-many/"/>
+    <updated>2012-03-24T21:09:05+01:00</updated>
+    <id>http://mightyuhu.github.com/blog/2012/03/24/doctrine2-one-to-many</id>
+    <content type="html"><![CDATA[<p>Since the Doctrine 2.0 Documentation for this seems to be kinda fucked up at the moment, here is a working exampe of a <code>One-To-Many, Unidirectional with Join-Table Association Mapping</code></p>
+
+<h2>Scenario</h2>
+
+<p>A driver can have many documents, but a document has no direct Entity relation to a driver.</p>
+
+<h2>Solution</h2>
+
+<p>Use Many-To-Many to encode it properly.</p>
+
+<div><script src='https://gist.github.com/2186735.js'></script>
+<noscript><pre><code></code></pre></noscript></div>
+
+
+<p>Im using annotations with the <code>ORM</code>-Namespace since its embedded in Symfony2.
+Note that One-To-Many is coded throughout Many-To-Many but the unique index is set for the join table.</p>
+
+<p>In my POV thats kinda confusing since there is a <code>@One-To-Many</code> relationship, but whatever!</p></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Using git stash to cache your pending changes]]></title>
+    <link href="http://mightyuhu.github.com/blog/2011/09/26/using-git-stash-to-cache-your-pending-changes/"/>
+    <updated>2011-09-26T15:36:25+02:00</updated>
+    <id>http://mightyuhu.github.com/blog/2011/09/26/using-git-stash-to-cache-your-pending-changes</id>
+    <content type="html"><![CDATA[<p>This is just a quick tip which i stumbled upon this weekend. Let&#8217;s say you are working on a git branch with a unfinished amount of changes. Now you want to switch branches i.e. to lookup some older/newer value, but you do not want to commit your unfinished piece of work. The solution? <code>git stash</code>.</p>
+
+<!-- more -->
+
+
+<h2>git stash</h2>
+
+<p>Let&#8217;s say your Project changes look like this atm:</p>
+
+<div><script src='https://gist.github.com/1242067.js?file=%231'></script>
+<noscript><pre><code>$ git status
+# On branch master
+# Changes to be committed:
+#   (use &quot;git reset HEAD &lt;file&gt;...&quot; to unstage)
+#
+#      modified:   index.html
+#
+# Changed but not updated:
+#   (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)
+#
+#      modified:   lib/simplegit.py
+#</code></pre></noscript></div>
+
+
+<p>The Usage is pretty simple just type use git stash:</p>
+
+<div><script src='https://gist.github.com/1242067.js?file=%232'></script>
+<noscript><pre><code>$ git stash
+Saved working directory and index state \
+  &quot;WIP on master: 049d078 added the index file&quot;
+HEAD is now at 049d078 added the index file
+(To restore them type &quot;git stash apply&quot;)</code></pre></noscript></div>
+
+
+<p>And your working directory is clean (last commit):</p>
+
+<div><script src='https://gist.github.com/1242067.js?file=%233'></script>
+<noscript><pre><code>$ git status
+# On branch master
+nothing to commit (working directory clean)</code></pre></noscript></div>
+
+
+<p>Be aware that git stash also saved the unstaged changes so far. Now you can switch branches and do your stuff&#8230;</p>
+
+<p>If you want to reapply your stash just type: <code>git stash apply</code>
+By default that would ignore the staging you&#8217;ve done so far, so to also restage your changeset use <code>git stash apply --index</code>
+If you have multiple stashes <code>git stash apply</code> will always pick the latest.</p>
+
+<div><script src='https://gist.github.com/1242067.js?file=gistfile1.txt'></script>
+<noscript><pre><code>$ git stash apply --index
+# On branch master
+# Changes to be committed:
+#   (use &quot;git reset HEAD &lt;file&gt;...&quot; to unstage)
+#
+#      modified:   index.html
+#
+# Changed but not updated:
+#   (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)
+#
+#      modified:   lib/simplegit.py
+#</code></pre></noscript></div>
+
+
+<p>You can also have multiple stashes and unapply some subset of them. But that goes beyond that blog post.
+If you want to learn more just read the wonderful <a href="http://progit.org/book/ch6-3.html">ProGit Book</a> by <a href="http://scottchacon.com/">Scott Chacon</a>.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Symfony - initialize Session from request parameter]]></title>
+    <link href="http://mightyuhu.github.com/blog/2011/07/17/quick-tip-symfony-initialize-session-from-request-parameter/"/>
+    <updated>2011-07-17T14:26:52+02:00</updated>
+    <id>http://mightyuhu.github.com/blog/2011/07/17/quick-tip-symfony-initialize-session-from-request-parameter</id>
+    <content type="html"><![CDATA[<h2>Motivation</h2>
+
+<p>Working with HTML5 Audio Components, i realized Internet Explorer 9, Google Chrome and Mobile Safari, do not send Domain Cookies when requesting a playable File, which required the necessity to import the sessionid before initalize session management.</p>
+
+<h2>Solution</h2>
+
+<p>I created my own SessionStorage class and adjusted the corresponding routes to have an <kbd>session_id</kbd> parameter.</p>
+
+<div><script src='https://gist.github.com/1087434.js?file=mySession.class.php'></script>
+<noscript><pre><code>&lt;?php
+
+class MySessionStorage extends sfSessionStorage
+{
+  public function initialize($options = null)
+  {
+    if(sfContext::getInstance()-&gt;getRequest()-&gt;getParameter('sessionid')) {
+      session_id(sfContext::getInstance()-&gt;getRequest()-&gt;getParameter('sessionid'));
+    }
+    parent::initialize($options);
+  }
+}</code></pre></noscript></div>
+
+
+
+
+<div><script src='https://gist.github.com/1087434.js?file=factories.yml'></script>
+<noscript><pre><code>  storage:
+    class: MySessionStorage
+    param:
+      session_path: my_session</code></pre></noscript></div>
+
+
+<p>Whereas <code>sessionid</code> is the routing parameter.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Symfony: Deliver mobile version of a template without loosing the file specific sf_format parameter]]></title>
+    <link href="http://mightyuhu.github.com/blog/2011/07/08/symfony-deliver-mobile-version-of-a-template-without-loosing-the-file-specific-sf-format-parameter/"/>
+    <updated>2011-07-08T22:21:18+02:00</updated>
+    <id>http://mightyuhu.github.com/blog/2011/07/08/symfony-deliver-mobile-version-of-a-template-without-loosing-the-file-specific-sf-format-parameter</id>
+    <content type="html"><![CDATA[<p>I needed a Server-Based mobile switch for my symfony-project. The solutions I found all used a workaround with setting the <code>sf_format</code> parameter to a specific mobile version. But what if you are using <code>sf_format</code> already for different view-types?</p>
+
+<p>My Solution will use the Extension, so you can have multiple view-templates like:</p>
+
+<ul>
+<li><code>actionSuccess.mobile.php</code></li>
+<li><code>actionSuccess.php</code></li>
+<li><code>actionSuccess.mobile.xml.php</code></li>
+<li><code>actionSuccess.xml.php</code></li>
+</ul>
+
+
+<div><script src='https://gist.github.com/1072381.js'></script>
+<noscript><pre><code></code></pre></noscript></div>
+
+
+<p>I hope this is useful for somebdody! You might want to specify more parameters or make this a filter.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[uvxrt - vim arrow- and end-key problem]]></title>
+    <link href="http://mightyuhu.github.com/blog/2011/04/19/uvxrt-vim-arrow-and-end-key-problem/"/>
+    <updated>2011-04-19T23:09:00+02:00</updated>
+    <id>http://mightyuhu.github.com/blog/2011/04/19/uvxrt-vim-arrow-and-end-key-problem</id>
+    <content type="html"><![CDATA[<blockquote><p>I&#8217;ve never heard of a &#8220;bash pipe&#8221;, (or many of those other terms, either).
+Isn&#8217;t that something we used to smoke back in the &#8217;70s?</p></blockquote>
+
+<p>I&#8217;m using urxvt as my terminal.I discovered issues using vim. When i&#8217;m in insert mode and use the arrow keys or the <code>Pos1</code> or <code>END</code>-Key
+the editor prints out <code>A</code>, <code>B</code>, <code>C</code>, <code>D</code>and badly misbehaves using <code>END</code>.</p>
+
+<!-- more -->
+
+
+<p>So there are solutions out there which did not work for me.</p>
+
+<ul>
+<li>Set vim to compatible mode.</li>
+<li>Set <code>term=linux</code> in your <code>.vimrc</code>.</li>
+<li>Modify Keymaps in vim to make urxvt somehow use xterm&#8217;s keybinds.</li>
+</ul>
+
+
+<p>I found 2 Solutions. One is to set <code>$TERM=xterm-256color</code> (i.e. in your <code>.bashrc</code>). The other really dirty.</p>
+
+<p>Overwrite all your keybinds in your <code>.Xdefault</code>-File or at least the keys, which don&#8217;t work.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+<span class='line-number'>60</span>
+<span class='line-number'>61</span>
+<span class='line-number'>62</span>
+<span class='line-number'>63</span>
+<span class='line-number'>64</span>
+<span class='line-number'>65</span>
+<span class='line-number'>66</span>
+<span class='line-number'>67</span>
+<span class='line-number'>68</span>
+<span class='line-number'>69</span>
+<span class='line-number'>70</span>
+<span class='line-number'>71</span>
+<span class='line-number'>72</span>
+<span class='line-number'>73</span>
+<span class='line-number'>74</span>
+<span class='line-number'>75</span>
+<span class='line-number'>76</span>
+<span class='line-number'>77</span>
+<span class='line-number'>78</span>
+<span class='line-number'>79</span>
+<span class='line-number'>80</span>
+<span class='line-number'>81</span>
+<span class='line-number'>82</span>
+<span class='line-number'>83</span>
+<span class='line-number'>84</span>
+<span class='line-number'>85</span>
+<span class='line-number'>86</span>
+<span class='line-number'>87</span>
+<span class='line-number'>88</span>
+<span class='line-number'>89</span>
+<span class='line-number'>90</span>
+<span class='line-number'>91</span>
+<span class='line-number'>92</span>
+<span class='line-number'>93</span>
+<span class='line-number'>94</span>
+<span class='line-number'>95</span>
+<span class='line-number'>96</span>
+<span class='line-number'>97</span>
+<span class='line-number'>98</span>
+<span class='line-number'>99</span>
+<span class='line-number'>100</span>
+<span class='line-number'>101</span>
+<span class='line-number'>102</span>
+<span class='line-number'>103</span>
+<span class='line-number'>104</span>
+<span class='line-number'>105</span>
+<span class='line-number'>106</span>
+<span class='line-number'>107</span>
+<span class='line-number'>108</span>
+<span class='line-number'>109</span>
+<span class='line-number'>110</span>
+<span class='line-number'>111</span>
+<span class='line-number'>112</span>
+<span class='line-number'>113</span>
+<span class='line-number'>114</span>
+<span class='line-number'>115</span>
+<span class='line-number'>116</span>
+<span class='line-number'>117</span>
+<span class='line-number'>118</span>
+<span class='line-number'>119</span>
+<span class='line-number'>120</span>
+<span class='line-number'>121</span>
+<span class='line-number'>122</span>
+<span class='line-number'>123</span>
+<span class='line-number'>124</span>
+<span class='line-number'>125</span>
+<span class='line-number'>126</span>
+<span class='line-number'>127</span>
+<span class='line-number'>128</span>
+<span class='line-number'>129</span>
+<span class='line-number'>130</span>
+<span class='line-number'>131</span>
+<span class='line-number'>132</span>
+<span class='line-number'>133</span>
+<span class='line-number'>134</span>
+<span class='line-number'>135</span>
+<span class='line-number'>136</span>
+<span class='line-number'>137</span>
+<span class='line-number'>138</span>
+<span class='line-number'>139</span>
+<span class='line-number'>140</span>
+<span class='line-number'>141</span>
+<span class='line-number'>142</span>
+<span class='line-number'>143</span>
+<span class='line-number'>144</span>
+<span class='line-number'>145</span>
+<span class='line-number'>146</span>
+<span class='line-number'>147</span>
+<span class='line-number'>148</span>
+<span class='line-number'>149</span>
+<span class='line-number'>150</span>
+<span class='line-number'>151</span>
+<span class='line-number'>152</span>
+<span class='line-number'>153</span>
+<span class='line-number'>154</span>
+<span class='line-number'>155</span>
+<span class='line-number'>156</span>
+<span class='line-number'>157</span>
+<span class='line-number'>158</span>
+<span class='line-number'>159</span>
+<span class='line-number'>160</span>
+<span class='line-number'>161</span>
+<span class='line-number'>162</span>
+<span class='line-number'>163</span>
+<span class='line-number'>164</span>
+<span class='line-number'>165</span>
+<span class='line-number'>166</span>
+<span class='line-number'>167</span>
+<span class='line-number'>168</span>
+<span class='line-number'>169</span>
+<span class='line-number'>170</span>
+<span class='line-number'>171</span>
+<span class='line-number'>172</span>
+<span class='line-number'>173</span>
+<span class='line-number'>174</span>
+<span class='line-number'>175</span>
+<span class='line-number'>176</span>
+<span class='line-number'>177</span>
+<span class='line-number'>178</span>
+<span class='line-number'>179</span>
+<span class='line-number'>180</span>
+<span class='line-number'>181</span>
+<span class='line-number'>182</span>
+<span class='line-number'>183</span>
+<span class='line-number'>184</span>
+<span class='line-number'>185</span>
+<span class='line-number'>186</span>
+<span class='line-number'>187</span>
+<span class='line-number'>188</span>
+<span class='line-number'>189</span>
+<span class='line-number'>190</span>
+<span class='line-number'>191</span>
+<span class='line-number'>192</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>! Normal
+</span><span class='line'>*URxvt*keysym.Home:     \033OH
+</span><span class='line'>*URxvt*keysym.End:      \033OF
+</span><span class='line'>*URxvt*keysym.F1:       \033OP
+</span><span class='line'>*URxvt*keysym.F2:       \033OQ
+</span><span class='line'>*URxvt*keysym.F3:       \033OR
+</span><span class='line'>*URxvt*keysym.F4:       \033OS
+</span><span class='line'>
+</span><span class='line'>! Shift
+</span><span class='line'>! paste conflict
+</span><span class='line'>!*URxvt*keysym.S-Insert:    \033[2;2~
+</span><span class='line'>*URxvt*keysym.S-Delete:     \033[3;2~
+</span><span class='line'>*URxvt*keysym.S-Home:       \033[1;2H
+</span><span class='line'>*URxvt*keysym.S-End:        \033[1;2F
+</span><span class='line'>! scrolling conflict
+</span><span class='line'>!*URxvt*keysym.S-Page_Up:   \033[5;2~
+</span><span class='line'>!*URxvt*keysym.S-Page_Down: \033[6;2~
+</span><span class='line'>
+</span><span class='line'>*URxvt*keysym.S-F1:     \033[1;2P
+</span><span class='line'>*URxvt*keysym.S-F2:     \033[1;2Q
+</span><span class='line'>*URxvt*keysym.S-F3:     \033[1;2R
+</span><span class='line'>*URxvt*keysym.S-F4:     \033[1;2S
+</span><span class='line'>*URxvt*keysym.S-F5:     \033[15;2~
+</span><span class='line'>*URxvt*keysym.S-F6:     \033[17;2~
+</span><span class='line'>*URxvt*keysym.S-F7:     \033[18;2~
+</span><span class='line'>*URxvt*keysym.S-F8:     \033[19;2~
+</span><span class='line'>*URxvt*keysym.S-F9:     \033[20;2~
+</span><span class='line'>*URxvt*keysym.S-F10:        \033[21;2~
+</span><span class='line'>*URxvt*keysym.S-F11:        \033[23;2~
+</span><span class='line'>*URxvt*keysym.S-F12:        \033[24;2~
+</span><span class='line'>
+</span><span class='line'>! tab navigation conflict (only when using tabs)
+</span><span class='line'>*URxvt*keysym.S-Up:     \033[1;2A
+</span><span class='line'>*URxvt*keysym.S-Down:       \033[1;2B
+</span><span class='line'>*URxvt*keysym.S-Right:      \033[1;2C
+</span><span class='line'>*URxvt*keysym.S-Left:       \033[1;2D
+</span><span class='line'>
+</span><span class='line'>! Alt
+</span><span class='line'>*URxvt*keysym.M-Insert:     \033[2;3~
+</span><span class='line'>*URxvt*keysym.M-Delete:     \033[3;3~
+</span><span class='line'>*URxvt*keysym.M-Home:       \033[1;3H
+</span><span class='line'>*URxvt*keysym.M-End:        \033[1;3F
+</span><span class='line'>*URxvt*keysym.M-Page_Up:    \033[5;3~
+</span><span class='line'>*URxvt*keysym.M-Page_Down:  \033[6;3~
+</span><span class='line'>
+</span><span class='line'>*URxvt*keysym.M-F1:     \033[1;3P
+</span><span class='line'>*URxvt*keysym.M-F2:     \033[1;3Q
+</span><span class='line'>*URxvt*keysym.M-F3:     \033[1;3R
+</span><span class='line'>*URxvt*keysym.M-F4:     \033[1;3S
+</span><span class='line'>*URxvt*keysym.M-F5:     \033[15;3~
+</span><span class='line'>*URxvt*keysym.M-F6:     \033[17;3~
+</span><span class='line'>*URxvt*keysym.M-F7:     \033[18;3~
+</span><span class='line'>*URxvt*keysym.M-F8:     \033[19;3~
+</span><span class='line'>*URxvt*keysym.M-F9:     \033[20;3~
+</span><span class='line'>*URxvt*keysym.M-F10:        \033[21;3~
+</span><span class='line'>*URxvt*keysym.M-F11:        \033[23;3~
+</span><span class='line'>*URxvt*keysym.M-F12:        \033[24;3~
+</span><span class='line'>
+</span><span class='line'>*URxvt*keysym.M-Up:     \033[1;3A
+</span><span class='line'>*URxvt*keysym.M-Down:       \033[1;3B
+</span><span class='line'>*URxvt*keysym.M-Right:      \033[1;3C
+</span><span class='line'>*URxvt*keysym.M-Left:       \033[1;3D
+</span><span class='line'>
+</span><span class='line'>! Shift+Alt
+</span><span class='line'>*URxvt*keysym.S-M-F1:       \033[1;4P
+</span><span class='line'>*URxvt*keysym.S-M-F2:       \033[1;4Q
+</span><span class='line'>*URxvt*keysym.S-M-F3:       \033[1;4R
+</span><span class='line'>*URxvt*keysym.S-M-F4:       \033[1;4S
+</span><span class='line'>*URxvt*keysym.S-M-F5:       \033[15;4~
+</span><span class='line'>*URxvt*keysym.S-M-F6:       \033[17;4~
+</span><span class='line'>*URxvt*keysym.S-M-F7:       \033[18;4~
+</span><span class='line'>*URxvt*keysym.S-M-F8:       \033[19;4~
+</span><span class='line'>*URxvt*keysym.S-M-F9:       \033[20;4~
+</span><span class='line'>*URxvt*keysym.S-M-F10:      \033[21;4~
+</span><span class='line'>*URxvt*keysym.S-M-F11:      \033[23;4~
+</span><span class='line'>*URxvt*keysym.S-M-F12:      \033[24;4~
+</span><span class='line'>
+</span><span class='line'>*URxvt*keysym.S-M-Insert:   \033[2;4~
+</span><span class='line'>*URxvt*keysym.S-M-Delete:   \033[3;4~
+</span><span class='line'>*URxvt*keysym.S-M-Home:     \033[1;4H
+</span><span class='line'>*URxvt*keysym.S-M-End:      \033[1;4F
+</span><span class='line'>*URxvt*keysym.S-M-Page_Up:  \033[5;4~
+</span><span class='line'>*URxvt*keysym.S-M-Page_Down:    \033[6;4~
+</span><span class='line'>
+</span><span class='line'>*URxvt*keysym.S-M-Up:       \033[1;4A
+</span><span class='line'>*URxvt*keysym.S-M-Down:     \033[1;4B
+</span><span class='line'>*URxvt*keysym.S-M-Right:    \033[1;4C
+</span><span class='line'>*URxvt*keysym.S-M-Left:     \033[1;4D
+</span><span class='line'>
+</span><span class='line'>! Control
+</span><span class='line'>*URxvt*keysym.C-F1:     \033[1;5P
+</span><span class='line'>*URxvt*keysym.C-F2:     \033[1;5Q
+</span><span class='line'>*URxvt*keysym.C-F3:     \033[1;5R
+</span><span class='line'>*URxvt*keysym.C-F4:     \033[1;5S
+</span><span class='line'>*URxvt*keysym.C-F5:     \033[15;5~
+</span><span class='line'>*URxvt*keysym.C-F6:     \033[17;5~
+</span><span class='line'>*URxvt*keysym.C-F7:     \033[18;5~
+</span><span class='line'>*URxvt*keysym.C-F8:     \033[19;5~
+</span><span class='line'>*URxvt*keysym.C-F9:     \033[20;5~
+</span><span class='line'>*URxvt*keysym.C-F10:        \033[21;5~
+</span><span class='line'>*URxvt*keysym.C-F11:        \033[23;5~
+</span><span class='line'>*URxvt*keysym.C-F12:        \033[24;5~
+</span><span class='line'>
+</span><span class='line'>*URxvt*keysym.C-Insert:     \033[2;5~
+</span><span class='line'>*URxvt*keysym.C-Delete:     \033[3;5~
+</span><span class='line'>*URxvt*keysym.C-Home:       \033[1;5H
+</span><span class='line'>*URxvt*keysym.C-End:        \033[1;5F
+</span><span class='line'>*URxvt*keysym.C-Page_Up:    \033[5;5~
+</span><span class='line'>*URxvt*keysym.C-Page_Down:  \033[6;5~
+</span><span class='line'>
+</span><span class='line'>*URxvt*keysym.C-Up:     \033[1;5A
+</span><span class='line'>*URxvt*keysym.C-Down:       \033[1;5B
+</span><span class='line'>*URxvt*keysym.C-Right:      \033[1;5C
+</span><span class='line'>*URxvt*keysym.C-Left:       \033[1;5D
+</span><span class='line'>
+</span><span class='line'>! Shift+Control
+</span><span class='line'>*URxvt*keysym.S-C-F1:       \033[1;6P
+</span><span class='line'>*URxvt*keysym.S-C-F2:       \033[1;6Q
+</span><span class='line'>*URxvt*keysym.S-C-F3:       \033[1;6R
+</span><span class='line'>*URxvt*keysym.S-C-F4:       \033[1;6S
+</span><span class='line'>*URxvt*keysym.S-C-F5:       \033[15;6~
+</span><span class='line'>*URxvt*keysym.S-C-F6:       \033[17;6~
+</span><span class='line'>*URxvt*keysym.S-C-F7:       \033[18;6~
+</span><span class='line'>*URxvt*keysym.S-C-F8:       \033[19;6~
+</span><span class='line'>*URxvt*keysym.S-C-F9:       \033[20;6~
+</span><span class='line'>*URxvt*keysym.S-C-F10:      \033[21;6~
+</span><span class='line'>*URxvt*keysym.S-C-F11:      \033[23;6~
+</span><span class='line'>*URxvt*keysym.S-C-F12:      \033[24;6~
+</span><span class='line'>
+</span><span class='line'>*URxvt*keysym.S-C-Insert:   \033[2;6~
+</span><span class='line'>*URxvt*keysym.S-C-Delete:   \033[3;6~
+</span><span class='line'>*URxvt*keysym.S-C-Home:     \033[1;6H
+</span><span class='line'>*URxvt*keysym.S-C-End:      \033[1;6F
+</span><span class='line'>*URxvt*keysym.S-C-Page_Up:  \033[5;6~
+</span><span class='line'>*URxvt*keysym.S-C-Page_Down:    \033[6;6~
+</span><span class='line'>
+</span><span class='line'>*URxvt*keysym.S-C-Up:       \033[1;6A
+</span><span class='line'>*URxvt*keysym.S-C-Down:     \033[1;6B
+</span><span class='line'>*URxvt*keysym.S-C-Right:    \033[1;6C
+</span><span class='line'>*URxvt*keysym.S-C-Left:     \033[1;6D
+</span><span class='line'>
+</span><span class='line'>! Alt+Control
+</span><span class='line'>*URxvt*keysym.M-C-F1:       \033[1;7P
+</span><span class='line'>*URxvt*keysym.M-C-F2:       \033[1;7Q
+</span><span class='line'>*URxvt*keysym.M-C-F3:       \033[1;7R
+</span><span class='line'>*URxvt*keysym.M-C-F4:       \033[1;7S
+</span><span class='line'>*URxvt*keysym.M-C-F5:       \033[15;7~
+</span><span class='line'>*URxvt*keysym.M-C-F6:       \033[17;7~
+</span><span class='line'>*URxvt*keysym.M-C-F7:       \033[18;7~
+</span><span class='line'>*URxvt*keysym.M-C-F8:       \033[19;7~
+</span><span class='line'>*URxvt*keysym.M-C-F9:       \033[20;7~
+</span><span class='line'>*URxvt*keysym.M-C-F10:      \033[21;7~
+</span><span class='line'>*URxvt*keysym.M-C-F11:      \033[23;7~
+</span><span class='line'>*URxvt*keysym.M-C-F12:      \033[24;7~
+</span><span class='line'>
+</span><span class='line'>*URxvt*keysym.M-C-Insert:   \033[2;7~
+</span><span class='line'>*URxvt*keysym.M-C-Delete:   \033[3;7~
+</span><span class='line'>*URxvt*keysym.M-C-Home:     \033[1;7H
+</span><span class='line'>*URxvt*keysym.M-C-End:      \033[1;7F
+</span><span class='line'>*URxvt*keysym.M-C-Page_Up:  \033[5;7~
+</span><span class='line'>*URxvt*keysym.M-C-Page_Down:    \033[6;7~
+</span><span class='line'>
+</span><span class='line'>*URxvt*keysym.M-C-Up:       \033[1;7A
+</span><span class='line'>*URxvt*keysym.M-C-Down:     \033[1;7B
+</span><span class='line'>*URxvt*keysym.M-C-Right:    \033[1;7C
+</span><span class='line'>*URxvt*keysym.M-C-Left:     \033[1;7D
+</span><span class='line'>
+</span><span class='line'>! Shift+Alt+Control
+</span><span class='line'>*URxvt*keysym.S-M-C-F1:     \033[1;8P
+</span><span class='line'>*URxvt*keysym.S-M-C-F2:     \033[1;8Q
+</span><span class='line'>*URxvt*keysym.S-M-C-F3:     \033[1;8R
+</span><span class='line'>*URxvt*keysym.S-M-C-F4:     \033[1;8S
+</span><span class='line'>*URxvt*keysym.S-M-C-F5:     \033[15;8~
+</span><span class='line'>*URxvt*keysym.S-M-C-F6:     \033[17;8~
+</span><span class='line'>*URxvt*keysym.S-M-C-F7:     \033[18;8~
+</span><span class='line'>*URxvt*keysym.S-M-C-F8:     \033[19;8~
+</span><span class='line'>*URxvt*keysym.S-M-C-F9:     \033[20;8~
+</span><span class='line'>*URxvt*keysym.S-M-C-F10:    \033[21;8~
+</span><span class='line'>*URxvt*keysym.S-M-C-F11:    \033[23;8~
+</span><span class='line'>*URxvt*keysym.S-M-C-F12:    \033[24;8~
+</span><span class='line'>
+</span><span class='line'>*URxvt*keysym.S-M-C-Insert: \033[2;8~
+</span><span class='line'>*URxvt*keysym.S-M-C-Delete: \033[3;8~
+</span><span class='line'>*URxvt*keysym.S-M-C-Home:   \033[1;8H
+</span><span class='line'>*URxvt*keysym.S-M-C-End:    \033[1;8F
+</span><span class='line'>*URxvt*keysym.S-M-C-Page_Up:    \033[5;8~
+</span><span class='line'>*URxvt*keysym.S-M-C-Page_Down:  \033[6;8~
+</span><span class='line'>
+</span><span class='line'>*URxvt*keysym.S-M-C-Up:     \033[1;8A
+</span><span class='line'>*URxvt*keysym.S-M-C-Down:   \033[1;8B
+</span><span class='line'>*URxvt*keysym.S-M-C-Right:  \033[1;8C
+</span><span class='line'>*URxvt*keysym.S-M-C-Left:   \033[1;8D</span></code></pre></td></tr></table></div></figure>
+
+
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Top 8 Placeholder Services for Web Designers]]></title>
+    <link href="http://mightyuhu.github.com/blog/2011/04/16/the-top-8-placeholder-services-for-web-designers/"/>
+    <updated>2011-04-16T14:15:14+02:00</updated>
+    <id>http://mightyuhu.github.com/blog/2011/04/16/the-top-8-placeholder-services-for-web-designers</id>
+    <content type="html"><![CDATA[<blockquote><p>In the last year, there’s been a wave of helpful placeholder services. What’s a placeholder? Well, when you’re working on a new website, isn’t it a waste of time to use stock images, cropped to the right dimensions? A placeholder service allows you to automatically use a random image at the desired dimensions with minimal effort.</p></blockquote>
+
+<p><a href="http://net.tutsplus.com/author/jeffreyway/">Jeffrey Way</a> covers up nice Image Placeholder Services such as <a href="http://placekitten.com/">Place Kitten</a> for Webdesigners.</p>
+
+<p>Read <a href="http://net.tutsplus.com/articles/web-roundups/the-top-8-placeholders-for-web-designers/">„The Top 8 Placeholder Services for Web Designers“</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Introduction to CSS Preprocessors]]></title>
+    <link href="http://mightyuhu.github.com/blog/2011/04/09/introduction-to-css-pre-processors/"/>
+    <updated>2011-04-09T23:29:54+02:00</updated>
+    <id>http://mightyuhu.github.com/blog/2011/04/09/introduction-to-css-pre-processors</id>
+    <content type="html"><![CDATA[<h2>The countless problems of pure css</h2>
+
+<p>The one thing while creating .css-Files, which really bothers me is that there is no variability at all. Let&#8217;s say you want to change a color value that you have applied to like 20 Style-sets in your css, you&#8217;ll need to replace them all by hand. Maybe there are colors slightly different to the color you want to change (i.e. a hover-color) you&#8217;ll need to search them all and change them. A painstaking strain.</p><p>Sometimes you&#8217;ll need to calculate values (e.g. with-values) from another value. CSS has no solution for this, but calculating it by yourself looking for the values you need (There is no DOM in css).</p> <p>Also in CSS there is that nice &#8220;approach&#8221; to have some sort of object-oriented style language. Well css has of course inheritance, but wouldn&#8217;t it be nice to have a more dynamic structure that allows variables, conditionals and own-functions.</p>
+
+<!-- more -->
+
+
+<p>Another common problem in CSS is repetition. The classic example for unnecessary repetition is the border-radius or the opacity-rule:</p>
+
+<div><script src='https://gist.github.com/911385.js?file=gistfile3.css'></script>
+<noscript><pre><code>-webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+border-radius: 5px;
+
+opacity: .75; /* Standard: FF gt 1.5, Opera, Safari */
+filter: alpha(opacity=75); /* IE lt 8 */
+-ms-filter: &quot;alpha(opacity=75)&quot;; /* IE 8 */
+-khtml-opacity: .75; /* Safari 1.x */
+-moz-opacity: .75; /* FF lt 1.5, Netscape */</code></pre></noscript></div>
+
+
+<p>So this is like a template we use on and on again and it violence to the DRY-paradigm. The bigger your project gets the harder you&#8217;ll wish to have a solution for that.
+Luckily there is a solution for this problems. Actually there are more than one. It&#8217;s CSS Pre Processors
+There are a a few out there, but before we&#8217;ll get to them there is an easy approach: Using PHP as a CSS Preprocessors.</p>
+
+<h2>Ok. Let&#8217;s use php to do fancy-css</h2>
+
+<p>If you have read my entry about templating systems you&#8217;ll know I am no fan of php as templating language. In this context i think its the same argumentation: php is to verbose and will make your css look even more unreadable. (Of course there might be approchaes, where this could work out i.e. if all you need are variables, but thats not my point)</p><p>Take a look at the following example and tell me if its verbose or not:</p>
+
+<div><script src='https://gist.github.com/911385.js?file=PHP%20as%20CSS%20Preprocessor%20'></script>
+<noscript><pre><code>&lt;?php 
+$infobox_bg = '#FAF7B1';
+$border_size = '5px';
+?&gt;
+&lt;?php function opacity($pct=50){ ?&gt;
+opacity: .&lt;?php echo $pct ?&gt;; /* Standard: FF gt 1.5, Opera, Safari */
+filter: alpha(opacity=&lt;?php echo $pct ?&gt;); /* IE lt 8 */
+-ms-filter: &quot;alpha(opacity=&lt;?php echo $pct ?&gt;)&quot;; /* IE 8 */
+-khtml-opacity: .&lt;?php echo $pct ?&gt;; /* Safari 1.x */
+-moz-opacity: .&lt;?php echo $pct ?&gt;; /* FF lt 1.5, Netscape */
+&lt;?php }?&gt;
+
+#content .infobox{
+ &lt;?php opacity(75) ?&gt;
+ background-color: &lt;?php echo $infobox_bg ?&gt;;
+ border: &lt;?php echo $border_size; ?&gt; solid #000;
+}</code></pre></noscript></div>
+
+
+<p>Another problematic thing about PHP is the caching aspect - again. And talking about css I dont think there is the necessity to have a css rendered on every site request. In fact i dont think a big caching system is needed at all. Usually there is a point where you have a css ready to go, you &#8220;compile it&#8221; - (using css prepocessors), optimize and compress it. It will not change.</p>
+
+<h2>The Solution(s)</h2>
+
+<p>There are currently many CSS-Preprocessors out there: <a href="http://lesscss.org/">LESS</a>, <a href="http://learnboost.github.com/stylus/">STYLUS</a>, <a href="http://sass-lang.com/docs.html">SASS</a> and SCSS, which is a newer syntax for SASS.
+In a nutshell all these preprocessors have features like:</p>
+
+<ul>
+<li>Variables</li>
+<li>Functions</li>
+<li>Mixins</li>
+<li>Arithmetic Operators</li>
+<li>url()-Rewriting</li>
+</ul>
+
+
+<p>Some of them even implement:</p>
+
+<ul>
+<li>Iterations</li>
+<li>Conditionals</li>
+<li>Nested Selectors</li>
+<li>Integrated CSS Compression</li>
+<li>Color-, Mathematical-, String- and Regex-functions</li>
+</ul>
+
+
+<p>While LESS, SASS and SCSS are trying to adopt the original CSS Syntax, STYLUS reduces the css syntax for shortness sake. In STYLUS there are no curved brackets and no semicolons. Indentation is used to seperate selectors and contructs.</p>
+
+<p>As for now I can&#8217;t really tell which one is the best, but this is also a bit dependant on your needs.
+So let&#8217;s take a look at Stylus:</p>
+
+<h2>Stylus - quintessential for a CSS Preprocessor</h2>
+
+<p>Like I said, Stylus concentrates on shortness and is really easy:</p>
+
+<div><script src='https://gist.github.com/911385.js?file=gistfile4.css'></script>
+<noscript><pre><code>body {
+  font: 12px Helvetica, Arial, sans-serif;
+}
+a.button {
+  -webkit-border-radius: 5px;  
+  -moz-border-radius: 5px;  
+  border-radius: 5px;
+}</code></pre></noscript></div>
+
+
+<p>becomes</p>
+
+<div><script src='https://gist.github.com/911385.js?file=gistfile4.yml'></script>
+<noscript><pre><code>@import 'vendor'
+
+body
+  font 12px Helvetica, Arial, sans-serif  
+
+a.button
+  border-radius 5px</code></pre></noscript></div>
+
+
+<p>vendor is a pre-defined library containing standard mixins.
+You can define variables, use their contents inside other variables and use operators to modify them:</p>
+
+<div><script src='https://gist.github.com/911385.js?file=gistfile6.yml'></script>
+<noscript><pre><code>font-size = 14px
+font = (font-size * 2) &quot;Lucida Grande&quot;, Arial
+
+body
+  font font sans-serif</code></pre></noscript></div>
+
+
+<p>compiles to:</p>
+
+<div><script src='https://gist.github.com/911385.js?file=gistfile7.css'></script>
+<noscript><pre><code>body {
+  font: 28px &quot;Lucida Grande&quot;, Arial sans-serif;
+}</code></pre></noscript></div>
+
+
+<p>You can use nested-selectors by indenting them:</p>
+
+<div><script src='https://gist.github.com/911385.js?file=Nested%20CSS%20Selectors'></script>
+<noscript><pre><code>#header
+  color #000000
+  #logo
+    color #A7A7A7</code></pre></noscript></div>
+
+
+<p>would be:</p>
+
+<div><script src='https://gist.github.com/911385.js?file=rendered%20output'></script>
+<noscript><pre><code>#header{
+  color: #000000;
+}
+#header #logo{
+  color #A7A7A7
+}</code></pre></noscript></div>
+
+
+<p>Here is a nice Video by tjholowaychuk showing the core features of STYLUS.</p>
+
+<object class="contentimage shadow" classid='clsid:d27cdb6e-ae6d-11cf-96b8-444553540000' codebase='http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,115,0' width='560' height='345'><param name='movie' value='http://www.screenr.com/Content/assets/screenr_1116090935.swf' /><param name='flashvars' value='i=161801&svr=undefined' /><param name='allowFullScreen' value='true' /><param name='wmode' value='opaque' /><embed wmode='opaque' src='http://www.screenr.com/Content/assets/screenr_1116090935.swf' flashvars='i=161801&svr=undefined' allowFullScreen='true' width='560' height='345' pluginspage='http://www.macromedia.com/go/getflashplayer' ></embed></object>
+
+
+<h2>Compiling in STYLUS</h2>
+
+<p>Stylus uses <a href="http://en.wikipedia.org/wiki/Nodejs">Node.js</a></a>. You can install it over the Node.js packet manager:</p>
+
+<div><script src='https://gist.github.com/911385.js?file=gistfile8.txt'></script>
+<noscript><pre><code>$ npm install stylus</code></pre></noscript></div>
+
+
+<p>There is an executable you can run and use to compile your .styl-files. Learn more about it  <a href="http://learnboost.github.com/stylus/docs/executable.html">here</a>.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Templating Systems - a new hope]]></title>
+    <link href="http://mightyuhu.github.com/blog/2011/04/09/templating-systems-a-new-hope/"/>
+    <updated>2011-04-09T23:10:31+02:00</updated>
+    <id>http://mightyuhu.github.com/blog/2011/04/09/templating-systems-a-new-hope</id>
+    <content type="html"><![CDATA[<h2>Birth and Death of old Templating Languages</h2>
+
+<p>A common first time project of every PHP-Developer is to write his own Templating System.
+Templating in pseudo languages with weird syntaxes used to be very trendy and served the matter to draw a line between presentation logic and business logic.</p>
+
+<p>It was also believed Templating-languages would be a suitable replacement for plain-php or your favorite backend language, so designers (who -so the common developer belief- are obviously are some zombie creatures without brains) did not need to learn php. This turned out to be a huge error in reasoning, because usually Designers can code at all. (And if they claim they &#8220;can&#8221;, they usually suck at it.)
+Another common problem with Template-Systems is performance: other files are parsed by php in the runtime using slow regex or maybe even reparsed with output buffering.</p>
+
+<p>Being a performance enthusiast it always bothered me that something is parsed and compiled by a language such as php, which is parsed itself, just for the sake of code-clearness. Usually they are not cached, and the set of functions is very limited (output this, loop that). If they&#8217;re cached (e.g. Smarty) there are other Problems (just take a look at the &#8220;Cache-File&#8221;). Futhermore you as a developer need to learn a simpler templating language, which usually sucks. Debugging Template can be a pain, depending on which template System you use.</p>
+
+<!-- more -->
+
+
+<h2>PHP is not (anymore) a good template language</h2>
+
+<p>So being enthusiastic about Template-Systems at first, I stopped using them and used the paradigma that <a href="http://www.phppatterns.com/docs/design/templates_and_template_engines">&#8220;PHP is a Templating language by itself&#8221;</a>.
+But the problem with Templating in php is that it is very verbose and tedious.</p>
+
+<div><script src='https://gist.github.com/894638.js?file=gistfile1.php'></script>
+<noscript><pre><code>&lt;?php if ($items): ?&gt;
+  &lt;?php foreach ($items as $item): ?&gt;
+    * &lt;?php echo $item-&gt;name ?&gt;
+  &lt;?php endforeach; ?&gt;
+&lt;?php else: ?&gt;
+    No item has been found.
+&lt;?php endif; ?&gt;</code></pre></noscript></div>
+
+
+<p>The advantage is that you have full control over what your template is doing. You can also do everything you want.
+But with full control comes responsibility and you have to think about things such as escaping and common web threats such as XSS and CSRF. So we usually end up with a production template like this:</p>
+
+<div><script src='https://gist.github.com/894638.js?file=gistfile2.php'></script>
+<noscript><pre><code>&lt;?php if (count($items) &gt; 0): ?&gt;
+  &lt;?php foreach ($items as $item): ?&gt;
+    * &lt;?php echo htmlspecialchars($item-&gt;name, ENT_QUOTES, 'UTF-8') ?&gt;
+  &lt;?php endforeach; ?&gt;
+&lt;?php else: ?&gt;
+    No item has been found.
+&lt;?php endif; ?&gt;</code></pre></noscript></div>
+
+
+<p>Another Problem with th <code>&lt;?php ... ?&gt;</code>-Opening tags is that there are still editors who interpret all <code>&lt; ... &gt;</code> blocks as html-tags, and code-highlighting usually goes wrong at that point.</p>
+
+<p>But there are also szenarios where we dont want the template editor to have the full-featureset. E.g. an Administrator editing Templates</p>
+
+<p>So -to sum it up- the principles of a modern Templating System ideally should be:</p>
+
+<ul>
+<li>Shortness</li>
+<li>Simplicity (nobody really wants to learn a template language)</li>
+<li>Support for objects, and a nifty feature set</li>
+<li>Template inheritance</li>
+<li>Caching</li>
+<li>Security such as escaping, purifying, entity-replacement but also easy access to raw-data</li>
+</ul>
+
+
+<h2>The solution: Twig</h2>
+
+<p>I stumbled upon <a href="http://fabien.potencier.org/article/34/templating-engines-in-php">Twig</a> while looking at the featureset of symfony2. And Twig seems to implement all of the points from above and the best thing: It&#8217;s superfast. Our example from above in Twig would be:</p>
+
+<div><script src='https://gist.github.com/894638.js?file=gistfile3.php'></script>
+<noscript><pre><code>{% for item in items %}
+  * {{ item.name }}
+{% else %}
+  No item has been found.
+{% endfor %}</code></pre></noscript></div>
+
+
+<p>Notice how the for has an else construct. This obviously only makes sense in a templating language. But in this context it meets the needs and shortens the coding perfectly.</p>
+
+<p>Twig can evaluate any template in a sandbox environment where the user has access to a limited set of tags, filters, and object methods defined by the developer. Sandboxing can be enabled globally or locally for just some templates:</p>
+
+<div><script src='https://gist.github.com/894638.js?file=gistfile4.txt'></script>
+<noscript><pre><code>{{ include &quot;user.html&quot; sandboxed }}</code></pre></noscript></div>
+
+
+<p>There is no sense to rewrite the documentation at this point so i recommend you to check it out: <a href="http://www.twig-project.org/">Twig Project</a></p>
+]]></content>
+  </entry>
+  
+</feed>

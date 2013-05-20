@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: git | Benedikt Wolters]]></title>
+  <link href="http://mightyuhu.github.com/blog/categories/git/atom.xml" rel="self"/>
+  <link href="http://mightyuhu.github.com/"/>
+  <updated>2013-05-20T16:23:05+02:00</updated>
+  <id>http://mightyuhu.github.com/</id>
+  <author>
+    <name><![CDATA[Benedikt Wolters]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Using git stash to cache your pending changes]]></title>
+    <link href="http://mightyuhu.github.com/blog/2011/09/26/using-git-stash-to-cache-your-pending-changes/"/>
+    <updated>2011-09-26T15:36:25+02:00</updated>
+    <id>http://mightyuhu.github.com/blog/2011/09/26/using-git-stash-to-cache-your-pending-changes</id>
+    <content type="html"><![CDATA[<p>This is just a quick tip which i stumbled upon this weekend. Let's say you are working on a git branch with a unfinished amount of changes. Now you want to switch branches i.e. to lookup some older/newer value, but you do not want to commit your unfinished piece of work. The solution? <code>git stash</code>.</p>
+
+<!-- more -->
+
+
+<h2>git stash</h2>
+
+<p>Let's say your Project changes look like this atm:</p>
+
+<p><div><script src='https://gist.github.com/1242067.js?file=%231'></script>
+<noscript><pre><code>$ git status
+# On branch master
+# Changes to be committed:
+#   (use &quot;git reset HEAD &lt;file&gt;...&quot; to unstage)
+#
+#      modified:   index.html
+#
+# Changed but not updated:
+#   (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)
+#
+#      modified:   lib/simplegit.py
+#</code></pre></noscript></div>
+</p>
+
+<p>The Usage is pretty simple just type use git stash:</p>
+
+<p><div><script src='https://gist.github.com/1242067.js?file=%232'></script>
+<noscript><pre><code>$ git stash
+Saved working directory and index state \
+  &quot;WIP on master: 049d078 added the index file&quot;
+HEAD is now at 049d078 added the index file
+(To restore them type &quot;git stash apply&quot;)</code></pre></noscript></div>
+</p>
+
+<p>And your working directory is clean (last commit):</p>
+
+<p><div><script src='https://gist.github.com/1242067.js?file=%233'></script>
+<noscript><pre><code>$ git status
+# On branch master
+nothing to commit (working directory clean)</code></pre></noscript></div>
+</p>
+
+<p>Be aware that git stash also saved the unstaged changes so far. Now you can switch branches and do your stuff...</p>
+
+<p>If you want to reapply your stash just type: <code>git stash apply</code>
+By default that would ignore the staging you've done so far, so to also restage your changeset use <code>git stash apply --index</code>
+If you have multiple stashes <code>git stash apply</code> will always pick the latest.</p>
+
+<p><div><script src='https://gist.github.com/1242067.js?file=gistfile1.txt'></script>
+<noscript><pre><code>$ git stash apply --index
+# On branch master
+# Changes to be committed:
+#   (use &quot;git reset HEAD &lt;file&gt;...&quot; to unstage)
+#
+#      modified:   index.html
+#
+# Changed but not updated:
+#   (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)
+#
+#      modified:   lib/simplegit.py
+#</code></pre></noscript></div>
+</p>
+
+<p>You can also have multiple stashes and unapply some subset of them. But that goes beyond that blog post.
+If you want to learn more just read the wonderful <a href="http://progit.org/book/ch6-3.html">ProGit Book</a> by <a href="http://scottchacon.com/">Scott Chacon</a>.</p>
+]]></content>
+  </entry>
+  
+</feed>

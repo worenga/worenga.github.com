@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: PageRank | Benedikt Wolters]]></title>
+  <link href="http://mightyuhu.github.com/blog/categories/pagerank/atom.xml" rel="self"/>
+  <link href="http://mightyuhu.github.com/"/>
+  <updated>2013-05-20T16:23:05+02:00</updated>
+  <id>http://mightyuhu.github.com/</id>
+  <author>
+    <name><![CDATA[Benedikt Wolters]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Pagerank Algorithmn Studies]]></title>
+    <link href="http://mightyuhu.github.com/blog/2012/03/25/pagerank-algorithmn-studies/"/>
+    <updated>2012-03-25T07:12:25+02:00</updated>
+    <id>http://mightyuhu.github.com/blog/2012/03/25/pagerank-algorithmn-studies</id>
+    <content type="html"><![CDATA[<p>Hier sind meine <a href="/images/blog/wolters.pdf">Ausarbeitung</a> und die <a href="/images/blog/wolters2.pdf">Folien</a> zu meinem Proseminar "Algorithms and Data Structures" beim <a href="http://www-i2.informatik.rwth-aachen.de/i2/algds11/">i2 RWTH-Aachen</a>.</p>
+]]></content>
+  </entry>
+  
+</feed>
