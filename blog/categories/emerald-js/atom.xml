@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: ember.js | Benedikt Wolters]]></title>
-  <link href="http://mightyuhu.github.com/blog/categories/ember-dot-js/atom.xml" rel="self"/>
+  <title><![CDATA[Category: emerald-js, | Benedikt Wolters]]></title>
+  <link href="http://mightyuhu.github.com/blog/categories/emerald-js/atom.xml" rel="self"/>
   <link href="http://mightyuhu.github.com/"/>
-  <updated>2013-05-20T16:50:15+02:00</updated>
+  <updated>2013-05-20T16:54:27+02:00</updated>
   <id>http://mightyuhu.github.com/</id>
   <author>
     <name><![CDATA[Benedikt Wolters]]></name>
@@ -19,7 +19,12 @@
     <updated>2013-05-18T23:51:00+02:00</updated>
     <id>http://mightyuhu.github.com/blog/2013/05/18/ember.js-br</id>
     <content type="html"><![CDATA[<p>It took me a bit of time to wrap my head around this syntax so I thought I share this little code.
-{% gist 5605903 demo.emerald %}</p>
+<div><script src='https://gist.github.com/5605903.js?file=demo.emerald'></script>
+<noscript><pre><code>h1
+  | Howdy,
+  br
+  | I'm Benedikt Wolters!</code></pre></noscript></div>
+</p>
 ]]></content>
   </entry>
   
