@@ -6,11 +6,11 @@
 	<script data-cfasync="false" type="text/javascript" src="//use.typekit.net/axj3cfp.js"></script>
 	<script data-cfasync="false" type="text/javascript">try{Typekit.load();}catch(e){}</script>
 	<meta charset="utf-8">
-	<title>Symfony - initialize Session from request parameter  | Benedikt Wolters</title>
+	<title>Category: emeraldjs,  | Benedikt Wolters</title>
 
 <meta name="author" content="Benedikt Wolters"> 
 
-<meta name="description" content="Motivation Working with HTML5 Audio Components, i realized Internet Explorer 9, Google Chrome and Mobile Safari, do not send Domain Cookies when &hellip;"> <meta name="keywords" content="">
+<meta name="description" content="Category: emeraldjs,"> <meta name="keywords" content="">
 
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -93,89 +93,29 @@ $(document).ready(
 
 </header>
 
-	<div id="content" class="inner"><article class="post">
-	<h2 class="title">Symfony - Initialize Session From Request Parameter</h2>
-	<div class="entry-content"><h2>Motivation</h2>
-
-<p>Working with HTML5 Audio Components, i realized Internet Explorer 9, Google Chrome and Mobile Safari, do not send Domain Cookies when requesting a playable File, which required the necessity to import the sessionid before initalize session management.</p>
-
-<h2>Solution</h2>
-
-<p>I created my own SessionStorage class and adjusted the corresponding routes to have an <kbd>session_id</kbd> parameter.</p>
-
-<div><script src='https://gist.github.com/1087434.js?file=mySession.class.php'></script>
-<noscript><pre><code>&lt;?php
-
-class MySessionStorage extends sfSessionStorage
-{
-  public function initialize($options = null)
-  {
-    if(sfContext::getInstance()-&gt;getRequest()-&gt;getParameter('sessionid')) {
-      session_id(sfContext::getInstance()-&gt;getRequest()-&gt;getParameter('sessionid'));
-    }
-    parent::initialize($options);
-  }
-}</code></pre></noscript></div>
-
-
-
-
-<div><script src='https://gist.github.com/1087434.js?file=factories.yml'></script>
-<noscript><pre><code>  storage:
-    class: MySessionStorage
-    param:
-      session_path: my_session</code></pre></noscript></div>
-
-
-<p>Whereas <code>sessionid</code> is the routing parameter.</p>
-</div>
-
-
-<div class="meta">
-	<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-07-17T14:26:52+02:00" pubdate data-updated="true">Jul 17<span>th</span>, 2011</time></div>
-	<div class="tags">
-
-
-	<a class='category' href='/blog/categories/php/'>php</a>, <a class='category' href='/blog/categories/symfony/'>symfony</a>
-
-
-</div>
+	<div id="content" class="inner">
 	
-</div></article>
 
-	<div class="share">
-	<div class="addthis_toolbox addthis_default_style ">
-	
-	<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+
 	
 	
-	<a class="addthis_button_tweet"></a>
-	
-	
-<!---	<a class="addthis_counter addthis_pill_style"></a> --->
+	<section class="archives"><h1 class="year">2013</h1>
+
+<article>
+	<h2 class="title"><a href="/blog/2013/05/18/ember.js-br/">Emerald.js - use a br-Tag</a></h2>
+	<div class="meta">
+		<span class="date">May 18</span>
+		<span class="tags">
+
+
+	<a class='category' href='/blog/categories/ember-dot-js/'>ember.js</a>, <a class='category' href='/blog/categories/emeraldjs/'>emeraldjs,</a>
+
+
+</span>
+	    
 	</div>
-  <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid="></script>
-</div>
+</article>
 
-
-
-<section id="comment">
-    <h2 class="title">Comments</h2>
-    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-</div>
-</section>
 </div>
 	<footer id="footer" class="inner">Copyright &copy; 2013
 
@@ -197,10 +137,7 @@ Powered by Octopress.
       var disqus_shortname = 'benediktwolters';
       
         
-        // var disqus_developer = 1;
-        var disqus_identifier = 'http://mightyuhu.github.com/blog/2011/07/17/quick-tip-symfony-initialize-session-from-request-parameter/';
-        var disqus_url = 'http://mightyuhu.github.com/blog/2011/07/17/quick-tip-symfony-initialize-session-from-request-parameter/';
-        var disqus_script = 'embed.js';
+        var disqus_script = 'count.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

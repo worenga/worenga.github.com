@@ -4,7 +4,7 @@
   <title><![CDATA[Category: symfony | Benedikt Wolters]]></title>
   <link href="http://mightyuhu.github.com/blog/categories/symfony/atom.xml" rel="self"/>
   <link href="http://mightyuhu.github.com/"/>
-  <updated>2013-05-20T16:23:05+02:00</updated>
+  <updated>2013-05-20T16:50:15+02:00</updated>
   <id>http://mightyuhu.github.com/</id>
   <author>
     <name><![CDATA[Benedikt Wolters]]></name>
@@ -26,27 +26,9 @@
 
 <p>I created my own SessionStorage class and adjusted the corresponding routes to have an <kbd>session_id</kbd> parameter.</p>
 
-<p><div><script src='https://gist.github.com/1087434.js?file=mySession.class.php'></script>
-<noscript><pre><code>&lt;?php
+<p>{% gist 1087434 mySession.class.php%}</p>
 
-class MySessionStorage extends sfSessionStorage
-{
-  public function initialize($options = null)
-  {
-    if(sfContext::getInstance()-&gt;getRequest()-&gt;getParameter('sessionid')) {
-      session_id(sfContext::getInstance()-&gt;getRequest()-&gt;getParameter('sessionid'));
-    }
-    parent::initialize($options);
-  }
-}</code></pre></noscript></div>
-</p>
-
-<p><div><script src='https://gist.github.com/1087434.js?file=factories.yml'></script>
-<noscript><pre><code>  storage:
-    class: MySessionStorage
-    param:
-      session_path: my_session</code></pre></noscript></div>
-</p>
+<p>{% gist 1087434 factories.yml%}</p>
 
 <p>Whereas <code>sessionid</code> is the routing parameter.</p>
 ]]></content>
