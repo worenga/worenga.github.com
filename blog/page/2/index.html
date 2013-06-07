@@ -6,11 +6,12 @@
 	<script data-cfasync="false" type="text/javascript" src="//use.typekit.net/axj3cfp.js"></script>
 	<script data-cfasync="false" type="text/javascript">try{Typekit.load();}catch(e){}</script>
 	<meta charset="utf-8">
-	<title>move your mind to yet another abstraction layer  | Benedikt Wolters</title>
+	<title>moving your mind to a higher abstraction layer  | Benedikt Wolters</title>
 
 <meta name="author" content="Benedikt Wolters"> 
 
-<meta name="description" content="Hier sind meine Ausarbeitung und die Folien zu meinem Proseminar &#8220;Algorithms and Data Structures&#8221; beim i2 RWTH-Aachen. Mar 25th, 2012 &hellip;"> <meta name="keywords" content="">
+<meta name="description" content="Another Doctrine2 Post. This time we&#8217;re taking a look on Event Listeners/Subscribers.
+Event Listeners are a real powerful thing in Doctrine2. &hellip;"> <meta name="keywords" content="">
 
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -62,7 +63,7 @@ $(document).ready(
 
 <body>
 	<header id="header" class="inner"><h1><a href="/">Benedikt Wolters</a></h1>
-<h4>move your mind to yet another abstraction layer</h4>
+<h4>moving your mind to a higher abstraction layer</h4>
 <nav id="main-nav"><ul>
 	<li><a href="/">Blog</a></li>
 	<li><a href="http://www.benedikt-wolters.de">About</a></li>
@@ -94,6 +95,155 @@ $(document).ready(
 </header>
 
 	<div id="content" class="inner">
+
+
+    <article class="post">
+	<h2 class="title">
+		
+		<a href="/blog/2012/03/27/doctrine2-event-listener-persisting-a-new-entity-in-onflush/">
+		
+			Doctrine2 Event Listener: Persisting in onFlush()</a>
+	</h2>
+	<div class="entry-content">
+		<p>Another Doctrine2 Post. This time we&#8217;re taking a look on Event Listeners/Subscribers.
+Event Listeners are a real powerful thing in Doctrine2. Besides <code>LifeCycleCallback</code>s they can be used if you&#8217;ll want to scan through your Entity i.e. for specialized standard field. Also implementing a global Versionable behaviour (since that is no longer a native Doctrine behaviour) ist very easy to do inside Event Listeners.</p>
+
+<p>My motivation for this quick blog post is just to give people a gist how to use EventListeners because the documentation is -again- a pain in the ass.
+Im just using <code>onFlush()</code> here, since <code>preUpdate()</code> is somehow not called by <code>SonataDoctrineORMAdminBundle</code> which i&#8217;m using to mainly manage my Entities.</p>
+
+<p>Lets start by creating a EventListener in <code>My/Bundle/Listener/MyEventListener.php</code></p>
+
+<div><script src='https://gist.github.com/2215056.js?file=MyEventListener.php'></script>
+<noscript><pre><code>&lt;?php
+
+namespace My\Bundle\Listener;
+
+use Doctrine\Common\EventSubscriber;
+use Doctrine\ORM\Events;
+use Doctrine\ORM\Event\OnFlushEventArgs;
+use Doctrine\ORM\Mapping\ClassMetadata;
+
+use My\Bundle\Entity\Event;
+
+class MyEventListener {
+    private $em = null;
+    private $uow = null;
+    private $attachedEvents;
+    
+    public function onFlush(OnFlushEventArgs $args) {
+
+        $this -&gt; em = $args -&gt; getEntityManager();
+        $eventManager = $this -&gt; em -&gt; getEventManager();
+
+        // Remove event, if we call $this-&gt;em-&gt;flush() now there is no infinite recursion loop!
+        $eventManager -&gt; removeEventListener('onFlush', $this);
+
+        $this -&gt; uow = $this -&gt; em -&gt; getUnitOfWork();
+
+        //Iterate through Insertions:
+        foreach ($this-&gt;uow-&gt;getScheduledEntityInsertions() as $entity) {
+
+            //Get the plain ClassName without Namespace
+            $className = join('', array_slice(explode('\\', get_class($entity)), -1));
+            $meta = $this -&gt; em -&gt; getClassMetadata(get_class($entity));
+
+            $value = $meta -&gt; getReflectionProperty('myEntityFieldName') -&gt; getValue($entity);
+            
+            //... create your Entity...
+            $newEvent = new Event;
+            $newEvent-&gt;setName('...');
+            //...
+            
+            $this -&gt; em -&gt; persist($newEvent);
+            $this -&gt; em -&gt; flush();
+            
+            }
+
+            // recalculate changeset, since we might messed up the relations
+            $this -&gt; em -&gt; getUnitOfWork() -&gt; recomputeSingleEntityChangeSet($meta, $entity);
+        }
+
+
+        //We can also iterate through planned deletions
+        foreach ($this-&gt;uow-&gt;getScheduledEntityDeletions() AS $entity) {
+            $className = join('', array_slice(explode('\\', get_class($entity)), -1));
+            
+            //Search for old dependencies and delete them too...
+            
+            $events = $this -&gt; em -&gt; getRepository('MyBundle:Event') -&gt; findBy('myProperty'=&gt;'value');
+                    foreach ($events as $entity) {
+                        $this -&gt; em -&gt; remove($entity);
+                    }
+                }
+            }
+            $this -&gt; em -&gt; flush();
+        }
+
+        //Or even react on updates:
+        foreach ($this-&gt;uow-&gt;getScheduledEntityUpdates() as $key =&gt; $entity) {
+            $className = join('', array_slice(explode('\\', get_class($entity)), -1));
+            $meta = $this -&gt; em -&gt; getClassMetadata(get_class($className));
+            //ChangeSet is an array of key - array pairs.
+            //$changeSet['fieldname'] =&gt; array(0 =&gt; 'oldValue', 1 =&gt; 'newValue')
+            //if the target Value is i.e. a date, the indices 0 and 1 are i.e. DateTime Objects
+            $changeSet = $this -&gt; uow -&gt; getEntityChangeSet($entity);
+
+            //You can modify your Entities based on the Changes here..
+            //After Persisting: 
+            
+            $this-&gt;uow-&gt;computeChangeSet($meta, $entity)
+            }
+        }
+        
+        //Re-attach since we're done
+        $eventManager -&gt; addEventListener('onFlush', $this);
+    }
+
+}
+</code></pre></noscript></div>
+
+
+<p>Now all that is left to do is to attach the Event Listener to DI. If you&#8217;re using Symfony2 you&#8217;ll just need to update your <code>app/config/config.yml</code></p>
+
+<div><script src='https://gist.github.com/2215056.js?file=config.yml'></script>
+<noscript><pre><code>services:
+   MyEventListener:
+      class: My\Bundle\Listener\MyEventListener 
+      tags:
+        - { name: doctrine.event_listener, event: onFlush, method: onFlush }
+</code></pre></noscript></div>
+
+
+<p>For further information feel free to take a look at the beautiful <a href="http://docs.doctrine-project.org/projects/doctrine-orm/en/2.0.x/reference/events.html#implementing-event-listeners">Doctrine2 Documentation</a>, which I obviously love so much.</p>
+
+		
+		
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-03-27T15:34:33+02:00" pubdate data-updated="true">Mar 27<span>th</span>, 2012</time></div>
+	<div class="tags">
+
+
+	<a class='category' href='/blog/categories/symfony/'>Symfony</a>, <a class='category' href='/blog/categories/doctrine2/'>doctrine2</a>, <a class='category' href='/blog/categories/php/'>php</a>, <a class='category' href='/blog/categories/symfony2/'>symfony2</a>
+
+
+</div>
+	
+</div></article>
 
 
     <article class="post">
@@ -227,78 +377,6 @@ Note that One-To-Many is coded throughout Many-To-Many but the unique index is s
 
 
 	<a class='category' href='/blog/categories/development/'>development</a>, <a class='category' href='/blog/categories/git/'>git</a>, <a class='category' href='/blog/categories/workflow/'>workflow</a>
-
-
-</div>
-	
-</div></article>
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2011/07/17/quick-tip-symfony-initialize-session-from-request-parameter/">
-		
-			Symfony - Initialize Session From Request Parameter</a>
-	</h2>
-	<div class="entry-content">
-		<h2>Motivation</h2>
-
-<p>Working with HTML5 Audio Components, i realized Internet Explorer 9, Google Chrome and Mobile Safari, do not send Domain Cookies when requesting a playable File, which required the necessity to import the sessionid before initalize session management.</p>
-
-<h2>Solution</h2>
-
-<p>I created my own SessionStorage class and adjusted the corresponding routes to have an <kbd>session_id</kbd> parameter.</p>
-
-<div><script src='https://gist.github.com/1087434.js?file=mySession.class.php'></script>
-<noscript><pre><code>&lt;?php
-
-class MySessionStorage extends sfSessionStorage
-{
-  public function initialize($options = null)
-  {
-    if(sfContext::getInstance()-&gt;getRequest()-&gt;getParameter('sessionid')) {
-      session_id(sfContext::getInstance()-&gt;getRequest()-&gt;getParameter('sessionid'));
-    }
-    parent::initialize($options);
-  }
-}</code></pre></noscript></div>
-
-
-
-
-<div><script src='https://gist.github.com/1087434.js?file=factories.yml'></script>
-<noscript><pre><code>  storage:
-    class: MySessionStorage
-    param:
-      session_path: my_session</code></pre></noscript></div>
-
-
-<p>Whereas <code>sessionid</code> is the routing parameter.</p>
-
-		
-		
-	</div>
-
-
-<div class="meta">
-	<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-07-17T14:26:52+02:00" pubdate data-updated="true">Jul 17<span>th</span>, 2011</time></div>
-	<div class="tags">
-
-
-	<a class='category' href='/blog/categories/php/'>php</a>, <a class='category' href='/blog/categories/symfony/'>symfony</a>
 
 
 </div>

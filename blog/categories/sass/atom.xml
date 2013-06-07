@@ -4,7 +4,7 @@
   <title><![CDATA[Category: SASS | Benedikt Wolters]]></title>
   <link href="http://mightyuhu.github.com/blog/categories/sass/atom.xml" rel="self"/>
   <link href="http://mightyuhu.github.com/"/>
-  <updated>2013-05-20T19:57:34+02:00</updated>
+  <updated>2013-06-07T21:02:59+02:00</updated>
   <id>http://mightyuhu.github.com/</id>
   <author>
     <name><![CDATA[Benedikt Wolters]]></name>
@@ -171,7 +171,7 @@ body
 
 <h2>Compiling in STYLUS</h2>
 
-<p>Stylus uses <a href="http://en.wikipedia.org/wiki/Nodejs">Node.js</a></a>. You can install it over the Node.js packet manager:</p>
+<p>Stylus uses <a href="http://en.wikipedia.org/wiki/Nodejs">Node.js</a>. You can install it over the Node.js packet manager:</p>
 
 <p><div><script src='https://gist.github.com/911385.js?file=gistfile8.txt'></script>
 <noscript><pre><code>$ npm install stylus</code></pre></noscript></div>

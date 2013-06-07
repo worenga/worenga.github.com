@@ -6,11 +6,11 @@
 	<script data-cfasync="false" type="text/javascript" src="//use.typekit.net/axj3cfp.js"></script>
 	<script data-cfasync="false" type="text/javascript">try{Typekit.load();}catch(e){}</script>
 	<meta charset="utf-8">
-	<title>move your mind to yet another abstraction layer  | Benedikt Wolters</title>
+	<title>moving your mind to a higher abstraction layer  | Benedikt Wolters</title>
 
 <meta name="author" content="Benedikt Wolters"> 
 
-<meta name="description" content="I needed a Server-Based mobile switch for my symfony-project. The solutions I found all used a workaround with setting the sf_format parameter to a &hellip;"> <meta name="keywords" content="">
+<meta name="description" content="Motivation Working with HTML5 Audio Components, i realized Internet Explorer 9, Google Chrome and Mobile Safari, do not send Domain Cookies when &hellip;"> <meta name="keywords" content="">
 
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -62,7 +62,7 @@ $(document).ready(
 
 <body>
 	<header id="header" class="inner"><h1><a href="/">Benedikt Wolters</a></h1>
-<h4>move your mind to yet another abstraction layer</h4>
+<h4>moving your mind to a higher abstraction layer</h4>
 <nav id="main-nav"><ul>
 	<li><a href="/">Blog</a></li>
 	<li><a href="http://www.benedikt-wolters.de">About</a></li>
@@ -94,6 +94,78 @@ $(document).ready(
 </header>
 
 	<div id="content" class="inner">
+
+
+    <article class="post">
+	<h2 class="title">
+		
+		<a href="/blog/2011/07/17/quick-tip-symfony-initialize-session-from-request-parameter/">
+		
+			Symfony - Initialize Session From Request Parameter</a>
+	</h2>
+	<div class="entry-content">
+		<h2>Motivation</h2>
+
+<p>Working with HTML5 Audio Components, i realized Internet Explorer 9, Google Chrome and Mobile Safari, do not send Domain Cookies when requesting a playable File, which required the necessity to import the sessionid before initalize session management.</p>
+
+<h2>Solution</h2>
+
+<p>I created my own SessionStorage class and adjusted the corresponding routes to have an <kbd>session_id</kbd> parameter.</p>
+
+<div><script src='https://gist.github.com/1087434.js?file=mySession.class.php'></script>
+<noscript><pre><code>&lt;?php
+
+class MySessionStorage extends sfSessionStorage
+{
+  public function initialize($options = null)
+  {
+    if(sfContext::getInstance()-&gt;getRequest()-&gt;getParameter('sessionid')) {
+      session_id(sfContext::getInstance()-&gt;getRequest()-&gt;getParameter('sessionid'));
+    }
+    parent::initialize($options);
+  }
+}</code></pre></noscript></div>
+
+
+
+
+<div><script src='https://gist.github.com/1087434.js?file=factories.yml'></script>
+<noscript><pre><code>  storage:
+    class: MySessionStorage
+    param:
+      session_path: my_session</code></pre></noscript></div>
+
+
+<p>Whereas <code>sessionid</code> is the routing parameter.</p>
+
+		
+		
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-07-17T14:26:52+02:00" pubdate data-updated="true">Jul 17<span>th</span>, 2011</time></div>
+	<div class="tags">
+
+
+	<a class='category' href='/blog/categories/php/'>php</a>, <a class='category' href='/blog/categories/symfony/'>symfony</a>
+
+
+</div>
+	
+</div></article>
 
 
     <article class="post">
@@ -234,49 +306,6 @@ the editor prints out <code>A</code>, <code>B</code>, <code>C</code>, <code>D</c
 
 
 	<a class='category' href='/blog/categories/kitten/'>kitten</a>, <a class='category' href='/blog/categories/placeholder/'>placeholder</a>, <a class='category' href='/blog/categories/webdesign/'>webdesign</a>
-
-
-</div>
-	
-</div></article>
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2011/04/09/introduction-to-css-pre-processors/">
-		
-			Introduction to CSS Preprocessors</a>
-	</h2>
-	<div class="entry-content">
-		<h2>The countless problems of pure css</h2>
-
-<p>The one thing while creating .css-Files, which really bothers me is that there is no variability at all. Let&#8217;s say you want to change a color value that you have applied to like 20 Style-sets in your css, you&#8217;ll need to replace them all by hand. Maybe there are colors slightly different to the color you want to change (i.e. a hover-color) you&#8217;ll need to search them all and change them. A painstaking strain.</p><p>Sometimes you&#8217;ll need to calculate values (e.g. with-values) from another value. CSS has no solution for this, but calculating it by yourself looking for the values you need (There is no DOM in css).</p> <p>Also in CSS there is that nice &#8220;approach&#8221; to have some sort of object-oriented style language. Well css has of course inheritance, but wouldn&#8217;t it be nice to have a more dynamic structure that allows variables, conditionals and own-functions.</p>
-
-
-		
-		<a href="/blog/2011/04/09/introduction-to-css-pre-processors/" class="more-link">Read on &rarr;</a>
-	</div>
-
-
-<div class="meta">
-	<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-04-09T23:29:54+02:00" pubdate data-updated="true">Apr 9<span>th</span>, 2011</time></div>
-	<div class="tags">
-
-
-	<a class='category' href='/blog/categories/less/'>LESS</a>, <a class='category' href='/blog/categories/sass/'>SASS</a>, <a class='category' href='/blog/categories/scss/'>SCSS</a>, <a class='category' href='/blog/categories/css/'>css</a>, <a class='category' href='/blog/categories/css-preprocessors/'>css-preprocessors</a>, <a class='category' href='/blog/categories/stylus/'>stylus</a>
 
 
 </div>
