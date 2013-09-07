@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Canon | Benedikt Wolters]]></title>
   <link href="http://mightyuhu.github.com/blog/categories/canon/atom.xml" rel="self"/>
   <link href="http://mightyuhu.github.com/"/>
-  <updated>2013-06-16T23:59:47+02:00</updated>
+  <updated>2013-09-07T16:37:39+02:00</updated>
   <id>http://mightyuhu.github.com/</id>
   <author>
     <name><![CDATA[Benedikt Wolters]]></name>
@@ -18,28 +18,28 @@
     <link href="http://mightyuhu.github.com/blog/2013/06/07/using-an-android-device-as-a-external-monitor-for-your-canon-dslr/"/>
     <updated>2013-06-07T18:42:00+02:00</updated>
     <id>http://mightyuhu.github.com/blog/2013/06/07/using-an-android-device-as-a-external-monitor-for-your-canon-dslr</id>
-    <content type="html"><![CDATA[<p>Today finally the Parts from China arrived which I've ordered a couple of weeks ago.
-Baiscally, in order for shooting videos once in a while with my <a href="http://de.wikipedia.org/wiki/Canon_EOS_7D">Canon 7D</a> I wanted to have an external monitor,
+    <content type="html"><![CDATA[<p>Today finally the parts from China arrived which I've ordered a couple of weeks ago.
+Baiscally, in order for shooting videos once in a while with my <a href="http://de.wikipedia.org/wiki/Canon_EOS_7D">Canon 7D</a>, I wanted to have some kind of external monitor,
 for a more precise control over focus while shooting.
-However, professional battery-operated video monitors that can can be connected through the HDMI-out are somewhat expensive.
+However, professional battery-operated video monitors that can can be connected through the HDMI-out, are somewhat expensive.
 Furthermore, they dont give you control functionalities such adjusting focus/shutter-speed/iso/aperture on screen.</p>
 
-<p>So since I'm a proud owner of a <a href="http://www.samsung.com/de/consumer/mobile-device/galaxy-note/galaxy-note/GT-N7100RWDDBT">Samsung Galaxy Note 2</a> which has a nice 5,5" 1.280x720 HD Super AMOLED Screen I was looking for Anroid Apps to Remotely Control a DSLR by USB.
-The by far best App, I've stumbled upon is <a href="http://dslrcontroller.com/">DSRL Controller</a>, which is still in Beta but has a huge amount of functionality.</p>
+<p>So, since I'm a proud owner of a <a href="http://www.samsung.com/de/consumer/mobile-device/galaxy-note/galaxy-note/GT-N7100RWDDBT">Samsung Galaxy Note 2</a> which has a nice 5,5" 1.280x720 HD Super AMOLED Screen, I was looking for Anroid Apps to remotely control a DSLR by USB.
+The by far best app, I've stumbled upon was <a href="http://dslrcontroller.com/">DSRL Controller</a>, which is still in beta, but has a huge amount of functionality.</p>
 
-<p>DSLR Controller allows you to virtually shift every setting to your Android Device. Furthermore, there is also a Wi-Fi Passthrough that allows you to delegate all functionality to another android device connected by wireless Lan.
-There is also support for Timelapses, HDR and whatnot.
-Beneath DSLR Controller there are other Apps available, which I find not that far evolved.
+<p>DSLR Controller allows you to virtually shift almost every setting to your Android device. Furthermore, there is also a Wi-Fi Passthrough that allows you to delegate all functionality to another android device connected by Wi-Fi.
+There is also support for timelapses, HDR and whatnot.
+Beneath DSLR Controller there are other apps available, which I find not that far evolved.
 <figure class="flickr-thumbnail center" style="display: inline-block;"><a href="http://farm8.staticflickr.com/7387/8979482843_94c49cdcf2_b.jpg" class="fancybox" data-title-id="flickr-photo-8979482843" data-media="photo"><img src="http://farm8.staticflickr.com/7387/8979482843_94c49cdcf2_z.jpg" title="IMG_8997.jpg" style=""/></a><figcaption id="flickr-photo-8979482843"><h1><a class="flickr-link" href="http://www.flickr.com/photos/58117759@N04/8979482843">IMG_8997.jpg</a> by mightyuhu</h1><div class="description"></div></figcaption></figure></p>
 
-<p>For Hardware I'm using a cold-shoe to ball head Adapter, which can be aquired from ebay for around 7 EUR.
+<p>For hardware I'm using a cold-shoe to ball head adapter, which can be aquired from ebay for around 7 EUR.
 <figure class="flickr-thumbnail center" style="width: 364px;"><a href="http://farm9.staticflickr.com/8533/8979718254_489e60cc75_o.png" class="fancybox" data-title-id="flickr-photo-8979718254" data-media="photo"><img src="http://farm9.staticflickr.com/8533/8979718254_489e60cc75_o.png" title="2013-06-07_184742" style="width: 364px; height: 427px;"/></a><figcaption id="flickr-photo-8979718254"><h1><a class="flickr-link" href="http://www.flickr.com/photos/58117759@N04/8979718254">2013-06-07_184742</a> by mightyuhu</h1><div class="description"></div></figcaption></figure></p>
 
-<p>To mount my Note 2 I've dismounted a minin tripod, which also can be found on ebay from China.
+<p>To mount my Note 2 I've dismounted a mini tripod, which also can be found on ebay from China.
 <figure class="flickr-thumbnail center" style="display: inline-block;"><a href="http://farm8.staticflickr.com/7296/8979756000_8c635d06c3_b.jpg" class="fancybox" data-title-id="flickr-photo-8979756000" data-media="photo"><img src="http://farm8.staticflickr.com/7296/8979756000_8c635d06c3_z.jpg" title="IMG_8984.jpg" style=""/></a><figcaption id="flickr-photo-8979756000"><h1><a class="flickr-link" href="http://www.flickr.com/photos/58117759@N04/8979756000">IMG_8984.jpg</a> by mightyuhu</h1><div class="description"></div></figcaption></figure></p>
 
-<p>For connecting your DSLR to your Samsung Note 2, one needs a USB On-The-Go Cable, which is basically a micro USB  Cable which the 4th and 5th Pin shorted and connected to ground, there are a lot of videos on youtube on how to build a OTG cable. Alternatively, one can aquire a small USB-Cable for 1-3 EUR, what I did.
-Furthermore, one need a USB-To Mini-USB Cable to connect the OTG Cable to your Camera.</p>
+<p>For connecting your DSLR to your Samsung Note 2, one needs a USB On-The-Go Cable, which is basically a micro USB  cable which the 4th and 5th Pin shorted and connected to ground, there are a lot of videos on youtube on how to build a OTG cable. Alternatively, one can aquire a small USB-Cable for 1-3 EUR, what I did.
+Furthermore, one need a USB-To Mini-USB cable to connect the OTG Cable to your camera.</p>
 
 <p><figure class="flickr-thumbnail center" style="display: inline-block;"><a href="http://farm4.staticflickr.com/3716/8978564619_7f3a7bed53_b.jpg" class="fancybox" data-title-id="flickr-photo-8978564619" data-media="photo"><img src="http://farm4.staticflickr.com/3716/8978564619_7f3a7bed53_z.jpg" title="IMG_8986.jpg" style=""/></a><figcaption id="flickr-photo-8978564619"><h1><a class="flickr-link" href="http://www.flickr.com/photos/58117759@N04/8978564619">IMG_8986.jpg</a> by mightyuhu</h1><div class="description"></div></figcaption></figure></p>
 

@@ -1,0 +1,314 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta name="google-site-verification" content="f1OtvP7JCHm6M9Ca7vMcFg3q-1NEOvDMcSKfKlVW_pA" />
+	<script data-cfasync="false" type="text/javascript" src="//use.typekit.net/axj3cfp.js"></script>
+	<script data-cfasync="false" type="text/javascript">try{Typekit.load();}catch(e){}</script>
+	<meta charset="utf-8">
+	<title>Lubuntu 13.04 and Samsung Series 7 Chronos Keyboard Backlight  | Benedikt Wolters</title>
+
+<meta name="author" content="Benedikt Wolters"> 
+
+<meta name="description" content="Samsung Series 7 Chronos Lubuntu + backlight by mightyuhu Yesterday, I installed Lubuntu 13.04 on my Samsung Series 7 Chronos 700Z5A. While the most &hellip;"> <meta name="keywords" content="">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<link href="/atom.xml" rel="alternate" title="Benedikt Wolters" type="application/atom+xml">
+	<link rel="canonical" href="">
+	<link href="/favicon.png" rel="shortcut icon">
+	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css" media="screen" />
+<script type="text/javascript" src="/fancybox/jquery.fancybox.pack.js"></script>
+
+<script language="Javascript" type="text/javascript">
+$(document).ready(
+  function() {
+    (function($) {
+      $(".fancybox[data-content-id]").each(function() {
+        this.href = $(this).data('content-id');
+      });
+      $(".fancybox").fancybox({
+        beforeLoad: function() {
+          var el, 
+              id = $(this.element).data('title-id');
+
+          if (id) {
+            el = $('#' + id);
+
+            if (el.length) {
+              this.title = el.html();
+            }
+          }
+          if ($(this).data('content')) {
+            this.content = $(this).data('content');
+          }
+        },
+        helpers: {
+          title: {
+            type: 'inside'
+          }
+        }
+      });
+    })(jQuery);
+  }
+);
+</script>
+	
+</head>
+
+
+<body>
+	<header id="header" class="inner"><h1><a href="/">Benedikt Wolters</a></h1>
+<h4>moving your mind to a higher abstraction layer</h4>
+<nav id="main-nav"><ul>
+	<li><a href="/">Blog</a></li>
+	<li><a href="http://www.benedikt-wolters.de">About</a></li>
+	<li><a href="/archives">Archive</a></li>
+</ul>
+</nav>
+<nav id="mobile-nav">
+	<div class="alignleft menu">
+		<a class="button">Menu</a>
+		<div class="container"><ul>
+	<li><a href="/">Blog</a></li>
+	<li><a href="http://www.benedikt-wolters.de">About</a></li>
+	<li><a href="/archives">Archive</a></li>
+</ul>
+</div>
+	</div>
+	<div class="alignright search">
+		<a class="button"></a>
+		<div class="container">
+			<form action="http://google.com/search" method="get">
+				<input type="text" name="q" results="0">
+				<input type="hidden" name="q" value="site:mightyuhu.github.com">
+			</form>
+		</div>
+	</div>
+</nav>
+
+
+</header>
+
+	<div id="content" class="inner"><article class="post">
+	<h2 class="title">Lubuntu 13.04 and Samsung Series 7 Chronos Keyboard Backlight</h2>
+	<div class="entry-content"><p><figure class="flickr-thumbnail center" style="display: inline-block;"><a href="http://farm8.staticflickr.com/7327/9682918058_b9a35b107a_o.jpg" class="fancybox" data-title-id="flickr-photo-9682918058" data-media="photo"><img src="http://farm8.staticflickr.com/7327/9682918058_5b8b1e08e4_z.jpg" title="Samsung Series 7 Chronos Lubuntu + backlight" style=""/></a><figcaption id="flickr-photo-9682918058"><h1><a class="flickr-link" href="http://www.flickr.com/photos/58117759@N04/9682918058">Samsung Series 7 Chronos Lubuntu + backlight</a> by mightyuhu</h1><div class="description"></div></figcaption></figure></p>
+
+<p>Yesterday, I installed Lubuntu 13.04 on my Samsung Series 7 Chronos 700Z5A. While the most things worked pretty right out of the box. It took me a while to figure out why the adjustable keyboard backlight FN-Keys were not working. While there are plenty resources available for the Series 9 but no one in particular for Lubuntu and openboxi/i3 i&#8217;ve decided to share the knowledgde with the public and not only with google and the NSA.</p>
+
+<p>The first think i&#8217;ve noticed that the standard installation has already loaded the <code>samsung_labtob</code> kernel module.
+You may check that by running</p>
+
+<div><script src='https://gist.github.com/ea52ff46bc5cf9b940f4.js?file=check-mod.sh'></script>
+<noscript><pre><code>lsmod | grep samsung</code></pre></noscript></div>
+
+
+<p>You also can test if the module works by setting a value between 1 and 8 to the backlight driver:</p>
+
+<div><script src='https://gist.github.com/ea52ff46bc5cf9b940f4.js?file=echo-brightness'></script>
+<noscript><pre><code>echo 5 &gt; /sys/class/leds/samsung\:\:kbd_backlight/brightness</code></pre></noscript></div>
+
+
+<p>Unfortunately the udev mappings were not defined so i had to manually add the following lines to my <code>/lib/udev/keymaps/samsung-other</code></p>
+
+<div><script src='https://gist.github.com/ea52ff46bc5cf9b940f4.js?file=samsung-other'></script>
+<noscript><pre><code>0x96 kbdillumup # keyboard backlit up
+0x97 kbdillumdown # keyboard backlit down
+</code></pre></noscript></div>
+
+
+<p>and also add the following to the <code>/lib/udev/keymaps/force-release/samsung-other</code></p>
+
+<div><script src='https://gist.github.com/ea52ff46bc5cf9b940f4.js?file=force-release-samsung-other'></script>
+<noscript><pre><code>0x96 # keyboard backlit up
+0x97 # keyboard backlit down</code></pre></noscript></div>
+
+
+<p>You may have to reload udev by</p>
+
+<div><script src='https://gist.github.com/ea52ff46bc5cf9b940f4.js?file=reload-udev'></script>
+<noscript><pre><code>sudo udevadm trigger </code></pre></noscript></div>
+
+
+<p>and reboot.
+After that you can check whether your mappings work by running</p>
+
+<div><script src='https://gist.github.com/ea52ff46bc5cf9b940f4.js?file=check-mapping'></script>
+<noscript><pre><code>sudo /lib/udev/keymap -i input/event3</code></pre></noscript></div>
+
+
+<p>the <code>kbdillumup</code> and <code>kbdillumdown</code> events should appear.</p>
+
+<p>Now the next thing we need to do is bind those keyboard events to an action. In order to allow a script to change the driver values i&#8217;ve setup a init script in <code>/etc/init.d/brightness.sh</code></p>
+
+<div><script src='https://gist.github.com/ea52ff46bc5cf9b940f4.js?file=etc-init.d-brightness'></script>
+<noscript><pre><code>#!/bin/sh
+# make it possible to change brightness
+
+chmod 0777 /sys/devices/platform/samsung/leds/samsung::kbd_backlight/brightness
+chgrp users /sys/devices/platform/samsung/leds/samsung::kbd_backlight/brightness
+</code></pre></noscript></div>
+
+
+<p>and gave it execution rights.
+Furthermore, i&#8217;ve added the following line to my <code>/etc/rc.local</code> that executes that script</p>
+
+<div><script src='https://gist.github.com/ea52ff46bc5cf9b940f4.js?file=etc-rc.local'></script>
+<noscript><pre><code>sh /etc/init.d/brightness</code></pre></noscript></div>
+
+
+<p>Then, i wrote a tiny shell script in my home directory <code>/home/bewo/Scripts/backlight.sh</code> that allows me to increment or decrement the current backlight value</p>
+
+<div><script src='https://gist.github.com/6444126.js?file=backlight.sh'></script>
+<noscript><pre><code>#!/bin/bash
+light=$(cat /sys/class/leds/samsung\:\:kbd_backlight/brightness);
+max_light=$(cat /sys/class/leds/samsung\:\:kbd_backlight/max_brightness);
+
+if [ &quot;$1&quot; == &quot;inc&quot; ]; then
+  newlight=$((light + 1));
+  if [ $newlight -gt $max_light ]; then
+  newlight=8;
+  fi
+else
+  newlight=$((light - 1));
+  if [ $newlight -lt 0 ]; then
+  newlight=0;
+  fi
+fi
+echo $newlight &gt; /sys/class/leds/samsung\:\:kbd_backlight/brightness
+echo keyboard lightness is now : $newlight;
+</code></pre></noscript></div>
+
+
+<p>In order tu run it without a prefix-path i&#8217;ve created a symbolic link to it</p>
+
+<div><script src='https://gist.github.com/ea52ff46bc5cf9b940f4.js?file=link_script.sh'></script>
+<noscript><pre><code>sudo ln -s /usr/bin/kbbrightness /home/bewo/Scripts/backlight.sh</code></pre></noscript></div>
+
+
+<p>Finally all was left to do is to bind my shell script in OpenBox by adding the following keybinds to my  <code>.config/openbox/lubuntu-rc.xml</code>:</p>
+
+<div><script src='https://gist.github.com/ea52ff46bc5cf9b940f4.js?file=.config-openbox-lubuntu-rc.xml'></script>
+<noscript><pre><code>    &lt;keybind key=&quot;XF86KbdBrightnessUp&quot;&gt;
+      &lt;action name=&quot;Execute&quot;&gt;
+        &lt;command&gt;kbbrightness inc&lt;/command&gt;
+      &lt;/action&gt;
+    &lt;/keybind&gt;
+    &lt;keybind key=&quot;XF86KbdBrightnessDown&quot;&gt;
+      &lt;action name=&quot;Execute&quot;&gt;
+        &lt;command&gt;kbbrightness dec&lt;/command&gt;
+      &lt;/action&gt;
+    &lt;/keybind&gt;
+</code></pre></noscript></div>
+
+
+<p>When you&#8217;re using i3 you can add the following to your <code>.i3/config</code> analogically</p>
+
+<div><script src='https://gist.github.com/ea52ff46bc5cf9b940f4.js?file=.i3-config'></script>
+<noscript><pre><code>bindsym XF86KbdBrightnessUp exec 'kbbrightness inc'
+bindsym XF86KbdBrightnessDown exec 'kbbrightness dec'</code></pre></noscript></div>
+
+
+<p>If that does not work check by running xev if you&#8217;re bindings trigger the proper X11 events.</p>
+</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-09-05T13:28:00+02:00" pubdate data-updated="true">Sep 5<span>th</span>, 2013</time></div>
+	<div class="tags">
+
+
+	<a class='category' href='/blog/categories/linux/'>Linux</a>, <a class='category' href='/blog/categories/ubuntu/'>Ubuntu</a>
+
+
+</div>
+	
+</div></article>
+
+	<div class="share">
+	<div class="addthis_toolbox addthis_default_style ">
+	
+	<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+	
+	
+	<a class="addthis_button_tweet"></a>
+	
+	
+<!---	<a class="addthis_counter addthis_pill_style"></a> --->
+	</div>
+  <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid="></script>
+</div>
+
+
+
+<section id="comment">
+    <h2 class="title">Comments</h2>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+</section>
+</div>
+	<footer id="footer" class="inner">Copyright &copy; 2013
+
+    Benedikt Wolters
+
+<br>
+Powered by Octopress.
+</footer>
+	<script src="/javascripts/slash.js"></script>
+<script src="/javascripts/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+	$('.fancybox').fancybox();
+})(jQuery);
+</script> <!-- Delete or comment this line to disable Fancybox -->
+
+
+<script type="text/javascript">
+      var disqus_shortname = 'benediktwolters';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://mightyuhu.github.com/blog/2013/09/05/lubuntu-13-dot-04-and-samsung-series-7-chronos-keyboard-backlight/';
+        var disqus_url = 'http://mightyuhu.github.com/blog/2013/09/05/lubuntu-13-dot-04-and-samsung-series-7-chronos-keyboard-backlight/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+	<script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-36277153-1']);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
+
+
+
+</body>
+</html>

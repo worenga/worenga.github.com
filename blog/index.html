@@ -10,8 +10,7 @@
 
 <meta name="author" content="Benedikt Wolters"> 
 
-<meta name="description" content="Today finally the Parts from China arrived which I&#8217;ve ordered a couple of weeks ago.
-Baiscally, in order for shooting videos once in a while &hellip;"> <meta name="keywords" content="">
+<meta name="description" content="Samsung Series 7 Chronos Lubuntu + backlight by mightyuhu Yesterday, I installed Lubuntu 13.04 on my Samsung Series 7 Chronos 700Z5A. While the most &hellip;"> <meta name="keywords" content="">
 
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -100,33 +99,190 @@ $(document).ready(
     <article class="post">
 	<h2 class="title">
 		
+		<a href="/blog/2013/09/05/lubuntu-13-dot-04-and-samsung-series-7-chronos-keyboard-backlight/">
+		
+			Lubuntu 13.04 and Samsung Series 7 Chronos Keyboard Backlight</a>
+	</h2>
+	<div class="entry-content">
+		<p><figure class="flickr-thumbnail center" style="display: inline-block;"><a href="http://farm8.staticflickr.com/7327/9682918058_b9a35b107a_o.jpg" class="fancybox" data-title-id="flickr-photo-9682918058" data-media="photo"><img src="http://farm8.staticflickr.com/7327/9682918058_5b8b1e08e4_z.jpg" title="Samsung Series 7 Chronos Lubuntu + backlight" style=""/></a><figcaption id="flickr-photo-9682918058"><h1><a class="flickr-link" href="http://www.flickr.com/photos/58117759@N04/9682918058">Samsung Series 7 Chronos Lubuntu + backlight</a> by mightyuhu</h1><div class="description"></div></figcaption></figure></p>
+
+<p>Yesterday, I installed Lubuntu 13.04 on my Samsung Series 7 Chronos 700Z5A. While the most things worked pretty right out of the box. It took me a while to figure out why the adjustable keyboard backlight FN-Keys were not working. While there are plenty resources available for the Series 9 but no one in particular for Lubuntu and openboxi/i3 i&#8217;ve decided to share the knowledgde with the public and not only with google and the NSA.</p>
+
+<p>The first think i&#8217;ve noticed that the standard installation has already loaded the <code>samsung_labtob</code> kernel module.
+You may check that by running</p>
+
+<div><script src='https://gist.github.com/ea52ff46bc5cf9b940f4.js?file=check-mod.sh'></script>
+<noscript><pre><code>lsmod | grep samsung</code></pre></noscript></div>
+
+
+<p>You also can test if the module works by setting a value between 1 and 8 to the backlight driver:</p>
+
+<div><script src='https://gist.github.com/ea52ff46bc5cf9b940f4.js?file=echo-brightness'></script>
+<noscript><pre><code>echo 5 &gt; /sys/class/leds/samsung\:\:kbd_backlight/brightness</code></pre></noscript></div>
+
+
+<p>Unfortunately the udev mappings were not defined so i had to manually add the following lines to my <code>/lib/udev/keymaps/samsung-other</code></p>
+
+<div><script src='https://gist.github.com/ea52ff46bc5cf9b940f4.js?file=samsung-other'></script>
+<noscript><pre><code>0x96 kbdillumup # keyboard backlit up
+0x97 kbdillumdown # keyboard backlit down
+</code></pre></noscript></div>
+
+
+<p>and also add the following to the <code>/lib/udev/keymaps/force-release/samsung-other</code></p>
+
+<div><script src='https://gist.github.com/ea52ff46bc5cf9b940f4.js?file=force-release-samsung-other'></script>
+<noscript><pre><code>0x96 # keyboard backlit up
+0x97 # keyboard backlit down</code></pre></noscript></div>
+
+
+<p>You may have to reload udev by</p>
+
+<div><script src='https://gist.github.com/ea52ff46bc5cf9b940f4.js?file=reload-udev'></script>
+<noscript><pre><code>sudo udevadm trigger </code></pre></noscript></div>
+
+
+<p>and reboot.
+After that you can check whether your mappings work by running</p>
+
+<div><script src='https://gist.github.com/ea52ff46bc5cf9b940f4.js?file=check-mapping'></script>
+<noscript><pre><code>sudo /lib/udev/keymap -i input/event3</code></pre></noscript></div>
+
+
+<p>the <code>kbdillumup</code> and <code>kbdillumdown</code> events should appear.</p>
+
+<p>Now the next thing we need to do is bind those keyboard events to an action. In order to allow a script to change the driver values i&#8217;ve setup a init script in <code>/etc/init.d/brightness.sh</code></p>
+
+<div><script src='https://gist.github.com/ea52ff46bc5cf9b940f4.js?file=etc-init.d-brightness'></script>
+<noscript><pre><code>#!/bin/sh
+# make it possible to change brightness
+
+chmod 0777 /sys/devices/platform/samsung/leds/samsung::kbd_backlight/brightness
+chgrp users /sys/devices/platform/samsung/leds/samsung::kbd_backlight/brightness
+</code></pre></noscript></div>
+
+
+<p>and gave it execution rights.
+Furthermore, i&#8217;ve added the following line to my <code>/etc/rc.local</code> that executes that script</p>
+
+<div><script src='https://gist.github.com/ea52ff46bc5cf9b940f4.js?file=etc-rc.local'></script>
+<noscript><pre><code>sh /etc/init.d/brightness</code></pre></noscript></div>
+
+
+<p>Then, i wrote a tiny shell script in my home directory <code>/home/bewo/Scripts/backlight.sh</code> that allows me to increment or decrement the current backlight value</p>
+
+<div><script src='https://gist.github.com/6444126.js?file=backlight.sh'></script>
+<noscript><pre><code>#!/bin/bash
+light=$(cat /sys/class/leds/samsung\:\:kbd_backlight/brightness);
+max_light=$(cat /sys/class/leds/samsung\:\:kbd_backlight/max_brightness);
+
+if [ &quot;$1&quot; == &quot;inc&quot; ]; then
+  newlight=$((light + 1));
+  if [ $newlight -gt $max_light ]; then
+  newlight=8;
+  fi
+else
+  newlight=$((light - 1));
+  if [ $newlight -lt 0 ]; then
+  newlight=0;
+  fi
+fi
+echo $newlight &gt; /sys/class/leds/samsung\:\:kbd_backlight/brightness
+echo keyboard lightness is now : $newlight;
+</code></pre></noscript></div>
+
+
+<p>In order tu run it without a prefix-path i&#8217;ve created a symbolic link to it</p>
+
+<div><script src='https://gist.github.com/ea52ff46bc5cf9b940f4.js?file=link_script.sh'></script>
+<noscript><pre><code>sudo ln -s /usr/bin/kbbrightness /home/bewo/Scripts/backlight.sh</code></pre></noscript></div>
+
+
+<p>Finally all was left to do is to bind my shell script in OpenBox by adding the following keybinds to my  <code>.config/openbox/lubuntu-rc.xml</code>:</p>
+
+<div><script src='https://gist.github.com/ea52ff46bc5cf9b940f4.js?file=.config-openbox-lubuntu-rc.xml'></script>
+<noscript><pre><code>    &lt;keybind key=&quot;XF86KbdBrightnessUp&quot;&gt;
+      &lt;action name=&quot;Execute&quot;&gt;
+        &lt;command&gt;kbbrightness inc&lt;/command&gt;
+      &lt;/action&gt;
+    &lt;/keybind&gt;
+    &lt;keybind key=&quot;XF86KbdBrightnessDown&quot;&gt;
+      &lt;action name=&quot;Execute&quot;&gt;
+        &lt;command&gt;kbbrightness dec&lt;/command&gt;
+      &lt;/action&gt;
+    &lt;/keybind&gt;
+</code></pre></noscript></div>
+
+
+<p>When you&#8217;re using i3 you can add the following to your <code>.i3/config</code> analogically</p>
+
+<div><script src='https://gist.github.com/ea52ff46bc5cf9b940f4.js?file=.i3-config'></script>
+<noscript><pre><code>bindsym XF86KbdBrightnessUp exec 'kbbrightness inc'
+bindsym XF86KbdBrightnessDown exec 'kbbrightness dec'</code></pre></noscript></div>
+
+
+<p>If that does not work check by running xev if you&#8217;re bindings trigger the proper X11 events.</p>
+
+		
+		
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-09-05T13:28:00+02:00" pubdate data-updated="true">Sep 5<span>th</span>, 2013</time></div>
+	<div class="tags">
+
+
+	<a class='category' href='/blog/categories/linux/'>Linux</a>, <a class='category' href='/blog/categories/ubuntu/'>Ubuntu</a>
+
+
+</div>
+	
+</div></article>
+
+
+    <article class="post">
+	<h2 class="title">
+		
 		<a href="/blog/2013/06/07/using-an-android-device-as-a-external-monitor-for-your-canon-dslr/">
 		
 			Using an Android Device as a Monitor for a Canon DSLR</a>
 	</h2>
 	<div class="entry-content">
-		<p>Today finally the Parts from China arrived which I&#8217;ve ordered a couple of weeks ago.
-Baiscally, in order for shooting videos once in a while with my <a href="http://de.wikipedia.org/wiki/Canon_EOS_7D">Canon 7D</a> I wanted to have an external monitor,
+		<p>Today finally the parts from China arrived which I&#8217;ve ordered a couple of weeks ago.
+Baiscally, in order for shooting videos once in a while with my <a href="http://de.wikipedia.org/wiki/Canon_EOS_7D">Canon 7D</a>, I wanted to have some kind of external monitor,
 for a more precise control over focus while shooting.
-However, professional battery-operated video monitors that can can be connected through the HDMI-out are somewhat expensive.
+However, professional battery-operated video monitors that can can be connected through the HDMI-out, are somewhat expensive.
 Furthermore, they dont give you control functionalities such adjusting focus/shutter-speed/iso/aperture on screen.</p>
 
-<p>So since I&#8217;m a proud owner of a <a href="http://www.samsung.com/de/consumer/mobile-device/galaxy-note/galaxy-note/GT-N7100RWDDBT">Samsung Galaxy Note 2</a> which has a nice 5,5&#8221; 1.280x720 HD Super AMOLED Screen I was looking for Anroid Apps to Remotely Control a DSLR by USB.
-The by far best App, I&#8217;ve stumbled upon is <a href="http://dslrcontroller.com/">DSRL Controller</a>, which is still in Beta but has a huge amount of functionality.</p>
+<p>So, since I&#8217;m a proud owner of a <a href="http://www.samsung.com/de/consumer/mobile-device/galaxy-note/galaxy-note/GT-N7100RWDDBT">Samsung Galaxy Note 2</a> which has a nice 5,5&#8221; 1.280x720 HD Super AMOLED Screen, I was looking for Anroid Apps to remotely control a DSLR by USB.
+The by far best app, I&#8217;ve stumbled upon was <a href="http://dslrcontroller.com/">DSRL Controller</a>, which is still in beta, but has a huge amount of functionality.</p>
 
-<p>DSLR Controller allows you to virtually shift every setting to your Android Device. Furthermore, there is also a Wi-Fi Passthrough that allows you to delegate all functionality to another android device connected by wireless Lan.
-There is also support for Timelapses, HDR and whatnot.
-Beneath DSLR Controller there are other Apps available, which I find not that far evolved.
+<p>DSLR Controller allows you to virtually shift almost every setting to your Android device. Furthermore, there is also a Wi-Fi Passthrough that allows you to delegate all functionality to another android device connected by Wi-Fi.
+There is also support for timelapses, HDR and whatnot.
+Beneath DSLR Controller there are other apps available, which I find not that far evolved.
 <figure class="flickr-thumbnail center" style="display: inline-block;"><a href="http://farm8.staticflickr.com/7387/8979482843_94c49cdcf2_b.jpg" class="fancybox" data-title-id="flickr-photo-8979482843" data-media="photo"><img src="http://farm8.staticflickr.com/7387/8979482843_94c49cdcf2_z.jpg" title="IMG_8997.jpg" style=""/></a><figcaption id="flickr-photo-8979482843"><h1><a class="flickr-link" href="http://www.flickr.com/photos/58117759@N04/8979482843">IMG_8997.jpg</a> by mightyuhu</h1><div class="description"></div></figcaption></figure></p>
 
-<p>For Hardware I&#8217;m using a cold-shoe to ball head Adapter, which can be aquired from ebay for around 7 EUR.
+<p>For hardware I&#8217;m using a cold-shoe to ball head adapter, which can be aquired from ebay for around 7 EUR.
 <figure class="flickr-thumbnail center" style="width: 364px;"><a href="http://farm9.staticflickr.com/8533/8979718254_489e60cc75_o.png" class="fancybox" data-title-id="flickr-photo-8979718254" data-media="photo"><img src="http://farm9.staticflickr.com/8533/8979718254_489e60cc75_o.png" title="2013-06-07_184742" style="width: 364px; height: 427px;"/></a><figcaption id="flickr-photo-8979718254"><h1><a class="flickr-link" href="http://www.flickr.com/photos/58117759@N04/8979718254">2013-06-07_184742</a> by mightyuhu</h1><div class="description"></div></figcaption></figure></p>
 
-<p>To mount my Note 2 I&#8217;ve dismounted a minin tripod, which also can be found on ebay from China.
+<p>To mount my Note 2 I&#8217;ve dismounted a mini tripod, which also can be found on ebay from China.
 <figure class="flickr-thumbnail center" style="display: inline-block;"><a href="http://farm8.staticflickr.com/7296/8979756000_8c635d06c3_b.jpg" class="fancybox" data-title-id="flickr-photo-8979756000" data-media="photo"><img src="http://farm8.staticflickr.com/7296/8979756000_8c635d06c3_z.jpg" title="IMG_8984.jpg" style=""/></a><figcaption id="flickr-photo-8979756000"><h1><a class="flickr-link" href="http://www.flickr.com/photos/58117759@N04/8979756000">IMG_8984.jpg</a> by mightyuhu</h1><div class="description"></div></figcaption></figure></p>
 
-<p>For connecting your DSLR to your Samsung Note 2, one needs a USB On-The-Go Cable, which is basically a micro USB  Cable which the 4th and 5th Pin shorted and connected to ground, there are a lot of videos on youtube on how to build a OTG cable. Alternatively, one can aquire a small USB-Cable for 1-3 EUR, what I did.
-Furthermore, one need a USB-To Mini-USB Cable to connect the OTG Cable to your Camera.</p>
+<p>For connecting your DSLR to your Samsung Note 2, one needs a USB On-The-Go Cable, which is basically a micro USB  cable which the 4th and 5th Pin shorted and connected to ground, there are a lot of videos on youtube on how to build a OTG cable. Alternatively, one can aquire a small USB-Cable for 1-3 EUR, what I did.
+Furthermore, one need a USB-To Mini-USB cable to connect the OTG Cable to your camera.</p>
 
 <p><figure class="flickr-thumbnail center" style="display: inline-block;"><a href="http://farm4.staticflickr.com/3716/8978564619_7f3a7bed53_b.jpg" class="fancybox" data-title-id="flickr-photo-8978564619" data-media="photo"><img src="http://farm4.staticflickr.com/3716/8978564619_7f3a7bed53_z.jpg" title="IMG_8986.jpg" style=""/></a><figcaption id="flickr-photo-8978564619"><h1><a class="flickr-link" href="http://www.flickr.com/photos/58117759@N04/8978564619">IMG_8986.jpg</a> by mightyuhu</h1><div class="description"></div></figcaption></figure></p>
 
@@ -267,54 +423,6 @@ However, I&#8217;m a now a very happy owner of the Samsung Galaxy Note 2, and ex
 
 
 	<a class='category' href='/blog/categories/android/'>Android</a>
-
-
-</div>
-	
-</div></article>
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2012/10/01/up-to-octopress/">
-		
-			Moved Site to GitHub and Octopress</a>
-	</h2>
-	<div class="entry-content">
-		<p>I&#8217;ve moved my original site to Octopress for the sake of niceness.
-This sake of niceness includes:</p>
-
-<ul>
-<li><a href="http://en.wikipedia.org/wiki/Markdown">Markdown Syntax</a>, very easy non-verbose writing of blogposts</li>
-<li>NoSQL local file based storage, no overhead, no scripting language required, high-performance content delivery</li>
-<li><a href="http://pages.github.com/">Github Pages</a> distribution, no hosting required</li>
-</ul>
-
-
-		
-		
-	</div>
-
-
-<div class="meta">
-	<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-10-01T22:37:00+02:00" pubdate data-updated="true">Oct 1<span>st</span>, 2012</time></div>
-	<div class="tags">
-
-
-	<a class='category' href='/blog/categories/common/'>Common</a>
 
 
 </div>
