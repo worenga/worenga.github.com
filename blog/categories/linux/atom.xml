@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: linux | Benedikt Wolters]]></title>
+  <title><![CDATA[Category: Linux | Benedikt Wolters]]></title>
   <link href="http://mightyuhu.github.com/blog/categories/linux/atom.xml" rel="self"/>
   <link href="http://mightyuhu.github.com/"/>
-  <updated>2013-09-07T17:16:49+02:00</updated>
+  <updated>2013-09-07T17:21:47+02:00</updated>
   <id>http://mightyuhu.github.com/</id>
   <author>
     <name><![CDATA[Benedikt Wolters]]></name>
@@ -14,226 +14,50 @@
 
   
   <entry>
-    <title type="html"><![CDATA[uvxrt - vim arrow- and end-key problem]]></title>
-    <link href="http://mightyuhu.github.com/blog/2011/04/19/uvxrt-vim-arrow-and-end-key-problem/"/>
-    <updated>2011-04-19T23:09:00+02:00</updated>
-    <id>http://mightyuhu.github.com/blog/2011/04/19/uvxrt-vim-arrow-and-end-key-problem</id>
-    <content type="html"><![CDATA[<blockquote><p>I've never heard of a "bash pipe", (or many of those other terms, either).
-Isn't that something we used to smoke back in the '70s?</p></blockquote>
+    <title type="html"><![CDATA[Lubuntu 13.04 and Samsung Series 7 Keyboard Backlight]]></title>
+    <link href="http://mightyuhu.github.com/blog/2013/09/05/lubuntu-13-dot-04-and-samsung-series-7-chronos-keyboard-backlight/"/>
+    <updated>2013-09-05T13:28:00+02:00</updated>
+    <id>http://mightyuhu.github.com/blog/2013/09/05/lubuntu-13-dot-04-and-samsung-series-7-chronos-keyboard-backlight</id>
+    <content type="html"><![CDATA[<p>{% flickr_image 9682918058 z center %}</p>
 
-<p>I'm using urxvt as my terminal.I discovered issues using vim. When i'm in insert mode and use the arrow keys or the <code>Pos1</code> or <code>END</code>-Key
-the editor prints out <code>A</code>, <code>B</code>, <code>C</code>, <code>D</code>and badly misbehaves using <code>END</code>.</p>
+<p>I' using Lubuntu 13.04 more and more often lately on my Samsung Series 7 Chronos 700Z5A. While the most things worked pretty right out of the box. It took me a while to figure out why the adjustable keyboard backlight FN-Keys were not working. While there are plenty resources available for the Series 9 but no one in particular for Lubuntu and openboxi/i3 i've decided to share the knowledgde with the public and not only with google and the NSA.</p>
 
-<!-- more -->
+<p>The first think i've noticed that the standard installation has already loaded the <code>samsung_labtob</code> kernel module.
+You may check that by running
+{% gist ea52ff46bc5cf9b940f4 check-mod.sh %}</p>
 
+<p>You also can test if the module works by setting a value between 1 and 8 to the backlight driver:
+{% gist ea52ff46bc5cf9b940f4 echo-brightness %}</p>
 
-<p>So there are solutions out there which did not work for me.</p>
+<p>Unfortunately the udev mappings were not defined so i had to manually add the following lines to my <code>/lib/udev/keymaps/samsung-other</code>
+{% gist ea52ff46bc5cf9b940f4 samsung-other %}
+and also add the following to the <code>/lib/udev/keymaps/force-release/samsung-other</code>
+{% gist ea52ff46bc5cf9b940f4 force-release-samsung-other %}
+You may have to reload udev by
+{% gist ea52ff46bc5cf9b940f4 reload-udev%}
+and reboot.
+After that you can check whether your mappings work by running
+{% gist ea52ff46bc5cf9b940f4 check-mapping %}
+the <code>kbdillumup</code> and <code>kbdillumdown</code> events should appear.</p>
 
-<ul>
-<li>Set vim to compatible mode.</li>
-<li>Set <code>term=linux</code> in your <code>.vimrc</code>.</li>
-<li>Modify Keymaps in vim to make urxvt somehow use xterm's keybinds.</li>
-</ul>
+<p>Now the next thing we need to do is bind those keyboard events to an action. In order to allow a script to change the driver values i've setup a init script in <code>/etc/init.d/brightness.sh</code>
+{% gist ea52ff46bc5cf9b940f4 etc-init.d-brightness %}
+and gave it execution rights.
+Furthermore, i've added the following line to my <code>/etc/rc.local</code> that executes that script
+{% gist ea52ff46bc5cf9b940f4 etc-rc.local %}
+Then, i wrote a tiny shell script in my home directory <code>/home/bewo/Scripts/backlight.sh</code> that allows me to increment or decrement the current backlight value
+{% gist 6444126 backlight.sh %}
+In order tu run it without a prefix-path i've created a symbolic link to it
+{% gist ea52ff46bc5cf9b940f4 link_script.sh %}
+Finally all was left to do is to bind my shell script in OpenBox by adding the following keybinds to my  <code>.config/openbox/lubuntu-rc.xml</code>:</p>
 
+<p>{% gist ea52ff46bc5cf9b940f4 .config-openbox-lubuntu-rc.xml %}</p>
 
-<p>I found 2 Solutions. One is to set <code>$TERM=xterm-256color</code> (i.e. in your <code>.bashrc</code>). The other really dirty.</p>
+<p>When you're using i3 you can add the following to your <code>.i3/config</code> analogically</p>
 
-<p>Overwrite all your keybinds in your <code>.Xdefault</code>-File or at least the keys, which don't work.</p>
+<p>{% gist ea52ff46bc5cf9b940f4 .i3-config %}</p>
 
-<p>{% codeblock %}
-! Normal
-<em>URxvt</em>keysym.Home:     \033OH
-<em>URxvt</em>keysym.End:      \033OF
-<em>URxvt</em>keysym.F1:       \033OP
-<em>URxvt</em>keysym.F2:       \033OQ
-<em>URxvt</em>keysym.F3:       \033OR
-<em>URxvt</em>keysym.F4:       \033OS</p>
-
-<p>! Shift
-! paste conflict
-!<em>URxvt</em>keysym.S-Insert:    \033[2;2~
-<em>URxvt</em>keysym.S-Delete:     \033[3;2~
-<em>URxvt</em>keysym.S-Home:       \033[1;2H
-<em>URxvt</em>keysym.S-End:        \033[1;2F
-! scrolling conflict
-!<em>URxvt</em>keysym.S-Page_Up:   \033[5;2~
-!<em>URxvt</em>keysym.S-Page_Down: \033[6;2~</p>
-
-<p><em>URxvt</em>keysym.S-F1:     \033[1;2P
-<em>URxvt</em>keysym.S-F2:     \033[1;2Q
-<em>URxvt</em>keysym.S-F3:     \033[1;2R
-<em>URxvt</em>keysym.S-F4:     \033[1;2S
-<em>URxvt</em>keysym.S-F5:     \033[15;2~
-<em>URxvt</em>keysym.S-F6:     \033[17;2~
-<em>URxvt</em>keysym.S-F7:     \033[18;2~
-<em>URxvt</em>keysym.S-F8:     \033[19;2~
-<em>URxvt</em>keysym.S-F9:     \033[20;2~
-<em>URxvt</em>keysym.S-F10:        \033[21;2~
-<em>URxvt</em>keysym.S-F11:        \033[23;2~
-<em>URxvt</em>keysym.S-F12:        \033[24;2~</p>
-
-<p>! tab navigation conflict (only when using tabs)
-<em>URxvt</em>keysym.S-Up:     \033[1;2A
-<em>URxvt</em>keysym.S-Down:       \033[1;2B
-<em>URxvt</em>keysym.S-Right:      \033[1;2C
-<em>URxvt</em>keysym.S-Left:       \033[1;2D</p>
-
-<p>! Alt
-<em>URxvt</em>keysym.M-Insert:     \033[2;3~
-<em>URxvt</em>keysym.M-Delete:     \033[3;3~
-<em>URxvt</em>keysym.M-Home:       \033[1;3H
-<em>URxvt</em>keysym.M-End:        \033[1;3F
-<em>URxvt</em>keysym.M-Page_Up:    \033[5;3~
-<em>URxvt</em>keysym.M-Page_Down:  \033[6;3~</p>
-
-<p><em>URxvt</em>keysym.M-F1:     \033[1;3P
-<em>URxvt</em>keysym.M-F2:     \033[1;3Q
-<em>URxvt</em>keysym.M-F3:     \033[1;3R
-<em>URxvt</em>keysym.M-F4:     \033[1;3S
-<em>URxvt</em>keysym.M-F5:     \033[15;3~
-<em>URxvt</em>keysym.M-F6:     \033[17;3~
-<em>URxvt</em>keysym.M-F7:     \033[18;3~
-<em>URxvt</em>keysym.M-F8:     \033[19;3~
-<em>URxvt</em>keysym.M-F9:     \033[20;3~
-<em>URxvt</em>keysym.M-F10:        \033[21;3~
-<em>URxvt</em>keysym.M-F11:        \033[23;3~
-<em>URxvt</em>keysym.M-F12:        \033[24;3~</p>
-
-<p><em>URxvt</em>keysym.M-Up:     \033[1;3A
-<em>URxvt</em>keysym.M-Down:       \033[1;3B
-<em>URxvt</em>keysym.M-Right:      \033[1;3C
-<em>URxvt</em>keysym.M-Left:       \033[1;3D</p>
-
-<p>! Shift+Alt
-<em>URxvt</em>keysym.S-M-F1:       \033[1;4P
-<em>URxvt</em>keysym.S-M-F2:       \033[1;4Q
-<em>URxvt</em>keysym.S-M-F3:       \033[1;4R
-<em>URxvt</em>keysym.S-M-F4:       \033[1;4S
-<em>URxvt</em>keysym.S-M-F5:       \033[15;4~
-<em>URxvt</em>keysym.S-M-F6:       \033[17;4~
-<em>URxvt</em>keysym.S-M-F7:       \033[18;4~
-<em>URxvt</em>keysym.S-M-F8:       \033[19;4~
-<em>URxvt</em>keysym.S-M-F9:       \033[20;4~
-<em>URxvt</em>keysym.S-M-F10:      \033[21;4~
-<em>URxvt</em>keysym.S-M-F11:      \033[23;4~
-<em>URxvt</em>keysym.S-M-F12:      \033[24;4~</p>
-
-<p><em>URxvt</em>keysym.S-M-Insert:   \033[2;4~
-<em>URxvt</em>keysym.S-M-Delete:   \033[3;4~
-<em>URxvt</em>keysym.S-M-Home:     \033[1;4H
-<em>URxvt</em>keysym.S-M-End:      \033[1;4F
-<em>URxvt</em>keysym.S-M-Page_Up:  \033[5;4~
-<em>URxvt</em>keysym.S-M-Page_Down:    \033[6;4~</p>
-
-<p><em>URxvt</em>keysym.S-M-Up:       \033[1;4A
-<em>URxvt</em>keysym.S-M-Down:     \033[1;4B
-<em>URxvt</em>keysym.S-M-Right:    \033[1;4C
-<em>URxvt</em>keysym.S-M-Left:     \033[1;4D</p>
-
-<p>! Control
-<em>URxvt</em>keysym.C-F1:     \033[1;5P
-<em>URxvt</em>keysym.C-F2:     \033[1;5Q
-<em>URxvt</em>keysym.C-F3:     \033[1;5R
-<em>URxvt</em>keysym.C-F4:     \033[1;5S
-<em>URxvt</em>keysym.C-F5:     \033[15;5~
-<em>URxvt</em>keysym.C-F6:     \033[17;5~
-<em>URxvt</em>keysym.C-F7:     \033[18;5~
-<em>URxvt</em>keysym.C-F8:     \033[19;5~
-<em>URxvt</em>keysym.C-F9:     \033[20;5~
-<em>URxvt</em>keysym.C-F10:        \033[21;5~
-<em>URxvt</em>keysym.C-F11:        \033[23;5~
-<em>URxvt</em>keysym.C-F12:        \033[24;5~</p>
-
-<p><em>URxvt</em>keysym.C-Insert:     \033[2;5~
-<em>URxvt</em>keysym.C-Delete:     \033[3;5~
-<em>URxvt</em>keysym.C-Home:       \033[1;5H
-<em>URxvt</em>keysym.C-End:        \033[1;5F
-<em>URxvt</em>keysym.C-Page_Up:    \033[5;5~
-<em>URxvt</em>keysym.C-Page_Down:  \033[6;5~</p>
-
-<p><em>URxvt</em>keysym.C-Up:     \033[1;5A
-<em>URxvt</em>keysym.C-Down:       \033[1;5B
-<em>URxvt</em>keysym.C-Right:      \033[1;5C
-<em>URxvt</em>keysym.C-Left:       \033[1;5D</p>
-
-<p>! Shift+Control
-<em>URxvt</em>keysym.S-C-F1:       \033[1;6P
-<em>URxvt</em>keysym.S-C-F2:       \033[1;6Q
-<em>URxvt</em>keysym.S-C-F3:       \033[1;6R
-<em>URxvt</em>keysym.S-C-F4:       \033[1;6S
-<em>URxvt</em>keysym.S-C-F5:       \033[15;6~
-<em>URxvt</em>keysym.S-C-F6:       \033[17;6~
-<em>URxvt</em>keysym.S-C-F7:       \033[18;6~
-<em>URxvt</em>keysym.S-C-F8:       \033[19;6~
-<em>URxvt</em>keysym.S-C-F9:       \033[20;6~
-<em>URxvt</em>keysym.S-C-F10:      \033[21;6~
-<em>URxvt</em>keysym.S-C-F11:      \033[23;6~
-<em>URxvt</em>keysym.S-C-F12:      \033[24;6~</p>
-
-<p><em>URxvt</em>keysym.S-C-Insert:   \033[2;6~
-<em>URxvt</em>keysym.S-C-Delete:   \033[3;6~
-<em>URxvt</em>keysym.S-C-Home:     \033[1;6H
-<em>URxvt</em>keysym.S-C-End:      \033[1;6F
-<em>URxvt</em>keysym.S-C-Page_Up:  \033[5;6~
-<em>URxvt</em>keysym.S-C-Page_Down:    \033[6;6~</p>
-
-<p><em>URxvt</em>keysym.S-C-Up:       \033[1;6A
-<em>URxvt</em>keysym.S-C-Down:     \033[1;6B
-<em>URxvt</em>keysym.S-C-Right:    \033[1;6C
-<em>URxvt</em>keysym.S-C-Left:     \033[1;6D</p>
-
-<p>! Alt+Control
-<em>URxvt</em>keysym.M-C-F1:       \033[1;7P
-<em>URxvt</em>keysym.M-C-F2:       \033[1;7Q
-<em>URxvt</em>keysym.M-C-F3:       \033[1;7R
-<em>URxvt</em>keysym.M-C-F4:       \033[1;7S
-<em>URxvt</em>keysym.M-C-F5:       \033[15;7~
-<em>URxvt</em>keysym.M-C-F6:       \033[17;7~
-<em>URxvt</em>keysym.M-C-F7:       \033[18;7~
-<em>URxvt</em>keysym.M-C-F8:       \033[19;7~
-<em>URxvt</em>keysym.M-C-F9:       \033[20;7~
-<em>URxvt</em>keysym.M-C-F10:      \033[21;7~
-<em>URxvt</em>keysym.M-C-F11:      \033[23;7~
-<em>URxvt</em>keysym.M-C-F12:      \033[24;7~</p>
-
-<p><em>URxvt</em>keysym.M-C-Insert:   \033[2;7~
-<em>URxvt</em>keysym.M-C-Delete:   \033[3;7~
-<em>URxvt</em>keysym.M-C-Home:     \033[1;7H
-<em>URxvt</em>keysym.M-C-End:      \033[1;7F
-<em>URxvt</em>keysym.M-C-Page_Up:  \033[5;7~
-<em>URxvt</em>keysym.M-C-Page_Down:    \033[6;7~</p>
-
-<p><em>URxvt</em>keysym.M-C-Up:       \033[1;7A
-<em>URxvt</em>keysym.M-C-Down:     \033[1;7B
-<em>URxvt</em>keysym.M-C-Right:    \033[1;7C
-<em>URxvt</em>keysym.M-C-Left:     \033[1;7D</p>
-
-<p>! Shift+Alt+Control
-<em>URxvt</em>keysym.S-M-C-F1:     \033[1;8P
-<em>URxvt</em>keysym.S-M-C-F2:     \033[1;8Q
-<em>URxvt</em>keysym.S-M-C-F3:     \033[1;8R
-<em>URxvt</em>keysym.S-M-C-F4:     \033[1;8S
-<em>URxvt</em>keysym.S-M-C-F5:     \033[15;8~
-<em>URxvt</em>keysym.S-M-C-F6:     \033[17;8~
-<em>URxvt</em>keysym.S-M-C-F7:     \033[18;8~
-<em>URxvt</em>keysym.S-M-C-F8:     \033[19;8~
-<em>URxvt</em>keysym.S-M-C-F9:     \033[20;8~
-<em>URxvt</em>keysym.S-M-C-F10:    \033[21;8~
-<em>URxvt</em>keysym.S-M-C-F11:    \033[23;8~
-<em>URxvt</em>keysym.S-M-C-F12:    \033[24;8~</p>
-
-<p><em>URxvt</em>keysym.S-M-C-Insert: \033[2;8~
-<em>URxvt</em>keysym.S-M-C-Delete: \033[3;8~
-<em>URxvt</em>keysym.S-M-C-Home:   \033[1;8H
-<em>URxvt</em>keysym.S-M-C-End:    \033[1;8F
-<em>URxvt</em>keysym.S-M-C-Page_Up:    \033[5;8~
-<em>URxvt</em>keysym.S-M-C-Page_Down:  \033[6;8~</p>
-
-<p><em>URxvt</em>keysym.S-M-C-Up:     \033[1;8A
-<em>URxvt</em>keysym.S-M-C-Down:   \033[1;8B
-<em>URxvt</em>keysym.S-M-C-Right:  \033[1;8C
-<em>URxvt</em>keysym.S-M-C-Left:   \033[1;8D
-{% endcodeblock %}</p>
+<p>If that does not work check by running xev if you're bindings trigger the proper X11 events.</p>
 ]]></content>
   </entry>
   
