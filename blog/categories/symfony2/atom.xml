@@ -4,7 +4,7 @@
   <title><![CDATA[Category: symfony2 | Benedikt Wolters]]></title>
   <link href="http://mightyuhu.github.com/blog/categories/symfony2/atom.xml" rel="self"/>
   <link href="http://mightyuhu.github.com/"/>
-  <updated>2013-09-07T17:11:32+02:00</updated>
+  <updated>2013-09-07T17:16:49+02:00</updated>
   <id>http://mightyuhu.github.com/</id>
   <author>
     <name><![CDATA[Benedikt Wolters]]></name>
@@ -26,106 +26,11 @@ Im just using <code>onFlush()</code> here, since <code>preUpdate()</code> is som
 
 <p>Lets start by creating a EventListener in <code>My/Bundle/Listener/MyEventListener.php</code></p>
 
-<p><div><script src='https://gist.github.com/2215056.js?file=MyEventListener.php'></script>
-<noscript><pre><code>&lt;?php
-
-namespace My\Bundle\Listener;
-
-use Doctrine\Common\EventSubscriber;
-use Doctrine\ORM\Events;
-use Doctrine\ORM\Event\OnFlushEventArgs;
-use Doctrine\ORM\Mapping\ClassMetadata;
-
-use My\Bundle\Entity\Event;
-
-class MyEventListener {
-	private $em = null;
-	private $uow = null;
-	private $attachedEvents;
-	
-	public function onFlush(OnFlushEventArgs $args) {
-
-		$this -&gt; em = $args -&gt; getEntityManager();
-		$eventManager = $this -&gt; em -&gt; getEventManager();
-
-		// Remove event, if we call $this-&gt;em-&gt;flush() now there is no infinite recursion loop!
-		$eventManager -&gt; removeEventListener('onFlush', $this);
-
-		$this -&gt; uow = $this -&gt; em -&gt; getUnitOfWork();
-
-		//Iterate through Insertions:
-		foreach ($this-&gt;uow-&gt;getScheduledEntityInsertions() as $entity) {
-
-			//Get the plain ClassName without Namespace
-			$className = join('', array_slice(explode('\\', get_class($entity)), -1));
-			$meta = $this -&gt; em -&gt; getClassMetadata(get_class($entity));
-
-			$value = $meta -&gt; getReflectionProperty('myEntityFieldName') -&gt; getValue($entity);
-			
-			//... create your Entity...
-			$newEvent = new Event;
-			$newEvent-&gt;setName('...');
-			//...
-			
-			$this -&gt; em -&gt; persist($newEvent);
-			$this -&gt; em -&gt; flush();
-			
-			}
-
-			// recalculate changeset, since we might messed up the relations
-			$this -&gt; em -&gt; getUnitOfWork() -&gt; recomputeSingleEntityChangeSet($meta, $entity);
-		}
-
-
-		//We can also iterate through planned deletions
-		foreach ($this-&gt;uow-&gt;getScheduledEntityDeletions() AS $entity) {
-			$className = join('', array_slice(explode('\\', get_class($entity)), -1));
-			
-			//Search for old dependencies and delete them too...
-			
-			$events = $this -&gt; em -&gt; getRepository('MyBundle:Event') -&gt; findBy('myProperty'=&gt;'value');
-					foreach ($events as $entity) {
-						$this -&gt; em -&gt; remove($entity);
-					}
-				}
-			}
-			$this -&gt; em -&gt; flush();
-		}
-
-		//Or even react on updates:
-		foreach ($this-&gt;uow-&gt;getScheduledEntityUpdates() as $key =&gt; $entity) {
-			$className = join('', array_slice(explode('\\', get_class($entity)), -1));
-			$meta = $this -&gt; em -&gt; getClassMetadata(get_class($className));
-			//ChangeSet is an array of key - array pairs.
-			//$changeSet['fieldname'] =&gt; array(0 =&gt; 'oldValue', 1 =&gt; 'newValue')
-			//if the target Value is i.e. a date, the indices 0 and 1 are i.e. DateTime Objects
-			$changeSet = $this -&gt; uow -&gt; getEntityChangeSet($entity);
-
-			//You can modify your Entities based on the Changes here..
-			//After Persisting: 
-			
-			$this-&gt;uow-&gt;computeChangeSet($meta, $entity)
-			}
-		}
-		
-		//Re-attach since we're done
-		$eventManager -&gt; addEventListener('onFlush', $this);
-	}
-
-}
-</code></pre></noscript></div>
-</p>
+<p>{% gist 2215056 MyEventListener.php %}</p>
 
 <p>Now all that is left to do is to attach the Event Listener to DI. If you're using Symfony2 you'll just need to update your <code>app/config/config.yml</code></p>
 
-<p><div><script src='https://gist.github.com/2215056.js?file=config.yml'></script>
-<noscript><pre><code>services:
-   MyEventListener:
-      class: My\Bundle\Listener\MyEventListener 
-      tags:
-        - { name: doctrine.event_listener, event: onFlush, method: onFlush }
-</code></pre></noscript></div>
-</p>
+<p>{% gist 2215056 config.yml %}</p>
 
 <p>For further information feel free to take a look at the beautiful <a href="http://docs.doctrine-project.org/projects/doctrine-orm/en/2.0.x/reference/events.html#implementing-event-listeners">Doctrine2 Documentation</a>, which I obviously love so much.</p>
 ]]></content>
@@ -146,9 +51,7 @@ class MyEventListener {
 
 <p>Use Many-To-Many to encode it properly.</p>
 
-<p><div><script src='https://gist.github.com/2186735.js'></script>
-<noscript><pre><code></code></pre></noscript></div>
-</p>
+<p>{% gist 2186735 %}</p>
 
 <p>Im using annotations with the <code>ORM</code>-Namespace since its embedded in Symfony2.
 Note that One-To-Many is coded throughout Many-To-Many but the unique index is set for the join table.</p>
@@ -179,27 +82,11 @@ Another common problem with Template-Systems is performance: other files are par
 
 <p>So being enthusiastic about Template-Systems at first, I stopped using them and used the paradigma that <a href="http://www.phppatterns.com/docs/design/templates_and_template_engines">"PHP is a Templating language by itself"</a>.
 But the problem with Templating in php is that it is very verbose and tedious.
-<div><script src='https://gist.github.com/894638.js?file=gistfile1.php'></script>
-<noscript><pre><code>&lt;?php if ($items): ?&gt;
-  &lt;?php foreach ($items as $item): ?&gt;
-    * &lt;?php echo $item-&gt;name ?&gt;
-  &lt;?php endforeach; ?&gt;
-&lt;?php else: ?&gt;
-    No item has been found.
-&lt;?php endif; ?&gt;</code></pre></noscript></div>
-</p>
+{% gist 894638 gistfile1.php %}</p>
 
 <p>The advantage is that you have full control over what your template is doing. You can also do everything you want.
 But with full control comes responsibility and you have to think about things such as escaping and common web threats such as XSS and CSRF. So we usually end up with a production template like this:
-<div><script src='https://gist.github.com/894638.js?file=gistfile2.php'></script>
-<noscript><pre><code>&lt;?php if (count($items) &gt; 0): ?&gt;
-  &lt;?php foreach ($items as $item): ?&gt;
-    * &lt;?php echo htmlspecialchars($item-&gt;name, ENT_QUOTES, 'UTF-8') ?&gt;
-  &lt;?php endforeach; ?&gt;
-&lt;?php else: ?&gt;
-    No item has been found.
-&lt;?php endif; ?&gt;</code></pre></noscript></div>
-</p>
+{% gist 894638 gistfile2.php %}</p>
 
 <p>Another Problem with th <code>&lt;?php ... ?&gt;</code>-Opening tags is that there are still editors who interpret all <code>&lt; ... &gt;</code> blocks as html-tags, and code-highlighting usually goes wrong at that point.</p>
 
@@ -221,21 +108,13 @@ But with full control comes responsibility and you have to think about things su
 
 <p>I stumbled upon <a href="http://fabien.potencier.org/article/34/templating-engines-in-php">Twig</a> while looking at the featureset of symfony2. And Twig seems to implement all of the points from above and the best thing: It's superfast. Our example from above in Twig would be:</p>
 
-<p><div><script src='https://gist.github.com/894638.js?file=gistfile3.php'></script>
-<noscript><pre><code>{% for item in items %}
-  * {{ item.name }}
-{% else %}
-  No item has been found.
-{% endfor %}</code></pre></noscript></div>
-</p>
+<p>{% gist 894638 gistfile3.php %}</p>
 
 <p>Notice how the for has an else construct. This obviously only makes sense in a templating language. But in this context it meets the needs and shortens the coding perfectly.</p>
 
 <p>Twig can evaluate any template in a sandbox environment where the user has access to a limited set of tags, filters, and object methods defined by the developer. Sandboxing can be enabled globally or locally for just some templates:</p>
 
-<p><div><script src='https://gist.github.com/894638.js?file=gistfile4.txt'></script>
-<noscript><pre><code>{{ include &quot;user.html&quot; sandboxed }}</code></pre></noscript></div>
-</p>
+<p>{% gist 894638 gistfile4.txt %}</p>
 
 <p>There is no sense to rewrite the documentation at this point so i recommend you to check it out: <a href="http://www.twig-project.org/">Twig Project</a></p>
 ]]></content>
