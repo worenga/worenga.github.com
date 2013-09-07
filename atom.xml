@@ -4,7 +4,7 @@
   <title><![CDATA[Benedikt Wolters]]></title>
   <link href="http://mightyuhu.github.com/atom.xml" rel="self"/>
   <link href="http://mightyuhu.github.com/"/>
-  <updated>2013-09-07T16:37:39+02:00</updated>
+  <updated>2013-09-07T16:50:00+02:00</updated>
   <id>http://mightyuhu.github.com/</id>
   <author>
     <name><![CDATA[Benedikt Wolters]]></name>
@@ -20,7 +20,7 @@
     <id>http://mightyuhu.github.com/blog/2013/09/05/lubuntu-13-dot-04-and-samsung-series-7-chronos-keyboard-backlight</id>
     <content type="html"><![CDATA[<p><figure class="flickr-thumbnail center" style="display: inline-block;"><a href="http://farm8.staticflickr.com/7327/9682918058_b9a35b107a_o.jpg" class="fancybox" data-title-id="flickr-photo-9682918058" data-media="photo"><img src="http://farm8.staticflickr.com/7327/9682918058_5b8b1e08e4_z.jpg" title="Samsung Series 7 Chronos Lubuntu + backlight" style=""/></a><figcaption id="flickr-photo-9682918058"><h1><a class="flickr-link" href="http://www.flickr.com/photos/58117759@N04/9682918058">Samsung Series 7 Chronos Lubuntu + backlight</a> by mightyuhu</h1><div class="description"></div></figcaption></figure></p>
 
-<p>Yesterday, I installed Lubuntu 13.04 on my Samsung Series 7 Chronos 700Z5A. While the most things worked pretty right out of the box. It took me a while to figure out why the adjustable keyboard backlight FN-Keys were not working. While there are plenty resources available for the Series 9 but no one in particular for Lubuntu and openboxi/i3 i&#8217;ve decided to share the knowledgde with the public and not only with google and the NSA.</p>
+<p>I&#8217; using Lubuntu 13.04 more and more often lately on my Samsung Series 7 Chronos 700Z5A. While the most things worked pretty right out of the box. It took me a while to figure out why the adjustable keyboard backlight FN-Keys were not working. While there are plenty resources available for the Series 9 but no one in particular for Lubuntu and openboxi/i3 i&#8217;ve decided to share the knowledgde with the public and not only with google and the NSA.</p>
 
 <p>The first think i&#8217;ve noticed that the standard installation has already loaded the <code>samsung_labtob</code> kernel module.
 You may check that by running</p>
