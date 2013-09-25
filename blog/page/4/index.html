@@ -6,12 +6,11 @@
 	<script data-cfasync="false" type="text/javascript" src="//use.typekit.net/axj3cfp.js"></script>
 	<script data-cfasync="false" type="text/javascript">try{Typekit.load();}catch(e){}</script>
 	<meta charset="utf-8">
-	<title>moving your mind to a higher abstraction layer  | Benedikt Wolters</title>
+	<title>the missing T_PAAMAYIM_NEKUDOTAYIM  | Benedikt Wolters</title>
 
 <meta name="author" content="Benedikt Wolters"> 
 
-<meta name="description" content="I&#8217;ve never heard of a &#8220;bash pipe&#8221;, (or many of those other terms, either).
-Isn&#8217;t that something we used to smoke back in the &hellip;"> <meta name="keywords" content="">
+<meta name="description" content="I needed a Server-Based mobile switch for my symfony-project. The solutions I found all used a workaround with setting the sf_format parameter to a &hellip;"> <meta name="keywords" content="">
 
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -63,7 +62,7 @@ $(document).ready(
 
 <body>
 	<header id="header" class="inner"><h1><a href="/">Benedikt Wolters</a></h1>
-<h4>moving your mind to a higher abstraction layer</h4>
+<h4>the missing T_PAAMAYIM_NEKUDOTAYIM</h4>
 <nav id="main-nav"><ul>
 	<li><a href="/">Blog</a></li>
 	<li><a href="http://www.benedikt-wolters.de">About</a></li>
@@ -95,6 +94,62 @@ $(document).ready(
 </header>
 
 	<div id="content" class="inner">
+
+
+    <article class="post">
+	<h2 class="title">
+		
+		<a href="/blog/2011/07/08/symfony-deliver-mobile-version-of-a-template-without-loosing-the-file-specific-sf-format-parameter/">
+		
+			Symfony: Deliver Mobile Version of a Template Without Loosing the File Specific Sf_format Parameter</a>
+	</h2>
+	<div class="entry-content">
+		<p>I needed a Server-Based mobile switch for my symfony-project. The solutions I found all used a workaround with setting the <code>sf_format</code> parameter to a specific mobile version. But what if you are using <code>sf_format</code> already for different view-types?</p>
+
+<p>My Solution will use the Extension, so you can have multiple view-templates like:</p>
+
+<ul>
+<li><code>actionSuccess.mobile.php</code></li>
+<li><code>actionSuccess.php</code></li>
+<li><code>actionSuccess.mobile.xml.php</code></li>
+<li><code>actionSuccess.xml.php</code></li>
+</ul>
+
+
+<div><script src='https://gist.github.com/1072381.js'></script>
+<noscript><pre><code></code></pre></noscript></div>
+
+
+<p>I hope this is useful for somebdody! You might want to specify more parameters or make this a filter.</p>
+
+		
+		
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-07-08T22:21:18+02:00" pubdate data-updated="true">Jul 8<span>th</span>, 2011</time></div>
+	<div class="tags">
+
+
+	<a class='category' href='/blog/categories/symfony/'>Symfony</a>, <a class='category' href='/blog/categories/php/'>php</a>
+
+
+</div>
+	
+</div></article>
 
 
     <article class="post">
@@ -228,59 +283,12 @@ the editor prints out <code>A</code>, <code>B</code>, <code>C</code>, <code>D</c
 	
 </div></article>
 
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2011/04/09/templating-systems-a-new-hope/">
-		
-			Templating Systems - a New Hope</a>
-	</h2>
-	<div class="entry-content">
-		<h2>Birth and Death of old Templating Languages</h2>
-
-<p>A common first time project of every PHP-Developer is to write his own Templating System.
-Templating in pseudo languages with weird syntaxes used to be very trendy and served the matter to draw a line between presentation logic and business logic.</p>
-
-<p>It was also believed Templating-languages would be a suitable replacement for plain-php or your favorite backend language, so designers (who -so the common developer belief- are obviously are some zombie creatures without brains) did not need to learn php. This turned out to be a huge error in reasoning, because usually Designers can code at all. (And if they claim they &#8220;can&#8221;, they usually suck at it.)
-Another common problem with Template-Systems is performance: other files are parsed by php in the runtime using slow regex or maybe even reparsed with output buffering.</p>
-
-<p>Being a performance enthusiast it always bothered me that something is parsed and compiled by a language such as php, which is parsed itself, just for the sake of code-clearness. Usually they are not cached, and the set of functions is very limited (output this, loop that). If they&#8217;re cached (e.g. Smarty) there are other Problems (just take a look at the &#8220;Cache-File&#8221;). Futhermore you as a developer need to learn a simpler templating language, which usually sucks. Debugging Template can be a pain, depending on which template System you use.</p>
-
-
-		
-		<a href="/blog/2011/04/09/templating-systems-a-new-hope/" class="more-link">Read on &rarr;</a>
-	</div>
-
-
-<div class="meta">
-	<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-04-09T23:10:31+02:00" pubdate data-updated="true">Apr 9<span>th</span>, 2011</time></div>
-	<div class="tags">
-
-
-	<a class='category' href='/blog/categories/php/'>php</a>, <a class='category' href='/blog/categories/symfony2/'>symfony2</a>, <a class='category' href='/blog/categories/templating-systems/'>templating-systems</a>, <a class='category' href='/blog/categories/twig/'>twig</a>
-
-
-</div>
-	
-</div></article>
-
 <nav id="pagenavi">
     
         <a href="/blog/page/3/" class="prev">Prev</a>
     
+    
+        <a href="/blog/page/5/" class="next">Next</a>
     
     <div class="center"><a href="/blog/archives">Blog Archives</a></div>
 </nav></div>
