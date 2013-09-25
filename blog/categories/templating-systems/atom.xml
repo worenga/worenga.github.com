@@ -4,7 +4,7 @@
   <title><![CDATA[Category: templating-systems | Benedikt Wolters]]></title>
   <link href="http://mightyuhu.github.com/blog/categories/templating-systems/atom.xml" rel="self"/>
   <link href="http://mightyuhu.github.com/"/>
-  <updated>2013-09-07T17:16:49+02:00</updated>
+  <updated>2013-09-25T22:46:04+02:00</updated>
   <id>http://mightyuhu.github.com/</id>
   <author>
     <name><![CDATA[Benedikt Wolters]]></name>
@@ -35,11 +35,27 @@ Another common problem with Template-Systems is performance: other files are par
 
 <p>So being enthusiastic about Template-Systems at first, I stopped using them and used the paradigma that <a href="http://www.phppatterns.com/docs/design/templates_and_template_engines">"PHP is a Templating language by itself"</a>.
 But the problem with Templating in php is that it is very verbose and tedious.
-{% gist 894638 gistfile1.php %}</p>
+<div><script src='https://gist.github.com/894638.js?file=gistfile1.php'></script>
+<noscript><pre><code>&lt;?php if ($items): ?&gt;
+  &lt;?php foreach ($items as $item): ?&gt;
+    * &lt;?php echo $item-&gt;name ?&gt;
+  &lt;?php endforeach; ?&gt;
+&lt;?php else: ?&gt;
+    No item has been found.
+&lt;?php endif; ?&gt;</code></pre></noscript></div>
+</p>
 
 <p>The advantage is that you have full control over what your template is doing. You can also do everything you want.
 But with full control comes responsibility and you have to think about things such as escaping and common web threats such as XSS and CSRF. So we usually end up with a production template like this:
-{% gist 894638 gistfile2.php %}</p>
+<div><script src='https://gist.github.com/894638.js?file=gistfile2.php'></script>
+<noscript><pre><code>&lt;?php if (count($items) &gt; 0): ?&gt;
+  &lt;?php foreach ($items as $item): ?&gt;
+    * &lt;?php echo htmlspecialchars($item-&gt;name, ENT_QUOTES, 'UTF-8') ?&gt;
+  &lt;?php endforeach; ?&gt;
+&lt;?php else: ?&gt;
+    No item has been found.
+&lt;?php endif; ?&gt;</code></pre></noscript></div>
+</p>
 
 <p>Another Problem with th <code>&lt;?php ... ?&gt;</code>-Opening tags is that there are still editors who interpret all <code>&lt; ... &gt;</code> blocks as html-tags, and code-highlighting usually goes wrong at that point.</p>
 
@@ -61,13 +77,21 @@ But with full control comes responsibility and you have to think about things su
 
 <p>I stumbled upon <a href="http://fabien.potencier.org/article/34/templating-engines-in-php">Twig</a> while looking at the featureset of symfony2. And Twig seems to implement all of the points from above and the best thing: It's superfast. Our example from above in Twig would be:</p>
 
-<p>{% gist 894638 gistfile3.php %}</p>
+<p><div><script src='https://gist.github.com/894638.js?file=gistfile3.php'></script>
+<noscript><pre><code>{% for item in items %}
+  * {{ item.name }}
+{% else %}
+  No item has been found.
+{% endfor %}</code></pre></noscript></div>
+</p>
 
 <p>Notice how the for has an else construct. This obviously only makes sense in a templating language. But in this context it meets the needs and shortens the coding perfectly.</p>
 
 <p>Twig can evaluate any template in a sandbox environment where the user has access to a limited set of tags, filters, and object methods defined by the developer. Sandboxing can be enabled globally or locally for just some templates:</p>
 
-<p>{% gist 894638 gistfile4.txt %}</p>
+<p><div><script src='https://gist.github.com/894638.js?file=gistfile4.txt'></script>
+<noscript><pre><code>{{ include &quot;user.html&quot; sandboxed }}</code></pre></noscript></div>
+</p>
 
 <p>There is no sense to rewrite the documentation at this point so i recommend you to check it out: <a href="http://www.twig-project.org/">Twig Project</a></p>
 ]]></content>

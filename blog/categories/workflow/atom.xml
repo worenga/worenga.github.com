@@ -4,7 +4,7 @@
   <title><![CDATA[Category: workflow | Benedikt Wolters]]></title>
   <link href="http://mightyuhu.github.com/blog/categories/workflow/atom.xml" rel="self"/>
   <link href="http://mightyuhu.github.com/"/>
-  <updated>2013-09-07T17:16:49+02:00</updated>
+  <updated>2013-09-25T22:46:04+02:00</updated>
   <id>http://mightyuhu.github.com/</id>
   <author>
     <name><![CDATA[Benedikt Wolters]]></name>
@@ -27,15 +27,38 @@
 
 <p>Let's say your Project changes look like this atm:</p>
 
-<p>{% gist 1242067 %231 %}</p>
+<p><div><script src='https://gist.github.com/1242067.js?file=%231'></script>
+<noscript><pre><code>$ git status
+# On branch master
+# Changes to be committed:
+#   (use &quot;git reset HEAD &lt;file&gt;...&quot; to unstage)
+#
+#      modified:   index.html
+#
+# Changed but not updated:
+#   (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)
+#
+#      modified:   lib/simplegit.py
+#</code></pre></noscript></div>
+</p>
 
 <p>The Usage is pretty simple just type use git stash:</p>
 
-<p>{% gist 1242067 %232 %}</p>
+<p><div><script src='https://gist.github.com/1242067.js?file=%232'></script>
+<noscript><pre><code>$ git stash
+Saved working directory and index state \
+  &quot;WIP on master: 049d078 added the index file&quot;
+HEAD is now at 049d078 added the index file
+(To restore them type &quot;git stash apply&quot;)</code></pre></noscript></div>
+</p>
 
 <p>And your working directory is clean (last commit):</p>
 
-<p>{% gist 1242067 %233 %}</p>
+<p><div><script src='https://gist.github.com/1242067.js?file=%233'></script>
+<noscript><pre><code>$ git status
+# On branch master
+nothing to commit (working directory clean)</code></pre></noscript></div>
+</p>
 
 <p>Be aware that git stash also saved the unstaged changes so far. Now you can switch branches and do your stuff...</p>
 
@@ -43,7 +66,20 @@
 By default that would ignore the staging you've done so far, so to also restage your changeset use <code>git stash apply --index</code>
 If you have multiple stashes <code>git stash apply</code> will always pick the latest.</p>
 
-<p>{% gist 1242067 gistfile1.txt %}</p>
+<p><div><script src='https://gist.github.com/1242067.js?file=gistfile1.txt'></script>
+<noscript><pre><code>$ git stash apply --index
+# On branch master
+# Changes to be committed:
+#   (use &quot;git reset HEAD &lt;file&gt;...&quot; to unstage)
+#
+#      modified:   index.html
+#
+# Changed but not updated:
+#   (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)
+#
+#      modified:   lib/simplegit.py
+#</code></pre></noscript></div>
+</p>
 
 <p>You can also have multiple stashes and unapply some subset of them. But that goes beyond that blog post.
 If you want to learn more just read the wonderful <a href="http://progit.org/book/ch6-3.html">ProGit Book</a> by <a href="http://scottchacon.com/">Scott Chacon</a>.</p>

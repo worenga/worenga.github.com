@@ -10,7 +10,7 @@
 
 <meta name="author" content="Benedikt Wolters"> 
 
-<meta name="description" content="This is just a quick tip which i stumbled upon this weekend. Let&#8217;s say you are working on a git branch with a unfinished amount of changes. &hellip;"> <meta name="keywords" content="">
+<meta name="description" content="Since the Doctrine 2.0 Documentation for this seems to be kinda fucked up at the moment, here is a working exampe of a One-To-Many, Unidirectional &hellip;"> <meta name="keywords" content="">
 
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -94,6 +94,63 @@ $(document).ready(
 </header>
 
 	<div id="content" class="inner">
+
+
+    <article class="post">
+	<h2 class="title">
+		
+		<a href="/blog/2012/03/24/doctrine2-one-to-many/">
+		
+			Doctrine2 One-To-Many, Unidirectional With Join Table Association Mapping</a>
+	</h2>
+	<div class="entry-content">
+		<p>Since the Doctrine 2.0 Documentation for this seems to be kinda fucked up at the moment, here is a working exampe of a <code>One-To-Many, Unidirectional with Join-Table Association Mapping</code></p>
+
+<h2>Scenario</h2>
+
+<p>A driver can have many documents, but a document has no direct Entity relation to a driver.</p>
+
+<h2>Solution</h2>
+
+<p>Use Many-To-Many to encode it properly.</p>
+
+<div><script src='https://gist.github.com/2186735.js'></script>
+<noscript><pre><code></code></pre></noscript></div>
+
+
+<p>Im using annotations with the <code>ORM</code>-Namespace since its embedded in Symfony2.
+Note that One-To-Many is coded throughout Many-To-Many but the unique index is set for the join table.</p>
+
+<p>In my POV thats kinda confusing since there is a <code>@One-To-Many</code> relationship, but whatever!</p></p>
+
+		
+		
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-03-24T21:09:05+01:00" pubdate data-updated="true">Mar 24<span>th</span>, 2012</time></div>
+	<div class="tags">
+
+
+	<a class='category' href='/blog/categories/doctrine2/'>doctrine2</a>, <a class='category' href='/blog/categories/php/'>php</a>, <a class='category' href='/blog/categories/symfony2/'>symfony2</a>
+
+
+</div>
+	
+</div></article>
 
 
     <article class="post">
@@ -264,51 +321,6 @@ class MySessionStorage extends sfSessionStorage
 	
 </div></article>
 
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2011/04/19/uvxrt-vim-arrow-and-end-key-problem/">
-		
-			Uvxrt - Vim Arrow- and End-key Problem</a>
-	</h2>
-	<div class="entry-content">
-		<blockquote><p>I&#8217;ve never heard of a &#8220;bash pipe&#8221;, (or many of those other terms, either).
-Isn&#8217;t that something we used to smoke back in the &#8217;70s?</p></blockquote>
-
-<p>I&#8217;m using urxvt as my terminal.I discovered issues using vim. When i&#8217;m in insert mode and use the arrow keys or the <code>Pos1</code> or <code>END</code>-Key
-the editor prints out <code>A</code>, <code>B</code>, <code>C</code>, <code>D</code>and badly misbehaves using <code>END</code>.</p>
-
-
-		
-		<a href="/blog/2011/04/19/uvxrt-vim-arrow-and-end-key-problem/" class="more-link">Read on &rarr;</a>
-	</div>
-
-
-<div class="meta">
-	<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-04-19T23:09:00+02:00" pubdate data-updated="true">Apr 19<span>th</span>, 2011</time></div>
-	<div class="tags">
-
-
-	<a class='category' href='/blog/categories/console/'>console</a>, <a class='category' href='/blog/categories/linux/'>linux</a>, <a class='category' href='/blog/categories/uvxrt/'>uvxrt</a>, <a class='category' href='/blog/categories/vim/'>vim</a>
-
-
-</div>
-	
-</div></article>
-
 <nav id="pagenavi">
     
         <a href="/blog/page/2/" class="prev">Prev</a>
@@ -316,7 +328,7 @@ the editor prints out <code>A</code>, <code>B</code>, <code>C</code>, <code>D</c
     
         <a href="/blog/page/4/" class="next">Next</a>
     
-    <div class="center"><a href="/archives">Blog Archives</a></div>
+    <div class="center"><a href="/blog/archives">Blog Archives</a></div>
 </nav></div>
 	<footer id="footer" class="inner">Copyright &copy; 2013
 

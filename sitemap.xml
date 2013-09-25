@@ -2,98 +2,102 @@
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
         <loc>http://mightyuhu.github.com/blog/2011/04/09/templating-systems-a-new-hope/</loc>
-        <lastmod>2013-05-20T14:09:46+02:00</lastmod>
+        <lastmod>2013-09-07T18:07:25+02:00</lastmod>
     </url>
     <url>
         <loc>http://mightyuhu.github.com/blog/2011/04/09/introduction-to-css-pre-processors/</loc>
-        <lastmod>2013-06-07T19:54:42+02:00</lastmod>
+        <lastmod>2013-09-07T18:07:25+02:00</lastmod>
     </url>
     <url>
         <loc>
             http://mightyuhu.github.com/blog/2011/04/16/the-top-8-placeholder-services-for-web-designers/
         </loc>
-        <lastmod>2013-05-20T14:37:06+02:00</lastmod>
+        <lastmod>2013-09-07T18:07:25+02:00</lastmod>
     </url>
     <url>
         <loc>
             http://mightyuhu.github.com/blog/2011/04/19/uvxrt-vim-arrow-and-end-key-problem/
         </loc>
-        <lastmod>2013-05-20T14:09:46+02:00</lastmod>
+        <lastmod>2013-09-07T18:07:25+02:00</lastmod>
     </url>
     <url>
         <loc>
             http://mightyuhu.github.com/blog/2011/07/08/symfony-deliver-mobile-version-of-a-template-without-loosing-the-file-specific-sf-format-parameter/
         </loc>
-        <lastmod>2013-05-20T14:09:46+02:00</lastmod>
+        <lastmod>2013-09-07T18:07:25+02:00</lastmod>
     </url>
     <url>
         <loc>
             http://mightyuhu.github.com/blog/2011/07/17/quick-tip-symfony-initialize-session-from-request-parameter/
         </loc>
-        <lastmod>2013-05-20T14:36:46+02:00</lastmod>
+        <lastmod>2013-09-07T18:07:25+02:00</lastmod>
     </url>
     <url>
         <loc>
             http://mightyuhu.github.com/blog/2011/09/26/using-git-stash-to-cache-your-pending-changes/
         </loc>
-        <lastmod>2013-05-20T14:09:46+02:00</lastmod>
+        <lastmod>2013-09-07T18:07:25+02:00</lastmod>
     </url>
     <url>
         <loc>http://mightyuhu.github.com/blog/2012/03/24/doctrine2-one-to-many/</loc>
-        <lastmod>2013-05-20T14:09:46+02:00</lastmod>
+        <lastmod>2013-09-07T18:07:25+02:00</lastmod>
     </url>
     <url>
         <loc>http://mightyuhu.github.com/blog/2012/03/25/pagerank-algorithmn-studies/</loc>
-        <lastmod>2013-05-20T14:09:46+02:00</lastmod>
+        <lastmod>2013-09-07T18:07:25+02:00</lastmod>
     </url>
     <url>
         <loc>
             http://mightyuhu.github.com/blog/2012/03/27/doctrine2-event-listener-persisting-a-new-entity-in-onflush/
         </loc>
-        <lastmod>2013-05-20T14:37:24+02:00</lastmod>
+        <lastmod>2013-09-07T18:07:25+02:00</lastmod>
     </url>
     <url>
         <loc>http://mightyuhu.github.com/blog/2012/10/01/up-to-octopress/</loc>
-        <lastmod>2013-05-20T14:09:46+02:00</lastmod>
+        <lastmod>2013-09-07T18:07:25+02:00</lastmod>
     </url>
     <url>
         <loc>http://mightyuhu.github.com/blog/2012/11/12/bye-bye-apple/</loc>
-        <lastmod>2013-05-20T16:15:30+02:00</lastmod>
+        <lastmod>2013-09-07T18:07:25+02:00</lastmod>
     </url>
     <url>
         <loc>http://mightyuhu.github.com/blog/2013/05/18/ember.js-br/</loc>
-        <lastmod>2013-05-20T19:56:57+02:00</lastmod>
+        <lastmod>2013-09-07T18:07:25+02:00</lastmod>
     </url>
     <url>
         <loc>
             http://mightyuhu.github.com/blog/2013/06/07/using-an-android-device-as-a-external-monitor-for-your-canon-dslr/
         </loc>
-        <lastmod>2013-06-17T00:29:53+02:00</lastmod>
+        <lastmod>2013-09-07T18:07:25+02:00</lastmod>
     </url>
     <url>
         <loc>
             http://mightyuhu.github.com/blog/2013/09/05/lubuntu-13-dot-04-and-samsung-series-7-chronos-keyboard-backlight/
         </loc>
-        <lastmod>2013-09-07T17:11:32+02:00</lastmod>
+        <lastmod>2013-09-07T18:07:25+02:00</lastmod>
     </url>
     <url>
-        <loc>http://mightyuhu.github.com/blog/archives/</loc>
-        <lastmod>2013-09-07T17:11:32+02:00</lastmod>
-    </url>
-    <url>
-        <loc>http://mightyuhu.github.com/blog/</loc>
-        <lastmod>2013-09-07T17:11:32+02:00</lastmod>
+        <loc>http://mightyuhu.github.com/blog/2013/09/25/typing-trainer/</loc>
+        <lastmod>2013-09-25T22:46:02+02:00</lastmod>
     </url>
     <url>
         <loc>http://mightyuhu.github.com/robots.txt</loc>
-        <lastmod>2013-05-20T14:09:45+02:00</lastmod>
+        <lastmod>2013-09-07T18:07:20+02:00</lastmod>
     </url>
     <url>
         <loc>http://mightyuhu.github.com/archives/</loc>
-        <lastmod>2013-09-07T17:11:32+02:00</lastmod>
+        <lastmod>2013-09-25T22:46:02+02:00</lastmod>
     </url>
     <url>
         <loc>http://mightyuhu.github.com/</loc>
-        <lastmod>2013-09-07T17:11:32+02:00</lastmod>
+        <lastmod>2013-09-25T22:46:02+02:00</lastmod>
+    </url>
+    <url>
+        <loc>http://mightyuhu.github.com/blog/archives/</loc>
+        <lastmod>2013-09-25T22:46:02+02:00</lastmod>
+    </url>
+    <url>
+        <loc>http://mightyuhu.github.com/blog/</loc>
+        <lastmod>2013-09-25T22:46:02+02:00</lastmod>
     </url>
 </urlset>

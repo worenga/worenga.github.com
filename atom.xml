@@ -4,7 +4,7 @@
   <title><![CDATA[Benedikt Wolters]]></title>
   <link href="http://mightyuhu.github.com/atom.xml" rel="self"/>
   <link href="http://mightyuhu.github.com/"/>
-  <updated>2013-09-07T17:16:23+02:00</updated>
+  <updated>2013-09-25T22:46:04+02:00</updated>
   <id>http://mightyuhu.github.com/</id>
   <author>
     <name><![CDATA[Benedikt Wolters]]></name>
@@ -12,6 +12,20 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Simple Javascript Typing Trainer for english keyboard]]></title>
+    <link href="http://mightyuhu.github.com/blog/2013/09/25/typing-trainer/"/>
+    <updated>2013-09-25T22:29:00+02:00</updated>
+    <id>http://mightyuhu.github.com/blog/2013/09/25/typing-trainer</id>
+    <content type="html"><![CDATA[<p>Currently i&#8217;m trying to learn the english keyboard layout. I&#8217;ll find that it is much more convenient to program with this layout since most of the programming languages were designed for this keyboard layout. Also for programs like vim the default shortcuts come in handy with this layout.</p>
+
+<p>But since i&#8217;m used to the german layout since the beginning of time, it&#8217;s a major change, mainly for finding the new places for spechial characters like <code>[</code> and <code>'</code> and the different locations of <code>y</code>/<code>z</code>. Also it has taken a while to write umlauts in their extended version. It is also really hard to get used to some keybindings that are deeply engraved into muscle memory like <code>CTRL</code>+<code>z</code>.
+I was looking for a tool specificly designed for switchers, but did not found anything useful - at least for my purposes. Hence, I took a few hours to write <a href="http://codepen.io/mightyuhu/pen/JuKED">this pen</a>.</p>
+
+<p>It features basic training and also re-typing wikipedia lessons. Since it was kind of a quick-and-dirty tool intended for personal use only it does not claim to be finished. Feel free to fork and optimize!</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Lubuntu 13.04 and Samsung Series 7 Keyboard Backlight]]></title>

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Linux | Benedikt Wolters]]></title>
   <link href="http://mightyuhu.github.com/blog/categories/linux/atom.xml" rel="self"/>
   <link href="http://mightyuhu.github.com/"/>
-  <updated>2013-09-07T17:21:47+02:00</updated>
+  <updated>2013-09-25T22:46:04+02:00</updated>
   <id>http://mightyuhu.github.com/</id>
   <author>
     <name><![CDATA[Benedikt Wolters]]></name>
@@ -18,44 +18,104 @@
     <link href="http://mightyuhu.github.com/blog/2013/09/05/lubuntu-13-dot-04-and-samsung-series-7-chronos-keyboard-backlight/"/>
     <updated>2013-09-05T13:28:00+02:00</updated>
     <id>http://mightyuhu.github.com/blog/2013/09/05/lubuntu-13-dot-04-and-samsung-series-7-chronos-keyboard-backlight</id>
-    <content type="html"><![CDATA[<p>{% flickr_image 9682918058 z center %}</p>
+    <content type="html"><![CDATA[<p><figure class="flickr-thumbnail center" style="display: inline-block;"><a href="http://farm8.staticflickr.com/7327/9682918058_b9a35b107a_o.jpg" class="fancybox" data-title-id="flickr-photo-9682918058" data-media="photo"><img src="http://farm8.staticflickr.com/7327/9682918058_5b8b1e08e4_z.jpg" title="Samsung Series 7 Chronos Lubuntu + backlight" style=""/></a><figcaption id="flickr-photo-9682918058"><h1><a class="flickr-link" href="http://www.flickr.com/photos/58117759@N04/9682918058">Samsung Series 7 Chronos Lubuntu + backlight</a> by mightyuhu</h1><div class="description"></div></figcaption></figure></p>
 
 <p>I' using Lubuntu 13.04 more and more often lately on my Samsung Series 7 Chronos 700Z5A. While the most things worked pretty right out of the box. It took me a while to figure out why the adjustable keyboard backlight FN-Keys were not working. While there are plenty resources available for the Series 9 but no one in particular for Lubuntu and openboxi/i3 i've decided to share the knowledgde with the public and not only with google and the NSA.</p>
 
 <p>The first think i've noticed that the standard installation has already loaded the <code>samsung_labtob</code> kernel module.
 You may check that by running
-{% gist ea52ff46bc5cf9b940f4 check-mod.sh %}</p>
+<div><script src='https://gist.github.com/ea52ff46bc5cf9b940f4.js?file=check-mod.sh'></script>
+<noscript><pre><code>lsmod | grep samsung</code></pre></noscript></div>
+</p>
 
 <p>You also can test if the module works by setting a value between 1 and 8 to the backlight driver:
-{% gist ea52ff46bc5cf9b940f4 echo-brightness %}</p>
+<div><script src='https://gist.github.com/ea52ff46bc5cf9b940f4.js?file=echo-brightness'></script>
+<noscript><pre><code>echo 5 &gt; /sys/class/leds/samsung\:\:kbd_backlight/brightness</code></pre></noscript></div>
+</p>
 
 <p>Unfortunately the udev mappings were not defined so i had to manually add the following lines to my <code>/lib/udev/keymaps/samsung-other</code>
-{% gist ea52ff46bc5cf9b940f4 samsung-other %}
+<div><script src='https://gist.github.com/ea52ff46bc5cf9b940f4.js?file=samsung-other'></script>
+<noscript><pre><code>0x96 kbdillumup # keyboard backlit up
+0x97 kbdillumdown # keyboard backlit down
+</code></pre></noscript></div>
+
 and also add the following to the <code>/lib/udev/keymaps/force-release/samsung-other</code>
-{% gist ea52ff46bc5cf9b940f4 force-release-samsung-other %}
+<div><script src='https://gist.github.com/ea52ff46bc5cf9b940f4.js?file=force-release-samsung-other'></script>
+<noscript><pre><code>0x96 # keyboard backlit up
+0x97 # keyboard backlit down</code></pre></noscript></div>
+
 You may have to reload udev by
-{% gist ea52ff46bc5cf9b940f4 reload-udev%}
+<div><script src='https://gist.github.com/ea52ff46bc5cf9b940f4.js?file=reload-udev'></script>
+<noscript><pre><code>sudo udevadm trigger </code></pre></noscript></div>
+
 and reboot.
 After that you can check whether your mappings work by running
-{% gist ea52ff46bc5cf9b940f4 check-mapping %}
+<div><script src='https://gist.github.com/ea52ff46bc5cf9b940f4.js?file=check-mapping'></script>
+<noscript><pre><code>sudo /lib/udev/keymap -i input/event3</code></pre></noscript></div>
+
 the <code>kbdillumup</code> and <code>kbdillumdown</code> events should appear.</p>
 
 <p>Now the next thing we need to do is bind those keyboard events to an action. In order to allow a script to change the driver values i've setup a init script in <code>/etc/init.d/brightness.sh</code>
-{% gist ea52ff46bc5cf9b940f4 etc-init.d-brightness %}
+<div><script src='https://gist.github.com/ea52ff46bc5cf9b940f4.js?file=etc-init.d-brightness'></script>
+<noscript><pre><code>#!/bin/sh
+# make it possible to change brightness
+
+chmod 0777 /sys/devices/platform/samsung/leds/samsung::kbd_backlight/brightness
+chgrp users /sys/devices/platform/samsung/leds/samsung::kbd_backlight/brightness
+</code></pre></noscript></div>
+
 and gave it execution rights.
 Furthermore, i've added the following line to my <code>/etc/rc.local</code> that executes that script
-{% gist ea52ff46bc5cf9b940f4 etc-rc.local %}
+<div><script src='https://gist.github.com/ea52ff46bc5cf9b940f4.js?file=etc-rc.local'></script>
+<noscript><pre><code>sh /etc/init.d/brightness</code></pre></noscript></div>
+
 Then, i wrote a tiny shell script in my home directory <code>/home/bewo/Scripts/backlight.sh</code> that allows me to increment or decrement the current backlight value
-{% gist 6444126 backlight.sh %}
+<div><script src='https://gist.github.com/6444126.js?file=backlight.sh'></script>
+<noscript><pre><code>#!/bin/bash
+light=$(cat /sys/class/leds/samsung\:\:kbd_backlight/brightness);
+max_light=$(cat /sys/class/leds/samsung\:\:kbd_backlight/max_brightness);
+
+if [ &quot;$1&quot; == &quot;inc&quot; ]; then
+  newlight=$((light + 1));
+  if [ $newlight -gt $max_light ]; then
+  newlight=8;
+  fi
+else
+  newlight=$((light - 1));
+  if [ $newlight -lt 0 ]; then
+  newlight=0;
+  fi
+fi
+echo $newlight &gt; /sys/class/leds/samsung\:\:kbd_backlight/brightness
+echo keyboard lightness is now : $newlight;
+</code></pre></noscript></div>
+
 In order tu run it without a prefix-path i've created a symbolic link to it
-{% gist ea52ff46bc5cf9b940f4 link_script.sh %}
+<div><script src='https://gist.github.com/ea52ff46bc5cf9b940f4.js?file=link_script.sh'></script>
+<noscript><pre><code>sudo ln -s /usr/bin/kbbrightness /home/bewo/Scripts/backlight.sh</code></pre></noscript></div>
+
 Finally all was left to do is to bind my shell script in OpenBox by adding the following keybinds to my  <code>.config/openbox/lubuntu-rc.xml</code>:</p>
 
-<p>{% gist ea52ff46bc5cf9b940f4 .config-openbox-lubuntu-rc.xml %}</p>
+<p><div><script src='https://gist.github.com/ea52ff46bc5cf9b940f4.js?file=.config-openbox-lubuntu-rc.xml'></script>
+<noscript><pre><code>    &lt;keybind key=&quot;XF86KbdBrightnessUp&quot;&gt;
+      &lt;action name=&quot;Execute&quot;&gt;
+        &lt;command&gt;kbbrightness inc&lt;/command&gt;
+      &lt;/action&gt;
+    &lt;/keybind&gt;
+    &lt;keybind key=&quot;XF86KbdBrightnessDown&quot;&gt;
+      &lt;action name=&quot;Execute&quot;&gt;
+        &lt;command&gt;kbbrightness dec&lt;/command&gt;
+      &lt;/action&gt;
+    &lt;/keybind&gt;
+</code></pre></noscript></div>
+</p>
 
 <p>When you're using i3 you can add the following to your <code>.i3/config</code> analogically</p>
 
-<p>{% gist ea52ff46bc5cf9b940f4 .i3-config %}</p>
+<p><div><script src='https://gist.github.com/ea52ff46bc5cf9b940f4.js?file=.i3-config'></script>
+<noscript><pre><code>bindsym XF86KbdBrightnessUp exec 'kbbrightness inc'
+bindsym XF86KbdBrightnessDown exec 'kbbrightness dec'</code></pre></noscript></div>
+</p>
 
 <p>If that does not work check by running xev if you're bindings trigger the proper X11 events.</p>
 ]]></content>
