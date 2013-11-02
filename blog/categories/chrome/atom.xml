@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Chrome | Benedikt Wolters]]></title>
   <link href="http://mightyuhu.github.com/blog/categories/chrome/atom.xml" rel="self"/>
   <link href="http://mightyuhu.github.com/"/>
-  <updated>2013-09-25T23:04:46+02:00</updated>
+  <updated>2013-11-02T23:52:33+01:00</updated>
   <id>http://mightyuhu.github.com/</id>
   <author>
     <name><![CDATA[Benedikt Wolters]]></name>
@@ -23,7 +23,7 @@
 <p>I've published the extension in the <a href="https://chrome.google.com/webstore/detail/youtube-fullscreen-window/beeoindebpbhmefmneagjphcinjklebh/reviews">Chrome Web Store</a></p>
 
 <p>Future versions will also carry the timecode to the new window.
-The code can be found on <a href="https://github.com/mightyuhu/yt-video-popup-addon">GitHub</a></p>
+The code can be found on <a href="https://github.com/mightyuhu/yt-video-popup-addon">GitHub</a>.</p>
 ]]></content>
   </entry>
   
