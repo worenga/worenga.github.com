@@ -10,8 +10,7 @@
 
 <meta name="author" content="Benedikt Wolters"> 
 
-<meta name="description" content="In the past weeks -besides my ongoing bachelor thesis- i&#8217;ve fiddled a bit with canvas and some basic frequency animations.
-This are the &hellip;"> <meta name="keywords" content="">
+<meta name="description" content="Last week I was watching an old DEFCON 18 Talk [slides,paper] by Peter Eckersley, the maker of Panopticlick. I find this idea very interesting. &hellip;"> <meta name="keywords" content="">
 
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -95,6 +94,57 @@ $(document).ready(
 </header>
 
 	<div id="content" class="inner">
+
+
+    <article class="post">
+	<h2 class="title">
+		
+		<a href="/blog/2013/11/10/fingerprinting-pirated-adobe-products-with-javascript/">
+		
+			Fingerprinting Pirated Adobe Products With Javascript</a>
+	</h2>
+	<div class="entry-content">
+		<p>Last week I was watching an old <a href="https://www.youtube.com/watch?v=VNtNRdejbhs">DEFCON 18 Talk</a> [<a href="https://www.defcon.org/images/defcon-18/dc-18-presentations/Eckersley/DEFCON-18-Eckersley-Panopticlick.pdf">slides</a>,<a href="https://panopticlick.eff.org/browser-uniqueness.pdf">paper</a>] by Peter Eckersley, the maker of <a href="https://panopticlick.eff.org/">Panopticlick</a>.</p>
+
+<p>I find this idea very interesting. Furthermore, I thought what other characteristics are there to identify a user by its browser. Beneath a lot of other ideas, I was thinking about a Adobe Piracy Detection.
+It&#8217;s a well-known fact that many &#8220;cracks&#8221; simply redirect the DNS A-record of &#8221;<code>activate.adobe.com</code>&#8221; to the loopback device <code>127.0.0.1</code> to circumvent activation.</p>
+
+<p>However, since there is the <a href="https://en.wikipedia.org/wiki/Same-origin_policy">same-origin-policy</a> in effect, it is not possible to directly check whether the DNS record has been changed in the browser. Nevertheless, I found a way to circumvent this with pure javascript. In this spechial case the JBOSS Server at <code>activate.adobe.com</code> delivers a <code>favicon.ico</code>. Allthough the image is a 0-byte file and thereby corrupt it does not generate a HTTP Timeout, but a 200 OK. Since there is the possibility to include this &#8220;fake&#8221;-image into an <code>img</code>-tag and check with javascript whether it has been loaded or not. If not there is a high, but certainly not distinct, way of predict of whether the DNS record has been overwritten.</p>
+
+<p>Furthermore, there is the possibility that the user might be running a webserver that coincidentilly is running a webserver which has a favicon.ico. A simple way to avoid this is to check whether the browser has adjusted the width of the image or not. In case of the &#8220;valid&#8221; favicon.ico it must be 0.</p>
+
+<p>I&#8217;ve <a href="http://codepen.io/mightyuhu/details/yjFIt">implemented</a> a proof-of-concept code that seems to work in Firefox and Chrome.</p>
+
+<p>IMHO: This will open the door for all kinds of scamming. And it should not be able to access properties of elements from different origins. However fixing this will obviously break a lot of thinks, like image CDNs. I think the web is just broken. Obviously the motiviation for Adobe to change their server configuration will be low.</p>
+
+		
+		
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-11-10T19:48:00+01:00" pubdate data-updated="true">Nov 10<span>th</span>, 2013</time></div>
+	<div class="tags">
+
+
+	<a class='category' href='/blog/categories/fingerprinting/'>fingerprinting,</a>, <a class='category' href='/blog/categories/javascript/'>javascript</a>, <a class='category' href='/blog/categories/panopticlick/'>panopticlick,</a>, <a class='category' href='/blog/categories/privacy/'>privacy,</a>, <a class='category' href='/blog/categories/security/'>security,</a>
+
+
+</div>
+	
+</div></article>
 
 
     <article class="post">
@@ -235,163 +285,6 @@ I was looking for a tool specificly designed for switchers, but did not found an
 
 
 	<a class='category' href='/blog/categories/javascript/'>Javascript</a>, <a class='category' href='/blog/categories/jquery/'>Jquery</a>, <a class='category' href='/blog/categories/typing/'>Typing</a>
-
-
-</div>
-	
-</div></article>
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2013/09/05/lubuntu-13-dot-04-and-samsung-series-7-chronos-keyboard-backlight/">
-		
-			Lubuntu 13.04 and Samsung Series 7 Keyboard Backlight</a>
-	</h2>
-	<div class="entry-content">
-		<p><figure class="flickr-thumbnail center" style="display: inline-block;"><a href="http://farm8.staticflickr.com/7327/9682918058_b9a35b107a_o.jpg" class="fancybox" data-title-id="flickr-photo-9682918058" data-media="photo"><img src="http://farm8.staticflickr.com/7327/9682918058_5b8b1e08e4_z.jpg" title="Samsung Series 7 Chronos Lubuntu + backlight" style=""/></a><figcaption id="flickr-photo-9682918058"><h1><a class="flickr-link" href="http://www.flickr.com/photos/58117759@N04/9682918058">Samsung Series 7 Chronos Lubuntu + backlight</a> by mightyuhu</h1><div class="description"></div></figcaption></figure></p>
-
-<p>I&#8217; using Lubuntu 13.04 more and more often lately on my Samsung Series 7 Chronos 700Z5A. While the most things worked pretty right out of the box. It took me a while to figure out why the adjustable keyboard backlight FN-Keys were not working. While there are plenty resources available for the Series 9 but no one in particular for Lubuntu and openboxi/i3 i&#8217;ve decided to share the knowledgde with the public and not only with google and the NSA.</p>
-
-<p>The first think i&#8217;ve noticed that the standard installation has already loaded the <code>samsung_labtob</code> kernel module.
-You may check that by running</p>
-
-<div><script src='https://gist.github.com/ea52ff46bc5cf9b940f4.js?file=check-mod.sh'></script>
-<noscript><pre><code>lsmod | grep samsung</code></pre></noscript></div>
-
-
-<p>You also can test if the module works by setting a value between 1 and 8 to the backlight driver:</p>
-
-<div><script src='https://gist.github.com/ea52ff46bc5cf9b940f4.js?file=echo-brightness'></script>
-<noscript><pre><code>echo 5 &gt; /sys/class/leds/samsung\:\:kbd_backlight/brightness</code></pre></noscript></div>
-
-
-<p>Unfortunately the udev mappings were not defined so i had to manually add the following lines to my <code>/lib/udev/keymaps/samsung-other</code></p>
-
-<div><script src='https://gist.github.com/ea52ff46bc5cf9b940f4.js?file=samsung-other'></script>
-<noscript><pre><code>0x96 kbdillumup # keyboard backlit up
-0x97 kbdillumdown # keyboard backlit down
-</code></pre></noscript></div>
-
-
-<p>and also add the following to the <code>/lib/udev/keymaps/force-release/samsung-other</code></p>
-
-<div><script src='https://gist.github.com/ea52ff46bc5cf9b940f4.js?file=force-release-samsung-other'></script>
-<noscript><pre><code>0x96 # keyboard backlit up
-0x97 # keyboard backlit down</code></pre></noscript></div>
-
-
-<p>You may have to reload udev by</p>
-
-<div><script src='https://gist.github.com/ea52ff46bc5cf9b940f4.js?file=reload-udev'></script>
-<noscript><pre><code>sudo udevadm trigger </code></pre></noscript></div>
-
-
-<p>and reboot.
-After that you can check whether your mappings work by running</p>
-
-<div><script src='https://gist.github.com/ea52ff46bc5cf9b940f4.js?file=check-mapping'></script>
-<noscript><pre><code>sudo /lib/udev/keymap -i input/event3</code></pre></noscript></div>
-
-
-<p>the <code>kbdillumup</code> and <code>kbdillumdown</code> events should appear.</p>
-
-<p>Now the next thing we need to do is bind those keyboard events to an action. In order to allow a script to change the driver values i&#8217;ve setup a init script in <code>/etc/init.d/brightness.sh</code></p>
-
-<div><script src='https://gist.github.com/ea52ff46bc5cf9b940f4.js?file=etc-init.d-brightness'></script>
-<noscript><pre><code>#!/bin/sh
-# make it possible to change brightness
-
-chmod 0777 /sys/devices/platform/samsung/leds/samsung::kbd_backlight/brightness
-chgrp users /sys/devices/platform/samsung/leds/samsung::kbd_backlight/brightness
-</code></pre></noscript></div>
-
-
-<p>and gave it execution rights.
-Furthermore, i&#8217;ve added the following line to my <code>/etc/rc.local</code> that executes that script</p>
-
-<div><script src='https://gist.github.com/ea52ff46bc5cf9b940f4.js?file=etc-rc.local'></script>
-<noscript><pre><code>sh /etc/init.d/brightness</code></pre></noscript></div>
-
-
-<p>Then, i wrote a tiny shell script in my home directory <code>/home/bewo/Scripts/backlight.sh</code> that allows me to increment or decrement the current backlight value</p>
-
-<div><script src='https://gist.github.com/6444126.js?file=backlight.sh'></script>
-<noscript><pre><code>#!/bin/bash
-light=$(cat /sys/class/leds/samsung\:\:kbd_backlight/brightness);
-max_light=$(cat /sys/class/leds/samsung\:\:kbd_backlight/max_brightness);
-
-if [ &quot;$1&quot; == &quot;inc&quot; ]; then
-  newlight=$((light + 1));
-  if [ $newlight -gt $max_light ]; then
-  newlight=8;
-  fi
-else
-  newlight=$((light - 1));
-  if [ $newlight -lt 0 ]; then
-  newlight=0;
-  fi
-fi
-echo $newlight &gt; /sys/class/leds/samsung\:\:kbd_backlight/brightness
-echo keyboard lightness is now : $newlight;
-</code></pre></noscript></div>
-
-
-<p>In order tu run it without a prefix-path i&#8217;ve created a symbolic link to it</p>
-
-<div><script src='https://gist.github.com/ea52ff46bc5cf9b940f4.js?file=link_script.sh'></script>
-<noscript><pre><code>sudo ln -s /usr/bin/kbbrightness /home/bewo/Scripts/backlight.sh</code></pre></noscript></div>
-
-
-<p>Finally all was left to do is to bind my shell script in OpenBox by adding the following keybinds to my  <code>.config/openbox/lubuntu-rc.xml</code>:</p>
-
-<div><script src='https://gist.github.com/ea52ff46bc5cf9b940f4.js?file=.config-openbox-lubuntu-rc.xml'></script>
-<noscript><pre><code>    &lt;keybind key=&quot;XF86KbdBrightnessUp&quot;&gt;
-      &lt;action name=&quot;Execute&quot;&gt;
-        &lt;command&gt;kbbrightness inc&lt;/command&gt;
-      &lt;/action&gt;
-    &lt;/keybind&gt;
-    &lt;keybind key=&quot;XF86KbdBrightnessDown&quot;&gt;
-      &lt;action name=&quot;Execute&quot;&gt;
-        &lt;command&gt;kbbrightness dec&lt;/command&gt;
-      &lt;/action&gt;
-    &lt;/keybind&gt;
-</code></pre></noscript></div>
-
-
-<p>When you&#8217;re using i3 you can add the following to your <code>.i3/config</code> analogically</p>
-
-<div><script src='https://gist.github.com/ea52ff46bc5cf9b940f4.js?file=.i3-config'></script>
-<noscript><pre><code>bindsym XF86KbdBrightnessUp exec 'kbbrightness inc'
-bindsym XF86KbdBrightnessDown exec 'kbbrightness dec'</code></pre></noscript></div>
-
-
-<p>If that does not work check by running xev if you&#8217;re bindings trigger the proper X11 events.</p>
-
-		
-		
-	</div>
-
-
-<div class="meta">
-	<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-09-05T13:28:00+02:00" pubdate data-updated="true">Sep 5<span>th</span>, 2013</time></div>
-	<div class="tags">
-
-
-	<a class='category' href='/blog/categories/linux/'>Linux</a>, <a class='category' href='/blog/categories/ubuntu/'>Ubuntu</a>
 
 
 </div>

@@ -6,7 +6,7 @@
 	<script data-cfasync="false" type="text/javascript" src="//use.typekit.net/axj3cfp.js"></script>
 	<script data-cfasync="false" type="text/javascript">try{Typekit.load();}catch(e){}</script>
 	<meta charset="utf-8">
-	<title>the missing T_PAAMAYIM_NEKUDOTAYIM  | Benedikt Wolters</title>
+	<title>Fingerprinting Pirated Adobe Products with Javascript  | Benedikt Wolters</title>
 
 <meta name="author" content="Benedikt Wolters"> 
 
@@ -93,18 +93,9 @@ $(document).ready(
 
 </header>
 
-	<div id="content" class="inner">
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2013/11/10/fingerprinting-pirated-adobe-products-with-javascript/">
-		
-			Fingerprinting Pirated Adobe Products With Javascript</a>
-	</h2>
-	<div class="entry-content">
-		<p>Last week I was watching an old <a href="https://www.youtube.com/watch?v=VNtNRdejbhs">DEFCON 18 Talk</a> [<a href="https://www.defcon.org/images/defcon-18/dc-18-presentations/Eckersley/DEFCON-18-Eckersley-Panopticlick.pdf">slides</a>,<a href="https://panopticlick.eff.org/browser-uniqueness.pdf">paper</a>] by Peter Eckersley, the maker of <a href="https://panopticlick.eff.org/">Panopticlick</a>.</p>
+	<div id="content" class="inner"><article class="post">
+	<h2 class="title">Fingerprinting Pirated Adobe Products With Javascript</h2>
+	<div class="entry-content"><p>Last week I was watching an old <a href="https://www.youtube.com/watch?v=VNtNRdejbhs">DEFCON 18 Talk</a> [<a href="https://www.defcon.org/images/defcon-18/dc-18-presentations/Eckersley/DEFCON-18-Eckersley-Panopticlick.pdf">slides</a>,<a href="https://panopticlick.eff.org/browser-uniqueness.pdf">paper</a>] by Peter Eckersley, the maker of <a href="https://panopticlick.eff.org/">Panopticlick</a>.</p>
 
 <p>I find this idea very interesting. Furthermore, I thought what other characteristics are there to identify a user by its browser. Beneath a lot of other ideas, I was thinking about a Adobe Piracy Detection.
 It&#8217;s a well-known fact that many &#8220;cracks&#8221; simply redirect the DNS A-record of &#8221;<code>activate.adobe.com</code>&#8221; to the loopback device <code>127.0.0.1</code> to circumvent activation.</p>
@@ -116,10 +107,7 @@ It&#8217;s a well-known fact that many &#8220;cracks&#8221; simply redirect the 
 <p>I&#8217;ve <a href="http://codepen.io/mightyuhu/details/yjFIt">implemented</a> a proof-of-concept code that seems to work in Firefox and Chrome.</p>
 
 <p>IMHO: This will open the door for all kinds of scamming. And it should not be able to access properties of elements from different origins. However fixing this will obviously break a lot of thinks, like image CDNs. I think the web is just broken. Obviously the motiviation for Adobe to change their server configuration will be low.</p>
-
-		
-		
-	</div>
+</div>
 
 
 <div class="meta">
@@ -146,158 +134,28 @@ It&#8217;s a well-known fact that many &#8220;cracks&#8221; simply redirect the 
 	
 </div></article>
 
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2013/11/02/some-canvas-animation-experiments/">
-		
-			Some Canvas Animation Experiments</a>
-	</h2>
-	<div class="entry-content">
-		<p>In the past weeks -besides my ongoing bachelor thesis- i&#8217;ve fiddled a bit with canvas and some basic frequency animations.
-This are the results:
-<a href="http://codepen.io/mightyuhu/pen/envqc">Starscape Particle Animation</a></p>
-
-<iframe style="width:100%;height:500px" src="http://cdpn.io/envqc"></iframe>
-
-
-<p><a href="http://codepen.io/mightyuhu/pen/CJEzD">Lissajous Curves Tracer</a></p>
-
-<iframe style="width:100%;height:450px" src="http://cdpn.io/CJEzD"></iframe>
-
-
-		
-		
-	</div>
-
-
-<div class="meta">
-	<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-11-02T23:54:00+01:00" pubdate data-updated="true">Nov 2<span>nd</span>, 2013</time></div>
-	<div class="tags">
-
-
-	<a class='category' href='/blog/categories/animation/'>animation</a>, <a class='category' href='/blog/categories/canvas/'>canvas</a>, <a class='category' href='/blog/categories/html5/'>html5</a>, <a class='category' href='/blog/categories/javascript/'>javascript</a>
-
-
-</div>
+	<div class="share">
+	<div class="addthis_toolbox addthis_default_style ">
 	
-</div></article>
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2013/09/25/youtube-fullscreen-window-addon/">
-		
-			YouTube Fullscreen Separate Window AddOn</a>
-	</h2>
-	<div class="entry-content">
-		<p>Since i&#8217;ve switched to a tiling window manager i3 and i like to watch documentaries or longer videos while working i was looking for an extension that reopens a yt video on a new window and resizes it to window width and height. So I can watch youtube videos while working.</p>
-
-<p>I&#8217;ve published the extension in the <a href="https://chrome.google.com/webstore/detail/youtube-fullscreen-window/beeoindebpbhmefmneagjphcinjklebh/reviews">Chrome Web Store</a></p>
-
-<p>Future versions will also carry the timecode to the new window.
-The code can be found on <a href="https://github.com/mightyuhu/yt-video-popup-addon">GitHub</a>.</p>
-
-		
-		
-	</div>
-
-
-<div class="meta">
-	<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-09-25T22:57:00+02:00" pubdate data-updated="true">Sep 25<span>th</span>, 2013</time></div>
-	<div class="tags">
-
-
-	<a class='category' href='/blog/categories/addons/'>Addons</a>, <a class='category' href='/blog/categories/chrome/'>Chrome</a>
-
-
-</div>
+	<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
 	
-</div></article>
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2013/09/25/typing-trainer/">
-		
-			Simple Javascript Typing Trainer for English Keyboard</a>
-	</h2>
-	<div class="entry-content">
-		<p>Currently i&#8217;m trying to learn the english keyboard layout. I&#8217;ll find that it is much more convenient to program with this layout since most of the programming languages were designed for this keyboard layout. Also for programs like vim the default shortcuts come in handy with this layout.</p>
-
-<p>But since i&#8217;m used to the german layout since the beginning of time, it&#8217;s a major change, mainly for finding the new places for spechial characters like <code>[</code> and <code>'</code> and the different locations of <code>y</code>/<code>z</code>. Also it has taken a while to write umlauts in their extended version. It is also really hard to get used to some keybindings that are deeply engraved into muscle memory like <code>CTRL</code>+<code>z</code>.
-I was looking for a tool specificly designed for switchers, but did not found anything useful - at least for my purposes. Hence, I took a few hours to write <a href="http://codepen.io/mightyuhu/pen/JuKED">this pen</a>.</p>
-
-<p>It features basic training and also re-typing wikipedia lessons. Since it was kind of a quick-and-dirty tool intended for personal use only it does not claim to be finished. Feel free to fork and optimize!</p>
-
-<iframe style="width:100%;height:270px" src="http://cdpn.io/JuKED"></iframe>
-
-
-<p><strong>Update:</strong> I moved this pen to <a href="https://typetrainer.herokuapp.com">Heroku</a>.</p>
-
-		
-		
-	</div>
-
-
-<div class="meta">
-	<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-09-25T22:29:00+02:00" pubdate data-updated="true">Sep 25<span>th</span>, 2013</time></div>
-	<div class="tags">
-
-
-	<a class='category' href='/blog/categories/javascript/'>Javascript</a>, <a class='category' href='/blog/categories/jquery/'>Jquery</a>, <a class='category' href='/blog/categories/typing/'>Typing</a>
-
-
-</div>
 	
-</div></article>
+	<a class="addthis_button_tweet"></a>
+	
+	
+<!---	<a class="addthis_counter addthis_pill_style"></a> --->
+	</div>
+  <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid="></script>
+</div>
 
-<nav id="pagenavi">
-    
-    
-        <a href="/blog/page/2/" class="next">Next</a>
-    
-    <div class="center"><a href="/archives">Blog Archives</a></div>
-</nav></div>
+
+
+<section id="comment">
+    <h2 class="title">Comments</h2>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+</section>
+</div>
 	<footer id="footer" class="inner">Copyright &copy; 2013
 
     Benedikt Wolters
@@ -318,7 +176,10 @@ Powered by Octopress.
       var disqus_shortname = 'benediktwolters';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://mightyuhu.github.com/blog/2013/11/10/fingerprinting-pirated-adobe-products-with-javascript/';
+        var disqus_url = 'http://mightyuhu.github.com/blog/2013/11/10/fingerprinting-pirated-adobe-products-with-javascript/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

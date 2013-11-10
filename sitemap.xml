@@ -89,23 +89,29 @@
         <lastmod>2013-11-03T00:00:51+01:00</lastmod>
     </url>
     <url>
+        <loc>
+            http://mightyuhu.github.com/blog/2013/11/10/fingerprinting-pirated-adobe-products-with-javascript/
+        </loc>
+        <lastmod>2013-11-10T21:45:09+01:00</lastmod>
+    </url>
+    <url>
         <loc>http://mightyuhu.github.com/robots.txt</loc>
         <lastmod>2013-09-07T18:07:20+02:00</lastmod>
     </url>
     <url>
         <loc>http://mightyuhu.github.com/archives/</loc>
-        <lastmod>2013-11-03T00:00:51+01:00</lastmod>
+        <lastmod>2013-11-10T21:45:09+01:00</lastmod>
     </url>
     <url>
         <loc>http://mightyuhu.github.com/</loc>
-        <lastmod>2013-11-03T00:00:51+01:00</lastmod>
+        <lastmod>2013-11-10T21:45:09+01:00</lastmod>
     </url>
     <url>
         <loc>http://mightyuhu.github.com/blog/archives/</loc>
-        <lastmod>2013-11-03T00:00:51+01:00</lastmod>
+        <lastmod>2013-11-10T21:45:09+01:00</lastmod>
     </url>
     <url>
         <loc>http://mightyuhu.github.com/blog/</loc>
-        <lastmod>2013-11-03T00:00:51+01:00</lastmod>
+        <lastmod>2013-11-10T21:45:09+01:00</lastmod>
     </url>
 </urlset>

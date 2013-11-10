@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: security, | Benedikt Wolters]]></title>
+  <link href="http://mightyuhu.github.com/blog/categories/security/atom.xml" rel="self"/>
+  <link href="http://mightyuhu.github.com/"/>
+  <updated>2013-11-10T21:45:09+01:00</updated>
+  <id>http://mightyuhu.github.com/</id>
+  <author>
+    <name><![CDATA[Benedikt Wolters]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Fingerprinting Pirated Adobe Products with Javascript]]></title>
+    <link href="http://mightyuhu.github.com/blog/2013/11/10/fingerprinting-pirated-adobe-products-with-javascript/"/>
+    <updated>2013-11-10T19:48:00+01:00</updated>
+    <id>http://mightyuhu.github.com/blog/2013/11/10/fingerprinting-pirated-adobe-products-with-javascript</id>
+    <content type="html"><![CDATA[<p>Last week I was watching an old <a href="https://www.youtube.com/watch?v=VNtNRdejbhs">DEFCON 18 Talk</a> [<a href="https://www.defcon.org/images/defcon-18/dc-18-presentations/Eckersley/DEFCON-18-Eckersley-Panopticlick.pdf">slides</a>,<a href="https://panopticlick.eff.org/browser-uniqueness.pdf">paper</a>] by Peter Eckersley, the maker of <a href="https://panopticlick.eff.org/">Panopticlick</a>.</p>
+
+<p>I find this idea very interesting. Furthermore, I thought what other characteristics are there to identify a user by its browser. Beneath a lot of other ideas, I was thinking about a Adobe Piracy Detection.
+It's a well-known fact that many "cracks" simply redirect the DNS A-record of "<code>activate.adobe.com</code>" to the loopback device <code>127.0.0.1</code> to circumvent activation.</p>
+
+<p>However, since there is the <a href="https://en.wikipedia.org/wiki/Same-origin_policy">same-origin-policy</a> in effect, it is not possible to directly check whether the DNS record has been changed in the browser. Nevertheless, I found a way to circumvent this with pure javascript. In this spechial case the JBOSS Server at <code>activate.adobe.com</code> delivers a <code>favicon.ico</code>. Allthough the image is a 0-byte file and thereby corrupt it does not generate a HTTP Timeout, but a 200 OK. Since there is the possibility to include this "fake"-image into an <code>img</code>-tag and check with javascript whether it has been loaded or not. If not there is a high, but certainly not distinct, way of predict of whether the DNS record has been overwritten.</p>
+
+<p>Furthermore, there is the possibility that the user might be running a webserver that coincidentilly is running a webserver which has a favicon.ico. A simple way to avoid this is to check whether the browser has adjusted the width of the image or not. In case of the "valid" favicon.ico it must be 0.</p>
+
+<p>I've <a href="http://codepen.io/mightyuhu/details/yjFIt">implemented</a> a proof-of-concept code that seems to work in Firefox and Chrome.</p>
+
+<p>IMHO: This will open the door for all kinds of scamming. And it should not be able to access properties of elements from different origins. However fixing this will obviously break a lot of thinks, like image CDNs. I think the web is just broken. Obviously the motiviation for Adobe to change their server configuration will be low.</p>
+]]></content>
+  </entry>
+  
+</feed>
